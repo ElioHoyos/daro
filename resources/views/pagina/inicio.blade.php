@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NewBiz Bootstrap Template</title>
+  <title>Negocios y Servicios DARO SAC</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -46,17 +46,17 @@
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-        <a href="#intro" class="scrollto"><img src="{{asset('img/logo.png')}}" alt="" class="img-fluid"></a>
+        <a href="#intro" class="scrollto"><img src="{{asset('img/logo_daro_gif.gif')}}" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
+          <li class="active"><a href="#intro">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#services">Servicio</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+          <li><a href="#team">Personal</a></li>
+          <li class="drop-down"><a href="">Categorias</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="drop-down"><a href="#">Drop Down 2</a>
@@ -73,7 +73,7 @@
               <li><a href="#">Drop Down 5</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#contact">Contáctenos</a></li>
         </ul>
       </nav><!-- .main-nav -->
       
@@ -91,10 +91,10 @@
       </div>
 
       <div class="intro-info">
-        <h2>We provide<br><span>solutions</span><br>for your business!</h2>
+        <h2>DARO SAC<br><span>Soluciones</span><br>a tus nesecidades</h2>
         <div>
-          <a href="#about" class="btn-get-started scrollto">Get Started</a>
-          <a href="#services" class="btn-services scrollto">Our Services</a>
+          {{-- <a href="#about" class="btn-get-started scrollto">Get Started</a>
+          <a href="#services" class="btn-services scrollto">Our Services</a> --}}
         </div>
       </div>
 
@@ -110,7 +110,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>About Us</h3>
+          <h3>Sobre Nosotros</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </header>
 
@@ -191,7 +191,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Services</h3>
+          <h3>Nuestros Servicios</h3>
           <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
         </header>
 
@@ -253,7 +253,7 @@
     <section id="why-us" class="wow fadeIn">
       <div class="container">
         <header class="section-header">
-          <h3>Why choose us?</h3>
+          <h3>Porqué Elegirnos?</h3>
           <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
         </header>
 
@@ -294,7 +294,7 @@
 
         </div>
 
-        <div class="row counters">
+        {{-- <div class="row counters">
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">274</span>
@@ -316,7 +316,7 @@
             <p>Hard Workers</p>
           </div>
   
-        </div>
+        </div> --}}
 
       </div>
     </section>
@@ -478,7 +478,7 @@
     <!--==========================
       Clients Section
     ============================-->
-    <section id="testimonials" class="section-bg">
+    {{-- <section id="testimonials" class="section-bg">
       <div class="container">
 
         <header class="section-header">
@@ -542,7 +542,7 @@
 
 
       </div>
-    </section><!-- #testimonials -->
+    </section><!-- #testimonials --> --}}
 
     <!--==========================
       Team Section
@@ -550,7 +550,7 @@
     <section id="team">
       <div class="container">
         <div class="section-header">
-          <h3>Team</h3>
+          <h3>Nuestro Personal</h3>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
         </div>
 
@@ -641,8 +641,8 @@
       <div class="container">
 
         <div class="section-header">
-          <h3>Our CLients</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque dere santome nida.</p>
+          <h3>Nuestras Marcas</h3>
+          <p>Todas las marcas que tiene esta pagina son reconocidas y lider en el mercado</p>
         </div>
 
         <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
@@ -708,14 +708,14 @@
       <div class="container-fluid">
 
         <div class="section-header">
-          <h3>Contact Us</h3>
+          <h3>Formulario de Contacto</h3>
         </div>
 
         <div class="row wow fadeInUp">
 
           <div class="col-lg-6">
             <div class="map mb-4 mb-lg-0">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 312px;" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7894.010581077636!2d-74.580329!3d-8.401139!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMjQnMDQuMSJTIDc0wrAzNCc0OS4yIlc!5e0!3m2!1ses!2spe!4v1603209661989!5m2!1ses!2spe" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
           </div>
 
@@ -731,7 +731,7 @@
               </div>
               <div class="col-md-3 info">
                 <i class="ion-ios-telephone-outline"></i>
-                <p>+1 5589 55488 55</p>
+                <p>986 135 157</p>
               </div>
             </div>
 
@@ -757,7 +757,7 @@
                   <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                   <div class="validation"></div>
                 </div>
-                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+                <div class="text-center"><button type="submit" title="Send Message">Enviar Mensaje</button></div>
               </form>
             </div>
           </div>
@@ -787,7 +787,7 @@
             <ul>
               <li><a href="#">Home</a></li>
               <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
+              <li><a href="#">Servicio</a></li>
               <li><a href="#">Terms of service</a></li>
               <li><a href="#">Privacy policy</a></li>
             </ul>
