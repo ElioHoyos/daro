@@ -827,7 +827,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy;  <strong>DARO</strong>. Todos los derechos reservados
+        &copy;pucallpa  <strong>DARO</strong>. Todos los derechos reservados
       </div>
       <div class="credits">
         <!--
