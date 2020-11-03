@@ -54,9 +54,27 @@
           <li class="active"><a href="#intro">Inicio</a></li>
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Servicio</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#portfolio">Portafolio</a></li>
           <li><a href="#team">Personal</a></li>
           <li class="drop-down"><a href="">Categorias</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="drop-down"><a href="#">Drop Down 2</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 5</a></li>
+            </ul>
+          </li>
+
+          <li class="drop-down"><a href="">Catalogos</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="drop-down"><a href="#">Drop Down 2</a>
@@ -85,9 +103,14 @@
   ============================-->
   <section id="intro" class="clearfix">
     <div class="container">
-
+      <strong><p>Negocios y Servicios DARO SAC</p></strong>
+        <img src="{{asset('img/daro/logo_daro_gif.gif')}}" alt="">
+        <strong><p>DISTRIBUIDOR FERRETERO
+          <br>
+          LIDER EN LA AMAZONIA PERUANA</p></strong>
       <div class="intro-img">
         <img src="{{asset('img/intro-img.svg')}}" alt="" class="img-fluid">
+        
       </div>
 
       <div class="intro-info">
@@ -649,29 +672,29 @@
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="client-logo">
-              <img src="{{asset('img/clients/client-1.png')}}" class="img-fluid" alt="">
+              <a href="#" target="_blank"><img src="{{asset('img/daro/logo_bahco.png')}}" class="img-fluid" alt=""></a>
             </div>
           </div>
           
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="client-logo">
-              <img src="{{asset('img/clients/client-2.png')}}" class="img-fluid" alt="">
+              <a href="#" target="_blank"><img src="{{asset('img/daro/logo_nicholson.png')}}" class="img-fluid" alt=""></a>
             </div>
           </div>
         
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="client-logo">
-              <img src="{{asset('img/clients/client-3.png')}}" class="img-fluid" alt="">
+              <a href="#" target="_blank"><img src="{{asset('img/daro/logo_oregon.png')}}" class="img-fluid" alt=""></a>
             </div>
           </div>
           
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="client-logo">
-              <img src="{{asset('img/clients/client-4.png')}}" class="img-fluid" alt="">
+              <a href="#"><img src="{{asset('img/daro/logo_sata.png')}}" class="img-fluid" alt=""></a>
             </div>
           </div>
           
-          <div class="col-lg-3 col-md-4 col-xs-6">
+          <!--<div class="col-lg-3 col-md-4 col-xs-6">
             <div class="client-logo">
               <img src="{{asset('img/clients/client-5.png')}}" class="img-fluid" alt="">
             </div>
@@ -693,7 +716,7 @@
             <div class="client-logo">
               <img src="{{asset('img/clients/client-8.png')}}" class="img-fluid" alt="">
             </div>
-          </div>
+          </div>-->
 
         </div>
 
@@ -723,7 +746,7 @@
             <div class="row">
               <div class="col-md-5 info">
                 <i class="ion-ios-location-outline"></i>
-                <p>A108 Adam Street, NY 535022</p>
+                <p></p>
               </div>
               <div class="col-md-4 info">
                 <i class="ion-ios-email-outline"></i>
@@ -741,20 +764,20 @@
               <form action="" method="post" role="form" class="contactForm">
                 <div class="form-row">
                   <div class="form-group col-lg-6">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Escribe tu Nombre" data-rule="minlen:4" data-msg="Por favor, introduzca al menos 4 caracteres" />
                     <div class="validation"></div>
                   </div>
                   <div class="form-group col-lg-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Escribe tu correo" data-rule="email" data-msg="Por favor, introduzca un correo electrónico válido" />
                     <div class="validation"></div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Escribe el asunto" data-rule="minlen:4" data-msg="Por favor, introduzca al menos 8 caracteres de asunto" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor, escríbenos algo" placeholder="Escribenos un mensaje..!"></textarea>
                   <div class="validation"></div>
                 </div>
                 <div class="text-center"><button type="submit" title="Send Message">Enviar Mensaje</button></div>
@@ -785,37 +808,41 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Servicio</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Sobre Nosotros</a></li>
+              <li><a href="#">Personal</a></li>
+              <li><a href="#">Categorias</a></li>
+              <li><a href="#">Catalogos</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              ------ <br>
+              -------<br>
+             Pucallpa - Perú <br>
+              <strong>Telefono:</strong> 986 135 157<br>
+              <strong>Correo:</strong> info@example.com<br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              <a href="#" class="twitter" style="background-color: #00acee"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook" style="background-color: #3b5998"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram" style="background: #f09433; 
+              background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+              background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+              background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+                }"><i class="fa fa-instagram"></i></a>
+              
             </div>
 
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+            <h4>Nuestro Buzón de Mensaje para suscriptores</h4>
+            <p></p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit"  value="Subscribe">
             </form>
@@ -827,7 +854,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy;pucallpa  <strong>DARO</strong>. Todos los derechos reservados
+        &copy;  <strong>DARO</strong>. Todos los derechos reservados
       </div>
       <div class="credits">
         <!--
