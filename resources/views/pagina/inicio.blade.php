@@ -91,7 +91,7 @@
       </div>
 
       <div class="intro-info">
-        <h2>DARO SAC<br><span>Soluciones</span><br>a tus nesecidades</h2>
+        
         <div>
           {{-- <a href="#about" class="btn-get-started scrollto">Get Started</a>
           <a href="#services" class="btn-services scrollto">Our Services</a> --}}
@@ -778,7 +778,7 @@
         <div class="row">
 
           <div class="col-lg-4 col-md-6 footer-info">
-            <h3>NewBiz</h3>
+            <h4>Negocios y Servicios DARO</h4>
             <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
           </div>
 
@@ -827,7 +827,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>NewBiz</strong>. All Rights Reserved
+        &copy;pucallpa  <strong>DARO</strong>. Todos los derechos reservados
       </div>
       <div class="credits">
         <!--
@@ -836,7 +836,7 @@
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
         -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        
       </div>
     </div>
   </footer><!-- #footer -->
