@@ -35,6 +35,12 @@
   ======================================================= -->
 </head>
 
+<style>
+  .oculto {
+      display: none;
+  }
+</style>
+
 <body>
 
   <!--==========================
@@ -144,33 +150,39 @@
 
         <header class="section-header">
           <h3>Sobre Nosotros</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p></p>
         </header>
 
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <p id="intros">
+              Negocios y Servicios DARO SAC surge a través de la necesidad del poblador y usuario de selva
             </p>
-
+            <span id="leerMas">Leer más...</span>
+            
+            <p id="mensaje" style="text-align: justify">
+              con muchas dificultades por conseguir herramientas de calidad profesional en el sector agrícola, forestal, jardinería, mecánica y ferretería, actualmente satisfacemos las principales necesidades de los usuarios más exigentes en rendimiento, calidad y garantía a un precio muy competitivo. Somos distribuidores las marcas BAHCO, OREGON, SATA Y NICHOLSON.
+              Atendemos desde nuestro almacén a nuestros clientes en selva, estando nuestros principales clientes en Ucayali, San Martín, en la parte selva de Huánuco, Pasco, Junín, Ayacucho, para lo cual contamos con vendedores que visitan periódicamente dichas zonas, así mismo atendemos vía telefónica, redes sociales (Facebook y Whatsapp) y correo desde nuestra oficina.
+            </p>
+            <span class="oculto">Leer menos...</span>
             <div class="icon-box wow fadeInUp">
-              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+              <div class="icon"><i class="fa fa-book"></i></div>
+              <h4 class="title"><a href="#">Misión</a></h4>
               <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-              <div class="icon"><i class="fa fa-photo"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
+              <div class="icon"><i class="fa fa-book"></i></div>
+              <h4 class="title"><a href="#">Visión</a></h4>
               <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
             </div>
 
-            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-bar-chart"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
+            {{-- <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-users"></i></div>
+              <h4 class="title"><a href="#">----</a></h4>
+              
+            </div> --}}
 
           </div>
 
@@ -899,6 +911,29 @@
 
   <!-- Template Main Javascript File -->
   <script src="{{asset('js/main.js')}}"></script>
+
+  <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+
+  <script>
+    $(document).ready(() => {
+        $('#mensaje').hide();
+
+        $('#leerMas').click(function() {
+            $('#intros').hide();
+            $('#leerMas').hide();
+
+            $('#mensaje').show('slow');
+            $('span.oculto').show('slow');
+        });
+
+        $('span.oculto').click(function() {
+            $('#intros').show();
+            $('#mensaje').hide();
+            $(this).hide();
+            $('#leerMas').show();
+        });
+    });
+</script>
 
 </body>
 </html>
