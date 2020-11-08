@@ -4,12 +4,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="">
     <title>DARO</title>
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/vendor.min.css">
-    <link rel="stylesheet" href="css/cosmos.min.css">
-    <link rel="stylesheet" href="css/application.min.css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    {{-- <link rel="stylesheet" href="css/cosmos.min.css">
+    <link rel="stylesheet" href="css/application.min.css"> --}}
   <style type="text/css"></style></head>
   <body class="layout layout-header-fixed layout-left-sidebar-fixed layout-desktop">
       @php
@@ -358,27 +355,13 @@
         </div>
       </nav>
     </div>
-    <div class="site-main">
+    <div class="site-main" id="app">
       <div class="site-left-sidebar">
         <div class="sidebar-backdrop"></div>
         <div class="custom-scrollable-wrapper" style="position: relative; overflow: hidden; width: 100%; height: 100%;"><div class="custom-scrollbar" style="overflow: hidden; width: 100%; height: 100%;">
           <ul class="sidebar-menu">
             <li class="menu-subtitle">
-            {{-- <li class="menu-title">Main</li> --}}
-            {{-- <li class="with-sub active open">
-              <a href="#" aria-haspopup="true">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-home"></i>
-                </span>
-                <span class="menu-text">Dashboards</span>
-              </a>
-              <ul class="sidebar-submenu collapse in" aria-expanded="false">
-                <li class="menu-subtitle">Dashboards</li>
-                <li><a href="index-2.html">Dashboard 1</a></li>
-                <li><a href="dashboard-2.html">Dashboard 2</a></li>
-                <li class="active"><a href="dashboard-3.html">Dashboard 3</a></li>
-              </ul>
-            </li> --}}
+            
             <li>
               <a href="home">
                 <span class="menu-icon">
@@ -387,88 +370,7 @@
                 <span class="menu-text">Home</span>
               </a>
             </li>
-            {{-- <li class="menu-title">Components</li> --}}
-            {{-- <li>
-              <a href="widgets.html">
-                <span class="badge badge-success">27</span>
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-widgets"></i>
-                </span>
-                <span class="menu-text">Widgets</span>
-              </a>
-            </li>
-            <li class="with-sub">
-              <a href="#" aria-haspopup="true">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-case"></i>
-                </span>
-                <span class="menu-text">UI Elements</span>
-              </a>
-              <ul class="sidebar-submenu collapse" aria-expanded="false">
-                <li class="menu-subtitle">UI Elements</li>
-                <li><a href="ui-alerts.html">Alerts</a></li>
-                <li><a href="ui-buttons.html">Buttons</a></li>
-                <li><a href="ui-flags.html">Flags</a></li>
-                <li><a href="ui-grid-system.html">Grid system</a></li>
-                <li><a href="ui-icons.html">Icons</a></li>
-                <li><a href="ui-modals.html">Modals</a></li>
-                <li><a href="ui-notifications.html">Notifications</a></li>
-                <li><a href="ui-panels.html">Panels</a></li>
-                <li><a href="ui-progress-bars.html">Progress bars</a></li>
-                <li><a href="ui-tabs-accordions.html">Tabs &amp; accordions</a></li>
-                <li><a href="ui-typography.html">Typography</a></li>
-                <li><a href="ui-other.html">Other</a></li>
-              </ul>
-            </li>
-            <li class="with-sub">
-              <a href="#" aria-haspopup="true">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-dot-circle-alt"></i>
-                </span>
-                <span class="menu-text">Forms</span>
-              </a>
-              <ul class="sidebar-submenu collapse" aria-expanded="false">
-                <li class="menu-subtitle">Forms</li>
-                <li><a href="forms-form-controls.html">Form controls</a></li>
-                <li><a href="forms-form-layouts.html">Form layouts</a></li>
-                <li><a href="forms-form-masks.html">Form masks</a></li>
-                <li><a href="forms-form-validation.html">Form validation</a></li>
-                <li><a href="forms-form-wizard.html">Form wizard</a></li>
-                <li><a href="forms-material-form.html">Material form</a></li>
-                <li><a href="forms-plugins.html">Plugins</a></li>
-                <li><a href="forms-uploader.html">Uploader</a></li>
-              </ul>
-            </li> --}}
-            {{-- <li class="with-sub">
-              <a href="#" aria-haspopup="true">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-border-all"></i>
-                </span>
-                <span class="menu-text">Tables</span>
-              </a>
-              <ul class="sidebar-submenu collapse" aria-expanded="false">
-                <li class="menu-subtitle">Tables</li>
-                <li><a href="tables-basic.html">Basic tables</a></li>
-                <li><a href="tables-responsive.html">Responsive tables</a></li>
-                <li><a href="tables-datatables.html">DataTables</a></li>
-              </ul>
-            </li> --}}
-            {{-- <li class="with-sub">
-              <a href="#" aria-haspopup="true">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-chart-donut"></i>
-                </span>
-                <span class="menu-text">Charts</span>
-              </a>
-              <ul class="sidebar-submenu collapse" aria-expanded="false">
-                <li class="menu-subtitle">Charts</li>
-                <li><a href="charts-chartist.html">Chartist</a></li>
-                <li><a href="charts-chartjs.html">Chart.js</a></li>
-                <li><a href="charts-flot.html">Flot</a></li>
-                <li><a href="charts-morris.html">Morris</a></li>
-                <li><a href="charts-peity.html">Peity</a></li>
-              </ul>
-            </li> --}}
+           
             <li class="menu-title">Configuraciones</li>
             <li class="with-sub">
               <a href="#" aria-haspopup="true">
@@ -481,6 +383,7 @@
                 <li class="menu-subtitle">Página principal</li>
                 <li><a href="#">Catálogo</a></li>
                 <li><a href="#">Productos</a></li>
+                <li><a href="mision">Misión / Visión</a></li>
                 <li><a href="#">Usuarios</a></li>
               </ul>
             </li>
@@ -510,183 +413,19 @@
                 <li><a href="maps-vector.html">Reporte</a></li>
             </ul>
             </li>
-            {{-- <li class="with-sub">
-              <a href="#" aria-haspopup="true">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-layers"></i>
-                </span>
-                <span class="menu-text">Other pages</span>
-              </a>
-              <ul class="sidebar-submenu collapse" aria-expanded="false">
-                <li class="menu-subtitle">Other pages</li>
-                <li><a href="pages-blank.html">Blank page</a></li>
-                <li><a href="pages-signup.html">Sign up</a></li>
-                <li><a href="pages-login.html">Login</a></li>
-                <li><a href="pages-reset-password.html">Reset password</a></li>
-                <li><a href="pages-403.html">403</a></li>
-                <li><a href="pages-404.html">404</a></li>
-                <li><a href="pages-500.html">500</a></li>
-                <li><a href="pages-calendar.html">Calendar</a></li>
-                <li><a href="pages-invoice.html">Invoice</a></li>
-              </ul>
-            </li>
-            <li class="menu-title">Tags</li>
-            <li>
-              <a href="documentation.html">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-circle text-success"></i>
-                </span>
-                <span class="menu-text">Documentation</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-circle text-warning"></i>
-                </span>
-                <span class="menu-text">Questions</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="menu-icon">
-                  <i class="zmdi zmdi-circle text-danger"></i>
-                </span>
-                <span class="menu-text">Website</span>
-              </a>
-            </li>
-          </ul> --}}
+            
         </div><div class="custom-scrollbar-bar" style="background: rgb(0, 0, 0); width: 4px; position: absolute; top: 0px; opacity: 0.2; display: none; border-radius: 7px; z-index: 99; right: 4px; height: 381.417px;"></div><div class="custom-scrollbar-rail" style="width: 4px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 4px;"></div></div>
       </div>
-      {{-- 
-            <li class="nav-item">
-              <a href="#tab-settings" data-toggle="tab" role="tab">Settings</a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div class="tab-pane active" id="tab-chat" role="tabpanel">
-                        
-            <div class="tab-pane" id="tab-settings" role="tabpanel">
-              <div class="sidebar-settings animated fadeIn">
-                <div class="s-group">
-                  <h5>Main</h5>
-                  <div class="s-item">
-                    <div class="text-truncate">Allow commenting</div>
-                    <div class="si-checkbox">
-                      <label class="switch switch-primary">
-                        <input type="checkbox" name="switches" class="s-input" checked="checked">
-                        <span class="s-content">
-                          <span class="s-track"></span>
-                          <span class="s-handle"></span>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="s-item">
-                    <div class="text-truncate">Allow editing</div>
-                    <div class="si-checkbox">
-                      <label class="switch switch-primary">
-                        <input type="checkbox" name="switches" class="s-input">
-                        <span class="s-content">
-                          <span class="s-track"></span>
-                          <span class="s-handle"></span>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="s-item">
-                    <div class="text-truncate">Allow copying</div>
-                    <div class="si-checkbox">
-                      <label class="switch switch-primary">
-                        <input type="checkbox" name="switches" class="s-input">
-                        <span class="s-content">
-                          <span class="s-track"></span>
-                          <span class="s-handle"></span>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div><div class="custom-scrollbar-bar" style="background: rgb(0, 0, 0); width: 4px; position: absolute; top: 0px; opacity: 0.2; display: none; border-radius: 7px; z-index: 99; right: 4px; height: 505.417px;"></div><div class="custom-scrollbar-rail" style="width: 4px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 4px;"></div></div>
-      </div> --}}
-      <div class="site-content">
-        <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <div class="widget widget-tile-1 m-b-30"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
-              <div class="p-t-20 p-x-20">
-                <div class="wt-title">Categorias
-                  <span class="t-caret text-success">
-                    <i class="zmdi zmdi-caret-up"></i>
-                  </span>
-                </div>
-                <div class="wt-text">Actualizado hoy a las 14:57</div>
-                <div class="wt-number">175</div>
-              </div>
-              <canvas id="tile-chart-1" width="532" height="266" style="display: block; width: 266px; height: 133px;"></canvas>
-              <div class="wt-icon">
-                <i class="zmdi zmdi-accounts"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="widget widget-tile-1 m-b-30"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
-              <div class="p-t-20 p-x-20">
-                <div class="wt-title">Ventas
-                  <span class="t-caret text-success">
-                    <i class="zmdi zmdi-caret-up"></i>
-                  </span>
-                </div>
-                <div class="wt-text">+17% que el mes anterior</div>
-                <div class="wt-number">S/. 47,855</div>
-              </div>
-              <canvas id="tile-chart-2" width="532" height="266" style="display: block; width: 266px; height: 133px;"></canvas>
-              <div class="wt-icon">
-                <i class="zmdi zmdi-shopping-basket"></i>
-              </div>
-            </div>
-          </div>
-          {{-- <div class="col-md-3 col-sm-6">
-            <div class="widget widget-tile-1 m-b-30"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
-              <div class="p-t-20 p-x-20">
-                <div class="wt-title">Subscriptions
-                  <span class="t-caret text-danger">
-                    <i class="zmdi zmdi-caret-down"></i>
-                  </span>
-                </div>
-                <div class="wt-text">Calculated in last 7 days</div>
-                <div class="wt-number">693</div>
-              </div>
-              <canvas id="tile-chart-3" width="532" height="266" style="display: block; width: 266px; height: 133px;"></canvas>
-              <div class="wt-icon">
-                <i class="zmdi zmdi-email-open text-success"></i>
-              </div>
-            </div>
-          </div> --}}
-          <div class="col-md-3 col-sm-6">
-            <div class="widget widget-tile-1 m-b-30"><iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
-              <div class="p-t-20 p-x-20">
-                <div class="wt-title">Usuarios
-                  <span class="t-caret text-success">
-                    <i class="zmdi zmdi-caret-up"></i>
-                  </span>
-                </div>
-                <div class="wt-text">Actualizado: 09:26 AM</div>
-                <div class="wt-number">75</div>
-              </div>
-              <canvas id="tile-chart-4" width="532" height="266" style="display: block; width: 266px; height: 133px;"></canvas>
-            </div>
-          </div>
-        </div>
+      
+      <div class="site-content" >
+        @yield('content')
       </div>
       <div class="site-footer">
         {{$year}} © DARO todos los derechos reservados 
       </div>
     </div>
     <script src="js/vendor.min.js"></script>
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="js/cosmos.min.js"></script>
     <script src="js/application.min.js"></script>
     <script src="js/dashboard-3.min.js"></script><div class="flotTip" style="display: none; position: absolute;"></div>
