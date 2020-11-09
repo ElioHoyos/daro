@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
-   <example-component></example-component>
-</div>
+    <router-view></router-view>
+    <vue-progress-bar></vue-progress-bar>
 @endsection

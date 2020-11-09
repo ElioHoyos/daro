@@ -40,7 +40,12 @@
       display: none;
   }
 </style>
-
+@php
+    use App\configuraciones;
+    $mision = configuraciones::where("tipo","MISION")->first();
+    $vision = configuraciones::where("tipo","VISION")->first();
+    $nosotros = configuraciones::where("tipo","NOSOTROS")->first();
+@endphp
 <body>
 
   <!--==========================
@@ -97,7 +102,7 @@
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -107,10 +112,7 @@
         <div class="carousel-item">
           <img class="d-block w-100" src="{{asset('img/slide/ferreteriaaa.png')}}" alt="Second slide">
         </div>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>elalal</h5>
-          <p>asasas</p>
-        </div>
+        
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -134,32 +136,42 @@
 
         <header class="section-header">
           <h3>Sobre Nosotros</h3>
-          <p></p>
+          <p id="intros">
+            @if(isset($nosotros))
+              {{$nosotros->detalle}}
+                
+            @endif
+              
+          </p>
+          {{-- <span id="leerMas">Leer más...</span> --}}
+          {{-- <p id="mensaje" style="text-align: justify">
+            
+          </p>
+          <span class="oculto">Leer menos...</span> --}}
         </header>
 
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <p id="intros">
-              Negocios y Servicios DARO SAC surge a través de la necesidad del poblador y usuario de selva
-            </p>
-            <span id="leerMas">Leer más...</span>
-            
-            <p id="mensaje" style="text-align: justify">
-              con muchas dificultades por conseguir herramientas de calidad profesional en el sector agrícola, forestal, jardinería, mecánica y ferretería, actualmente satisfacemos las principales necesidades de los usuarios más exigentes en rendimiento, calidad y garantía a un precio muy competitivo. Somos distribuidores las marcas BAHCO, OREGON, SATA Y NICHOLSON.
-              Atendemos desde nuestro almacén a nuestros clientes en selva, estando nuestros principales clientes en Ucayali, San Martín, en la parte selva de Huánuco, Pasco, Junín, Ayacucho, para lo cual contamos con vendedores que visitan periódicamente dichas zonas, así mismo atendemos vía telefónica, redes sociales (Facebook y Whatsapp) y correo desde nuestra oficina.
-            </p>
-            <span class="oculto">Leer menos...</span>
+
             <div class="icon-box wow fadeInUp">
               <div class="icon"><i class="fa fa-book"></i></div>
               <h4 class="title"><a href="#">Misión</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              <p class="description">
+                @if (isset($mision))
+                  {{$mision->detalle}}
+                @endif
+              </p>
             </div>
 
             <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
               <div class="icon"><i class="fa fa-book"></i></div>
               <h4 class="title"><a href="#">Visión</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <p class="description">
+                @if (isset($vision))
+                  {{$vision->detalle}}
+                @endif
+            </p>
             </div>
 
             {{-- <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
