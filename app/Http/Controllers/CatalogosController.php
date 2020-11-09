@@ -14,7 +14,8 @@ class CatalogosController extends Controller
      */
     public function index()
     {
-        //
+        $catalogos = catalogos::all();
+        return compact("catalogos");
     }
 
     /**
@@ -35,7 +36,22 @@ class CatalogosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $hoy = date("Y-m-d");
+            $catalogo              = new catalogos();
+            $catalogo->tipo        = $request->config["tipo"]; 
+            $catalogo->detalle     = $request->config["detalle"];
+            $catalogo->created_at  = $hoy;
+            $catalogo->save();
+            $type = "success";
+            $title = "Ok";
+            $text = "Configuración agregada con éxito";
+        } catch (\Throwable $th) {
+            $type = "danger";
+            $title = "Error";
+            $text = "$th";
+        }
+        return compact("type","title","text");
     }
 
     /**
