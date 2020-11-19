@@ -42,9 +42,12 @@
 </style>
 @php
     use App\configuraciones;
+    use App\categorias;
+    $year = date("Y");
     $mision = configuraciones::where("tipo","MISION")->first();
     $vision = configuraciones::where("tipo","VISION")->first();
     $nosotros = configuraciones::where("tipo","NOSOTROS")->first();
+    $categorias = categorias::all();
 @endphp
 <body>
 
@@ -69,12 +72,15 @@
           <li><a href="#team">Personal</a></li>
           <li class="drop-down"><a href="">Categorias</a>
             <ul>
-              <li><a href="#">Carpinteria</a></li>
-              <li><a href="#">Corte de Metal</a></li>
+              @foreach ($categorias as $item)
+                <li><a href="categorias/{{$item->id}}">{{$item->nombre}}</a></li>
+              @endforeach
+              {{-- <li><a href="#">Carpinteria</a></li> --}}
+              {{-- <li><a href="#">Corte de Metal</a></li>
               <li><a href="#">Lima y Afiladores</a></li>
               <li><a href="#">Poda y Jardineria</a></li>
               <li><a href="#">Forestal</a></li>
-              <li><a href="#">Mecanica Automotriz</a></li>
+              <li><a href="#">Mecanica Automotriz</a></li> --}}
             </ul>
           </li>
 

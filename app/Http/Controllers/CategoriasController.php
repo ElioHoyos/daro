@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\catalogos;
+use App\categorias;
 use Illuminate\Http\Request;
 
-class CatalogosController extends Controller
+class CategoriasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CatalogosController extends Controller
      */
     public function index()
     {
-        $catalogos = catalogos::all();
-        return compact("catalogos");
+        $categorias = categorias::all();
+        return compact("categorias");
     }
 
     /**
@@ -36,31 +36,31 @@ class CatalogosController extends Controller
      */
     public function store(Request $request)
     {
+        $hoy = date("Y-m-d");
         try {
-            $hoy = date("Y-m-d");
-            $catalogo              = new catalogos();
-            $catalogo->tipo        = $request->config["tipo"]; 
-            $catalogo->detalle     = $request->config["detalle"];
-            $catalogo->created_at  = $hoy;
-            $catalogo->save();
+            $categoria = new categorias();
+            $categoria->nombre      = $request->categoria["nombre"];
+            $categoria->descripcion = $request->categoria["descripcion"];
+            $categoria->url         = "";
+            $categoria->created_at  = $hoy;
+            $categoria->save();
             $type = "success";
-            $title = "Ok";
-            $text = "Configuración agregada con éxito";
+            $text = "categoria agregada con éxito";
         } catch (\Throwable $th) {
-            $type = "danger";
-            $title = "Error";
-            $text = "$th";
+            $type = "error";
+            $text = "error: $th";
         }
-        return compact("type","title","text");
+       
+        return compact("text","type");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\catalogos  $catalogos
+     * @param  \App\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function show(catalogos $catalogos)
+    public function show(categorias $categorias)
     {
         //
     }
@@ -68,10 +68,10 @@ class CatalogosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\catalogos  $catalogos
+     * @param  \App\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function edit(catalogos $catalogos)
+    public function edit(categorias $categorias)
     {
         //
     }
@@ -80,10 +80,10 @@ class CatalogosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\catalogos  $catalogos
+     * @param  \App\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, catalogos $catalogos)
+    public function update(Request $request, categorias $categorias)
     {
         //
     }
@@ -91,10 +91,10 @@ class CatalogosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\catalogos  $catalogos
+     * @param  \App\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(catalogos $catalogos)
+    public function destroy(categorias $categorias)
     {
         //
     }

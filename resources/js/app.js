@@ -90,12 +90,12 @@ const routes = [
     //rutas admin
     { path: '/mision-vision', component: require('./components/admin/mision-vision.vue') },
     { path: '/catalogos', component: require('./components/admin/catalogos.vue') },
-    { path: '/cobradores', component: require('./components/admin/cobradores.vue') },
+    { path: '/categorias', component: require('./components/admin/categorias.vue') },
     { path: '/costos', component: require('./components/admin/costos.vue') },
     { path: '/prestamos', component: require('./components/admin/prestamos.vue') },
     { path: '/ingresos', component: require('./components/admin/ingresos.vue') },
     { path: '/usuarios', component: require('./components/admin/usuarios.vue') },
-    //Rutas docente
+ 
 
     // { path: '/alumnos', component: require('./components/admin/alumnos.vue') },    
 ];
@@ -126,10 +126,7 @@ Vue.component('perfil1', require('./components/templates/perfil1.vue'));
 Vue.component('perfil2', require('./components/templates/perfil2.vue'));
 Vue.component('perfil3', require('./components/templates/perfil3.vue'));
 Vue.component('mision', require('./components/templates/mision.vue'));
-Vue.component('cobrador', require('./components/templates/cobrador.vue'));
-Vue.component('prestamo', require('./components/templates/prestamo.vue'));
-Vue.component('prestamov2', require('./components/templates/prestamov2.vue'));
-Vue.component('ingreso', require('./components/templates/ingreso.vue'));
+Vue.component('categoria', require('./components/templates/categoria.vue'));
 Vue.component('usuario', require('./components/templates/usuario.vue'));
 Vue.component('catalogo', require('./components/templates/catalogo.vue'));
 Vue.component('cobrov2', require('./components/templates/cobrov2.vue'));

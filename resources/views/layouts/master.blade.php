@@ -204,6 +204,12 @@
 										</router-link>
 									</li>
 									<li class="nav-item">
+										<router-link to="/categorias" class="nav-link">
+										    <i class="fa fa-list"></i>
+											<p>Categorias</p>
+										</router-link>
+									</li>
+									<li class="nav-item">
 										<router-link to="/catalogos" class="nav-link">
 										    <i class="fa fa-book"></i>
 											<p>Catálogos</p>

@@ -33,5 +33,11 @@ Route::get('/getCatalogos', 'CatalogosController@index');
 Route::post('/addCatalogo', 'CatalogosController@store');
 Route::get('/deleteCatalogo/{id}', 'CatalogosController@destroy');
 Route::post('/updateCatalogo', 'CatalogosController@update');
+
+Route::get('/getCategorias', 'CategoriasController@index');
+Route::post('/addCategoria', 'CategoriasController@store');
+Route::get('/deleteCategoria/{id}', 'CategoriasController@destroy');
+Route::get('/categoria/{id}', 'CategoriasController@show');
+Route::post('/updateCategoria', 'CategoriasController@update');
 //2567945504
 Route::get('{path}', 'HomeController@index');
