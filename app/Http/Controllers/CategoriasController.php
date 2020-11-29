@@ -60,9 +60,10 @@ class CategoriasController extends Controller
      * @param  \App\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function show(categorias $categorias)
+    public function show($id)
     {
-        //
+        $categoria = categorias::where("id",$id)->first();
+        return view("layouts.categoria")->with("categoria",$categoria);
     }
 
     /**
