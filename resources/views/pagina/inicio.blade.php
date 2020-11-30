@@ -81,9 +81,6 @@
           <li class="drop-down"><a href="#marca">Marcas</a>
             <ul>
               <li><a href="#">BAHCO</a></li>
-              <li><a href="#">NICHOLSON</a></li>
-              <li><a href="#">OREGON</a></li>
-              <li><a href="#">SATA</a></li>
             </ul>
           </li>
           <li><a href="#contact">Contáctenos</a></li>
@@ -136,31 +133,21 @@
 
         <header class="section-header">
           <h3>Sobre Nosotros</h3>
-          <p id="intros">
-            @if(isset($nosotros))
-              {{$nosotros->detalle}}
-                
-            @endif
-              
-          </p>
-         
         </header>
 
         <div class="row about-container">
 
-          <div class="col-lg-6 content order-lg-1 order-2">
-
-
-            {{-- <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-              <div class="icon"><i class="fa fa-users"></i></div>
-              <h4 class="title"><a href="#">----</a></h4>
-              
-            </div> --}}
-
-          </div>
-
           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
             <img src="{{asset('img/about-img.svg')}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <p id="intros" style="text-align: justify">
+              @if(isset($nosotros))
+                {{$nosotros->detalle}}
+                  
+              @endif
+                
+            </p>
           </div>
         </div>
 
@@ -340,11 +327,11 @@
             <div class="row">
               <div class="col-md-5 info">
                 <i class="ion-ios-location-outline"></i>
-                <p></p>
+                <p>Av. Habilitacion urbana municipal Mz.C Lt. 6</p>
               </div>
               <div class="col-md-4 info">
                 <i class="ion-ios-email-outline"></i>
-                <p>info@example.com</p>
+                <p>oficina.darosac@gmail.com</p>
               </div>
               <div class="col-md-3 info">
                 <i class="ion-ios-telephone-outline"></i>
@@ -396,28 +383,28 @@
 
           <div class="col-lg-4 col-md-6 footer-info">
             <h4>Negocios y Servicios DARO</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+            <p>--------------------------</p>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Enlaces</h4>
             <ul>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Sobre Nosotros</a></li>
-              <li><a href="#">Personal</a></li>
-              <li><a href="#">Categorias</a></li>
-              <li><a href="#">Catalogos</a></li>
+              <li><a href="#intro">Inicio</a></li>
+              <li><a href="#about">Sobre Nosotros</a></li>
+              <li><a href="#services">Catalogos</a></li>
+              <li><a href="#team">Personal</a></li>
+              <li><a href="#marca">Marca</a></li>
+              
             </ul>
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h4>Contacto</h4>
             <p>
-              ------ <br>
-              -------<br>
+              <i class="ion-ios-location-outline">Av. Habilitacion urbana municipal Mz.C Lt. 6</i><br>
              Pucallpa - Perú <br>
               <strong>Telefono:</strong> <a href="wa.me/51986135157" target="_blank" title="enviame un mensaje">986 135 157</a> <br>
-              <strong>Correo:</strong> info@example.com<br>
+              <strong>Correo:</strong> oficina.darosac@gmail.com<br>
             </p>
 
             <div class="social-links">
@@ -434,13 +421,7 @@
 
           </div>
 
-          <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Nuestro Buzón de Mensaje para suscriptores</h4>
-            <p></p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit"  value="Subscribe">
-            </form>
-          </div>
+          
 
         </div>
       </div>
@@ -450,21 +431,12 @@
       <div class="copyright">
         &copy;  <strong>DARO</strong>. Todos los derechos reservados
       </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
-        -->
-        
-      </div>
+      
     </div>
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
+  
 
   <!-- JavaScript Libraries -->
   <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
@@ -486,26 +458,7 @@
 
   <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
 
-  <script>
-    $(document).ready(() => {
-        $('#mensaje').hide();
-
-        $('#leerMas').click(function() {
-            $('#intros').hide();
-            $('#leerMas').hide();
-
-            $('#mensaje').show('slow');
-            $('span.oculto').show('slow');
-        });
-
-        $('span.oculto').click(function() {
-            $('#intros').show();
-            $('#mensaje').hide();
-            $(this).hide();
-            $('#leerMas').show();
-        });
-    });
-</script>
+  
 
 </body>
 </html>
