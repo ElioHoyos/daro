@@ -63,7 +63,7 @@ class CategoriasController extends Controller
     public function show($id)
     {
         $categoria = categorias::where("id",$id)->first();
-        return view("layouts.categoria")->with("categoria",$categoria);
+        return view("pagina.categoria")->with("categoria",$categoria);
     }
 
     /**

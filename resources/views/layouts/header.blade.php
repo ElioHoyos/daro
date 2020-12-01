@@ -35,6 +35,11 @@
   }
 </style>
 
+@php
+  use App\categorias;
+  $categorias = categorias::all();
+@endphp
+
 <body>
 
   <!--==========================
@@ -93,12 +98,12 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-4 col-md-6 footer-info">
+          <div class="col-lg-3 col-md-6 footer-info">
             <h4>Negocios y Servicios DARO</h4>
             <p>--------------------------</p>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-links">
+          <div class="col-lg-3 col-md-6 footer-links">
             <h4>Enlaces</h4>
             <ul>
               <li><a href="#intro">Inicio</a></li>
@@ -110,7 +115,24 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-contact">
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Horario de atención</h4>
+            <ul>
+              <li>Lunes - Viernes</li>
+              <ol>
+                <ol>8:00am - 1:00pm</ol>
+                <ol>3:00pm 6:30pm</ol>
+              </ol>
+            </ul>
+            <ul>
+              <li>Sabados</li>
+              <ol>
+                <ol>8:00am - 1:00pm</ol>
+              </ol>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contacto</h4>
             <p>
               <i class="ion-ios-location-outline">Av. Habilitacion urbana municipal Mz.C Lt. 6</i><br>
