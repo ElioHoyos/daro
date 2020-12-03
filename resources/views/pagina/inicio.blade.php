@@ -24,11 +24,11 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="{{asset('img/slide/banner-ferreteriaaa.png')}}" alt="First slide">
+          <img class="d-block w-100" src="{{asset('images/banner-ferreteriaaa.png')}}" alt="First slide">
         </div>
         
         <div class="carousel-item">
-          <img class="d-block w-100" src="{{asset('img/slide/ferreteriaaa.png')}}" alt="Second slide">
+          <img class="d-block w-100" src="{{asset('images/ferreteriaaa.png')}}" alt="Second slide">
         </div>
         
       </div>
@@ -53,13 +53,19 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Sobre Nosotros</h3>
+          <h3 class="tittle-w3l">Sobre Nosotros
+            <span class="heading-style">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+          </h3>
         </header>
 
         <div class="row about-container">
 
           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-            <img src="{{asset('img/about-img.svg')}}" class="img-fluid" alt="">
+            <img src="{{asset('images/about-img.svg')}}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
             <p id="intros" style="text-align: justify">
@@ -84,9 +90,14 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Nuestros Catalogos</h3>
-          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus.</p>
-        </header>
+          <h3 class="tittle-w3l">Nuestros Catalogos
+            <span class="heading-style">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+          </h3>
+          </header>
 
         <div class="row">
 
@@ -94,14 +105,14 @@
             <div class="box">
               <div class="icon"><i class="ion-ios-bookmarks-outline" style="color: #e9bf06;"></i></div>
               <h4 class="title"><a href="">Master OREGON</a></h4>
-              <p class="description"><img src="{{asset('img/daro/pdf.svg')}}" class="img-fluid" style="width: 32px"> | <img src="{{asset('img/daro/ver.svg')}}" class="img-fluid" style="width: 32px"></p>
+              <p class="description"><img src="{{asset('images/pdf.svg')}}" class="img-fluid" style="width: 32px"> | <img src="{{asset('images/ver.svg')}}" class="img-fluid" style="width: 32px"></p>
             </div>
           </div>
           <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon"><i class="ion-ios-bookmarks-outline" style="color:#e9bf06;"></i></div>
               <h4 class="title"><a href="">Master BAHCO</a></h4>
-              <p class="description"><img src="{{asset('img/daro/pdf.svg')}}" class="img-fluid" style="width: 32px"> | <img src="{{asset('img/daro/ver.svg')}}" class="img-fluid" style="width: 32px"></p>
+              <p class="description"><img src="{{asset('images/pdf.svg')}}" class="img-fluid" style="width: 32px"> | <img src="{{asset('images/ver.svg')}}" class="img-fluid" style="width: 32px"></p>
             </div>
           </div>
 
@@ -117,15 +128,20 @@
     <section id="team">
       <div class="container">
         <div class="section-header">
-          <h3>Nuestro Personal</h3>
-          <p></p>
+          <h3 class="tittle-w3l">Nuestro Personal
+            <span class="heading-style">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+          </h3>
         </div>
 
         <div class="row">
 
           <div class="col-lg-3 col-md-6 wow fadeInUp">
             <div class="member">
-              <img src="{{asset('img/team-2.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('images/team-2.jpg')}}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>MINERVA </h4>
@@ -143,7 +159,7 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="member">
-              <img src="{{asset('img/team-1.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('images/team-1.jpg')}}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>DANILO</h4>
@@ -161,7 +177,7 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="member">
-              <img src="{{asset('img/team-4.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('images/team-4.jpg')}}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>SULY</h4>
@@ -179,7 +195,7 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div class="member">
-              <img src="{{asset('img/team-4.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('images/team-4.jpg')}}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Amanda Jepson</h4>
@@ -197,7 +213,7 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="member">
-              <img src="{{asset('img/team-1.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset('images/team-1.jpg')}}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>ESAU</h4>
@@ -222,88 +238,71 @@
       Marca
     ============================-->
     <section id="marca" class="section-bg">
-
-     <!-- special offers -->
-	<div class="featured-section" id="projects">
-		<div class="container">
-			<!-- tittle heading -->
-			<h3 class="tittle-w3l">Nuestras Marcas
-				<span class="heading-style">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
-			</h3>
-			<!-- //tittle heading -->
-			<div class="content-bottom-in">
-				<ul id="flexiselDemo1">
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="#">
-									<img src="{{asset('new/images/s1.jpg')}}" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="#">Aashirvaad, 5g</a>
-								</h4>
-							
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="#">
-									<img src="{{asset('new/images/s4.jpg')}}" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="#">Kissan Tomato Ketchup, 950g</a>
-								</h4>
-								
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="#">
-									<img src="{{asset('new/images/s2.jpg')}}" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="#">Madhur Pure Sugar, 1g</a>
-								</h4>
-								
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="w3l-specilamk">
-							<div class="speioffer-agile">
-								<a href="#">
-									<img src="{{asset('new/images/s3.jpg')}}" alt="">
-								</a>
-							</div>
-							<div class="product-name-w3l">
-								<h4>
-									<a href="#">Bahco</a>
-								</h4>
-								
-							</div>
-						</div>
-					</li>
-				
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- //special offers -->
-
+     
+      <div class="featured-section" id="projects">
+        <div class="container">
+          <!-- tittle heading -->
+          <h3 class="tittle-w3l">Nuestras Marcas
+            <span class="heading-style">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+          </h3>
+          <!-- //tittle heading -->
+          <div class="content-bottom-in">
+            <ul id="flexiselDemo1">
+              <li>
+                <div class="w3l-specilamk">
+                  <div class="speioffer-agile">
+                    <a href="#">
+                      <img src="{{asset('images/logo_bahco.png')}}" style="width: 70%;" height="70%" alt="">
+                    </a>
+                  </div>
+                  {{-- <div class="product-name-w3l">
+                    <h4>
+                      <a href="#">Aashirvaad, 5g</a>
+                    </h4>
+                  
+                  </div> --}}
+                </div>
+              </li>
+              <li>
+                <div class="w3l-specilamk">
+                  <div class="speioffer-agile">
+                    <a href="#">
+                      <img src="{{asset('images/logo_oregon.png')}}" style="width: 70%;" height="70%" alt="">
+                    </a>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="w3l-specilamk">
+                  <div class="speioffer-agile">
+                    <a href="#">
+                      <img src="{{asset('images/logo_oregon.png')}}" style="width: 70%;" height="70%" alt="">
+                    </a>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="w3l-specilamk">
+                  <div class="speioffer-agile">
+                    <a href="#">
+                      <img src="{{asset('images/logo_bahco.png')}}" style="width: 70%;" height="70%" alt="">
+                    </a>
+                  </div>
+                 
+                </div>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+      
     </section>
 
     <!--==========================
@@ -313,7 +312,13 @@
       <div class="container-fluid">
 
         <div class="section-header">
-          <h3>Formulario de Contacto</h3>
+          <h3 class="tittle-w3l">Formulario de Contacto
+            <span class="heading-style">
+              <i></i>
+              <i></i>
+              <i></i>
+            </span>
+          </h3>
         </div>
 
         <div class="row wow fadeInUp">

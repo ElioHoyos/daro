@@ -175,7 +175,7 @@ h6 {
   position: relative;
   /*background: url("../img/intro-bg.png") center bottom no-repeat;*/
   background-size: cover;
-  padding: 200px 0 120px 0;
+  padding: 80px 0 60px 0;
 }
 
 #intro .intro-img {
@@ -483,7 +483,7 @@ h6 {
 
 #about {
   background: #fff;
-  padding: 60px 0;
+  padding: 10px 0;
 }
 
 #about .about-container .background {

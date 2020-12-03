@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <title>Negocios y Servicios DARO SAC</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+  <meta content="" name="">
+  <meta content="" name="">
 
   <!-- Favicons -->
   <link href="{{asset('img/favicon.png')}}" rel="icon">
@@ -36,9 +36,7 @@
 	<!--//pop-up-box-->
 	<!-- price range -->
 	<link rel="stylesheet" type="text/css" href="{{asset('new/css/jquery-ui1.css')}}">
-	<!-- fonts -->
-	<link href="{{asset('new///fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800')}}" rel="stylesheet">
-
+	
 </head>
 
 <style>
@@ -63,7 +61,7 @@
       <div class="logo float-left">
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-        <a href="#intro" class="scrollto"><img src="{{asset('img/logo_daro_gif.gif')}}" alt="" class="img-fluid"></a>
+        <a href="#intro" class="scrollto"><img src="{{asset('images/logo_daro_gif.gif')}}" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
@@ -78,12 +76,7 @@
               @foreach ($categorias as $item)
                 <li><a href="categorias/{{$item->id}}">{{$item->nombre}}</a></li>
               @endforeach
-              {{-- <li><a href="#">Carpinteria</a></li> --}}
-              {{-- <li><a href="#">Corte de Metal</a></li>
-              <li><a href="#">Lima y Afiladores</a></li>
-              <li><a href="#">Poda y Jardineria</a></li>
-              <li><a href="#">Forestal</a></li>
-              <li><a href="#">Mecanica Automotriz</a></li> --}}
+             
             </ul>
           </li>
 
@@ -133,7 +126,7 @@
               <li>Lunes - Viernes</li>
               <ol>
                 <ol>8:00am - 1:00pm</ol>
-                <ol>3:00pm 6:30pm</ol>
+                <ol>3:00pm - 6:30pm</ol>
               </ol>
             </ul>
             <ul>
@@ -307,25 +300,6 @@
 		});
 	</script>
 	<!-- //flexisel (for special offers) -->
-
-	<!-- password-script -->
-	<script>
-		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
-		}
-
-		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
-			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-			else
-				document.getElementById("password2").setCustomValidity('');
-			//empty string means no validation error
-		}
-	</script>
-	<!-- //password-script -->
 
 	<!-- smoothscroll -->
 	<script src="{{asset('new/js/SmoothScroll.min.js')}}"></script>
