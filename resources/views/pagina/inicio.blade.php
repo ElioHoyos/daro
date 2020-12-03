@@ -223,24 +223,86 @@
     ============================-->
     <section id="marca" class="section-bg">
 
-      <div class="container">
-
-        <div class="section-header">
-          <h3>Nuestras Marcas</h3>
-          <p>Todas las marcas que tiene esta pagina son reconocidas y lider en el mercado</p>
-        </div>
-
-        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <a href="#" target="_blank"><img src="{{asset('img/daro/logo_bahco.png')}}" class="img-fluid" alt=""></a>
-            </div>
-          </div>
-          
-        </div>
-
-      </div>
+     <!-- special offers -->
+	<div class="featured-section" id="projects">
+		<div class="container">
+			<!-- tittle heading -->
+			<h3 class="tittle-w3l">Nuestras Marcas
+				<span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</h3>
+			<!-- //tittle heading -->
+			<div class="content-bottom-in">
+				<ul id="flexiselDemo1">
+					<li>
+						<div class="w3l-specilamk">
+							<div class="speioffer-agile">
+								<a href="#">
+									<img src="{{asset('new/images/s1.jpg')}}" alt="">
+								</a>
+							</div>
+							<div class="product-name-w3l">
+								<h4>
+									<a href="#">Aashirvaad, 5g</a>
+								</h4>
+							
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="w3l-specilamk">
+							<div class="speioffer-agile">
+								<a href="#">
+									<img src="{{asset('new/images/s4.jpg')}}" alt="">
+								</a>
+							</div>
+							<div class="product-name-w3l">
+								<h4>
+									<a href="#">Kissan Tomato Ketchup, 950g</a>
+								</h4>
+								
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="w3l-specilamk">
+							<div class="speioffer-agile">
+								<a href="#">
+									<img src="{{asset('new/images/s2.jpg')}}" alt="">
+								</a>
+							</div>
+							<div class="product-name-w3l">
+								<h4>
+									<a href="#">Madhur Pure Sugar, 1g</a>
+								</h4>
+								
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="w3l-specilamk">
+							<div class="speioffer-agile">
+								<a href="#">
+									<img src="{{asset('new/images/s3.jpg')}}" alt="">
+								</a>
+							</div>
+							<div class="product-name-w3l">
+								<h4>
+									<a href="#">Bahco</a>
+								</h4>
+								
+							</div>
+						</div>
+					</li>
+				
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //special offers -->
 
     </section>
 
