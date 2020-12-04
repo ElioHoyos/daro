@@ -159,7 +159,7 @@
 			<!-- Brand Logo -->
 			
 			<a href="/home" class="brand-link text-center">
-				<span class="brand-text font-weight-light">PRESTAMOS</span>
+				<span class="brand-text font-weight-light">DARO</span>
 			</a>
 			<!-- Sidebar -->
 			<div class="sidebar">
@@ -204,7 +204,7 @@
 										</router-link>
 									</li>
 									<li class="nav-item">
-										<router-link to="/categorias" class="nav-link">
+										<router-link to="/categoria" class="nav-link">
 										    <i class="fa fa-list"></i>
 											<p>Categorias</p>
 										</router-link>

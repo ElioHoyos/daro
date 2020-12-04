@@ -33449,7 +33449,7 @@ var routes = [
 { path: '/', component: __webpack_require__(171) }, { path: '/home', component: __webpack_require__(171) },
 // { path: '*', component: require('./components/perfil.vue') },
 //rutas admin
-{ path: '/mision-vision', component: __webpack_require__(367) }, { path: '/catalogos', component: __webpack_require__(370) }, { path: '/categorias', component: __webpack_require__(373) }, { path: '/costos', component: __webpack_require__(376) }, { path: '/prestamos', component: __webpack_require__(379) }, { path: '/ingresos', component: __webpack_require__(382) }, { path: '/usuarios', component: __webpack_require__(385) }];
+{ path: '/mision-vision', component: __webpack_require__(367) }, { path: '/catalogos', component: __webpack_require__(370) }, { path: '/categoria', component: __webpack_require__(373) }, { path: '/costos', component: __webpack_require__(376) }, { path: '/prestamos', component: __webpack_require__(379) }, { path: '/ingresos', component: __webpack_require__(382) }, { path: '/usuarios', component: __webpack_require__(385) }];
 
 // Create the route instance
 var router = new __WEBPACK_IMPORTED_MODULE_5_vue_router__["a" /* default */]({
@@ -97172,6 +97172,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -97227,6 +97240,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 
 	methods: {
+		arc: function arc(e) {
+			var _this = this;
+
+			var size = e.target.files[0].size;
+			var name = e.target.files[0].name;
+			var type = e.target.files[0].type;
+			this.categoria.ext = name.split('.').pop();
+			if (!type.includes("image")) {
+				swal({
+					type: "warning",
+					text: "debe seleccionar una imagen"
+				});
+				return;
+			}
+			if (size > 5000000) {
+				swal({
+					type: "warning",
+					text: "tamaño max. 1mb"
+				});
+				return;
+			}
+			var files = new FileReader();
+			files.readAsDataURL(e.target.files[0]);
+			files.onload = function (e) {
+				_this.categoria.foto = e.target.result;
+				console.log("mira" + _this.categoria.foto);
+				//    this.chat.name       = name;   
+			};
+			console.log("look" + this.categoria.ext);
+			// console.log(this.types);
+		},
+		reset: function reset() {
+			this.categoria.foto = null;
+		},
 		load: function load() {
 			this.categoria.id = null;
 			this.categoria.nombre = null;
@@ -97236,7 +97283,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.zEditar = false;
 		},
 		registrar: function registrar() {
-			var _this = this;
+			var _this2 = this;
 
 			axios.post("addCategoria", {
 				categoria: this.categoria
@@ -97248,10 +97295,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					showConfirmButton: false,
 					timer: 2000
 				});
-				_this.lista = true;
-				_this.load();
-				_this.ocultar(2);
-				_this.getDatos();
+				_this2.lista = true;
+				_this2.load();
+				_this2.ocultar(2);
+				_this2.getDatos();
 			}).catch(function (error) {
 				swal({
 					type: 'error',
@@ -97263,7 +97310,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			});
 		},
 		editar: function editar() {
-			var _this2 = this;
+			var _this3 = this;
 
 			axios.post("updateCategoria", {
 				categoria: this.categoria
@@ -97276,9 +97323,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					showConfirmButton: false,
 					timer: 2000
 				});
-				_this2.getDatos();
-				_this2.load();
-				_this2.ocultar(2);
+				_this3.getDatos();
+				_this3.load();
+				_this3.ocultar(2);
 			}).catch(function (error) {
 				swal({
 					type: 'error',
@@ -97289,19 +97336,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			});
 		},
 		getDatos: function getDatos() {
-			var _this3 = this;
+			var _this4 = this;
 
 			this.$Progress.start();
 			axios.get("getCategorias").then(function (data) {
-				_this3.categorias = data.data.categorias;
-				_this3.$Progress.finish();
+				_this4.categorias = data.data.categorias;
+				_this4.$Progress.finish();
 				// console.log(data.data);
 			}).catch(function (error) {
 				console.log(error);
 			});
 		},
 		delCobrador: function delCobrador(id) {
-			var _this4 = this;
+			var _this5 = this;
 
 			this.$Progress.start();
 			swal({
@@ -97318,12 +97365,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					axios.get("/delCobrador/" + id).then(function (data) {
 						if (data.data == "OK") {
 							swal('Eliminado!', 'El Cobrador ha sido eliminado.', 'success');
-							_this4.$Progress.finish();
-							_this4.getDatos();
+							_this5.$Progress.finish();
+							_this5.getDatos();
 						}
 					}).catch(function (error) {
 						console.log('Ocurrio un error ' + error);
-						_this4.$Progress.fail();
+						_this5.$Progress.fail();
 					});
 				}
 			});
@@ -97427,6 +97474,45 @@ var render = function() {
                           }
                         }
                       })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _vm.categoria.foto == null
+                      ? _c("div", { staticClass: "col-md-2" }, [
+                          _c(
+                            "div",
+                            { staticClass: "btn btn-default btn-file" },
+                            [
+                              _c("i", { staticClass: "fa fa-image" }),
+                              _vm._v(" imagen\n\t\t\t\t\t\t\t\t\t\t"),
+                              _c("input", {
+                                attrs: { type: "file" },
+                                on: { change: _vm.arc }
+                              })
+                            ]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _vm.categoria.foto != null
+                        ? _c("img", {
+                            attrs: {
+                              src: "data:" + _vm.categoria.foto,
+                              alt: "",
+                              width: "120",
+                              height: "175"
+                            },
+                            on: {
+                              click: function($event) {
+                                return _vm.reset()
+                              }
+                            }
+                          })
+                        : _vm._e()
                     ])
                   ]),
                   _vm._v(" "),
@@ -97642,6 +97728,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 text-left" }, [
       _c("label", [_vm._v("Descripción (*)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-left" }, [
+      _c("label", [_vm._v("Foto")])
     ])
   }
 ]

@@ -25,7 +25,20 @@
                                 <input type="text"  v-model="categoria.descripcion" class="form-control form-control-sm"  maxlength="60">
                                 </div>
                             </div>
-                            
+                            <div class="form-group row">
+                                <div class="col-md-2 text-left">
+                                    <label>Foto</label>
+                                 </div>
+                                <div class="col-md-2" v-if="categoria.foto == null">
+									<div  class="btn btn-default btn-file">
+										<i class="fa fa-image"></i> imagen
+										<input @change="arc" type="file">
+									</div>
+                                </div>
+								<div class="col-md-4">
+									<img v-if="categoria.foto != null" :src="'data:'+categoria.foto" @click="reset()" alt="" width="120" height="175">
+								</div>
+                            </div>
                             <div class="form-group row">
                                 <div class="col-md-2" v-if="!zEditar">
                                    <button @click="registrar()" class="btn bg-indigo">Agregar <i class="fa fa-save"></i></button>
@@ -126,7 +139,44 @@
 		this.getDatos();
     },
     methods: {
-
+		arc(e)
+        {
+            var size = e.target.files[0].size;
+			var name = e.target.files[0].name;
+			var type = e.target.files[0].type;
+			this.categoria.ext = name.split('.').pop();
+			if(!type.includes("image"))
+			{
+				swal({
+					type : "warning",
+					text : "debe seleccionar una imagen",
+				});
+				return;
+			}
+			if(size > 5000000)
+            {
+				swal({
+					type : "warning",
+					text : "tamaño max. 1mb",
+				});
+				return;
+			}
+            var files = new FileReader();
+            files.readAsDataURL(e.target.files[0]);
+            files.onload = (e) =>
+            {
+			   this.categoria.foto    = e.target.result;
+			   console.log("mira"+this.categoria.foto );
+            //    this.chat.name       = name;   
+            }
+            console.log("look"+this.categoria.ext);
+            // console.log(this.types);
+            
+        },
+		reset()
+		{
+			this.categoria.foto = null;
+		},
 		load()
 		{
 			this.categoria.id			= null;

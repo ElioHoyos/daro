@@ -41,8 +41,17 @@ class CategoriasController extends Controller
             $categoria = new categorias();
             $categoria->nombre      = $request->categoria["nombre"];
             $categoria->descripcion = $request->categoria["descripcion"];
-            $categoria->url         = "";
+            
             $categoria->created_at  = $hoy;
+            if(isset($request->categoria['foto']))
+            {
+                $objFoto        = explode(",",$request->categoria["foto"]);
+                $archivo        = base64_decode($objFoto[1]);
+                $route          = "/categorias/".$request->categoria["nombre"].".".$request->categoria['ext'];
+                $ruta           = public_path().$route;
+                file_put_contents($ruta,$archivo);
+                $categoria->url         = $route;
+            }
             $categoria->save();
             $type = "success";
             $text = "categoria agregada con éxito";
