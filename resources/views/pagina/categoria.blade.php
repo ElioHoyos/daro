@@ -1,6 +1,9 @@
 @extends('layouts.header')
 @section('content')
-
+{{-- @php
+  use App\productos;
+  $productos = productos::all();
+@endphp --}}
 <!-- top Products -->
 <div class="ads-grid">
     <div class="container">
@@ -36,7 +39,9 @@
                                 <img src="{{asset('images/arco-montaraz.png')}}" style="width: 90%; height: 90%;" alt="">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Ver Más</a>
+                                        {{-- @foreach ($productos as $item) --}}
+                                    <a href="#" target="_blank" class="link-product-add-cart">Ver Más</a>
+                                        {{-- @endforeach --}}
                                     </div>
                                 </div>
                                 <span class="product-new-top">Nuevo</span>

@@ -14,7 +14,7 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        //
+        return view("pagina.producto");
     }
 
     /**
@@ -44,9 +44,10 @@ class ProductosController extends Controller
      * @param  \App\productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function show(productos $productos)
+    public function show($id)
     {
-        //
+        // $producto = productos::where("id",$id)->first();
+        // return view("pagina.producto")->with("producto",$producto);
     }
 
     /**

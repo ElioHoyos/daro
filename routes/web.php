@@ -39,6 +39,10 @@ Route::post('/addCategoria', 'CategoriasController@store');
 Route::get('/deleteCategoria/{id}', 'CategoriasController@destroy');
 Route::get('/categorias/{id}', 'CategoriasController@show');
 Route::post('/updateCategoria', 'CategoriasController@update');
+
+//Productos
+Route::get('/productos', 'ProductosController@index');
+
 //2567945504
 Route::get('/producto/{cat}/{id}', 'ProductosController@show');
 Route::get('{path}', 'HomeController@index');

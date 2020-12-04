@@ -333,15 +333,15 @@
             <div class="row">
               <div class="col-md-5 info">
                 <i class="ion-ios-location-outline"></i>
-                <p>Av. Habilitacion urbana municipal Mz.C Lt. 6</p>
+                <p style="font-size: 12px">Av. Habilitacion urbana municipal Mz.C Lt. 6</p>
               </div>
               <div class="col-md-4 info">
                 <i class="ion-ios-email-outline"></i>
-                <p>oficina.darosac@gmail.com</p>
+                <p style="font-size: 12px">oficina.darosac@gmail.com</p>
               </div>
               <div class="col-md-3 info">
                 <i class="ion-ios-telephone-outline"></i>
-                <p>986 135 157</p>
+                <p style="font-size: 12px">986 135 157</p>
               </div>
             </div>
 

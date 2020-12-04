@@ -28,12 +28,14 @@
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
   {{-- new --}}
-<link href="{{asset('new/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
-<link href="{{asset('new/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+  <link href="{{asset('new/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+  <link href="{{asset('new/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{{asset('new/css/font-awesome.css')}}" rel="stylesheet">
 	<!--pop-up-box-->
 	<link href="{{asset('new/css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all" />
-	<!--//pop-up-box-->
+  <!--//pop-up-box-->
+  <!-- flexslider -->
+  <link rel="stylesheet" href="{{asset('new/css/flexslider.css')}}" type="text/css" media="screen" />
 	<!-- price range -->
 	<link rel="stylesheet" type="text/css" href="{{asset('new/css/jquery-ui1.css')}}">
 	
@@ -43,11 +45,38 @@
   .oculto {
       display: none;
   }
+  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 </style>
+
+<script>
+  addEventListener("load", function () {
+    setTimeout(hideURLbar, 0);
+  }, false);
+
+  function hideURLbar() {
+    window.scrollTo(0, 1);
+  }
+</script>
 
 @php
   use App\categorias;
+  use App\productos;
   $categorias = categorias::all();
+  $productos = productos::all();
 @endphp
 
 <body>
@@ -140,10 +169,9 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contacto</h4>
             <p>
-              <i class="ion-ios-location-outline">Av. Habilitacion urbana municipal Mz.C Lt. 6</i><br>
-             Pucallpa - Perú <br>
-              <strong>Telefono:</strong> <a href="wa.me/51986135157" target="_blank" title="enviame un mensaje">986 135 157</a> <br>
-              <strong>Correo:</strong> oficina.darosac@gmail.com<br>
+              <i class="ion-ios-location-outline" style="font-size: 14px">Av. Habilitacion urbana municipal Mz.C Lt. 6</i><br>
+              <strong style="font-size: 14px">Telefono:</strong>986 135 157 <br>
+              <strong style="font-size: 12px">Correo: oficina.darosac@gmail.com</strong> <br>
             </p>
 
             <div class="social-links">
@@ -319,7 +347,17 @@
 			});
 		});
 	</script>
-	<!-- //end-smooth-scrolling -->
+  <!-- //end-smooth-scrolling -->
+<script src="{{asset('new/js/jquery.flexslider.js')}}"></script>
+  <script>
+		// Can also be used with $(document).ready()
+		$(window).load(function () {
+			$('.flexslider').flexslider({
+				animation: "slide",
+				controlNav: "thumbnails"
+			});
+		});
+	</script>
 
 	<!-- smooth-scrolling-of-move-up -->
 	<script>
