@@ -9,7 +9,7 @@
 
   <!-- Favicons -->
   <link href="{{asset('img/favicon.png')}}" rel="icon">
-  <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('images/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -298,36 +298,7 @@ tr:nth-child(even) {
 	</script>
 	<!-- //price range (top products) -->
 
-	<!-- flexisel (for special offers) -->
-	<script src="{{asset('new/js/jquery.flexisel.js')}}"></script>
-	<script>
-		$(window).load(function () {
-			$("#flexiselDemo1").flexisel({
-				visibleItems: 3,
-				animationSpeed: 1000,
-				autoPlay: true,
-				autoPlaySpeed: 3000,
-				pauseOnHover: true,
-				enableResponsiveBreakpoints: true,
-				responsiveBreakpoints: {
-					portrait: {
-						changePoint: 480,
-						visibleItems: 1
-					},
-					landscape: {
-						changePoint: 640,
-						visibleItems: 2
-					},
-					tablet: {
-						changePoint: 768,
-						visibleItems: 2
-					}
-				}
-			});
-
-		});
-	</script>
-	<!-- //flexisel (for special offers) -->
+	
 
 	<!-- smoothscroll -->
 	<script src="{{asset('new/js/SmoothScroll.min.js')}}"></script>
@@ -358,32 +329,12 @@ tr:nth-child(even) {
 			});
 		});
 	</script>
-
-	<!-- smooth-scrolling-of-move-up -->
-	<script>
-		$(document).ready(function () {
-			/*
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-			};
-			*/
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
-
-		});
-	</script>
-	<!-- //smooth-scrolling-of-move-up -->
-
-	<!-- for bootstrap working -->
-	<script src="{{asset('new/js/bootstrap.js')}}"></script>
-	<!-- //for bootstrap working -->
-	<!-- //js-files -->
-
   
+  <!-- for bootstrap working -->
+	<script src="{{asset('new/js/bootstrap.js')}}"></script>
+
+  <!-- imagezoom -->
+<script src="{{asset('new/js/imagezoom.js')}}"></script>
 
 </body>
 </html>
