@@ -298,8 +298,6 @@ tr:nth-child(even) {
 	</script>
 	<!-- //price range (top products) -->
 
-	
-
 	<!-- smoothscroll -->
 	<script src="{{asset('new/js/SmoothScroll.min.js')}}"></script>
 	<!-- //smoothscroll -->
@@ -317,6 +315,22 @@ tr:nth-child(even) {
 				}, 1000);
 			});
 		});
+  </script>
+  <script>
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
 	</script>
   <!-- //end-smooth-scrolling -->
 <script src="{{asset('new/js/jquery.flexslider.js')}}"></script>
@@ -328,7 +342,8 @@ tr:nth-child(even) {
 				controlNav: "thumbnails"
 			});
 		});
-	</script>
+  </script>
+  
   
   <!-- for bootstrap working -->
 	<script src="{{asset('new/js/bootstrap.js')}}"></script>
