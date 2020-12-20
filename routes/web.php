@@ -42,6 +42,9 @@ Route::post('/updateCategoria', 'CategoriasController@update');
 
 //Productos
 Route::get('/productos', 'ProductosController@index');
+Route::get('/getProductos', 'ProductosController@datos');
+Route::post('/addProducto', 'ProductosController@store');
+// Route::get('/productos', 'ProductosController@index');
 
 //2567945504
 Route::get('/producto/{cat}/{id}', 'ProductosController@show');

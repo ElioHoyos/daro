@@ -18,7 +18,7 @@
                     <div class="small-box bg-indigo">
 						<div class="inner">
 							<h3>{{prestamos}}</h3>
-							<p>PRESTAMOS</p>
+							<p>PRODUCTOS</p>
 						</div>
 						<div class="icon">
 							<i class="fa fa-dollar-sign x3"></i>
@@ -32,7 +32,7 @@
                         <div class="inner">
                         <h3>{{clientes}}</h3>
 
-                        <p>CLIENTES</p>
+                        <p>CATEGORIAS</p>
                         </div>
                         <div class="icon">
                         <i class="fa fa-user-friends x3"></i>

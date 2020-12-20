@@ -17,6 +17,13 @@ class ProductosController extends Controller
         return view("pagina.producto");
     }
 
+    public function datos()
+    {
+        $productos =    productos::join("categorias AS c","productos.categoria","c.id")
+                        ->select("productos.*","c.nombre AS categoriadesc")
+                        ->get();
+        return compact("productos");                    
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +42,25 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hoy = date("Y-m-d");
+        $producto = new productos();
+        $producto->codigo       = $request->producto["codigo"];
+        $producto->nombre       = $request->producto["nombre"];
+        $producto->descripcion  = $request->producto["descripcion"];
+        $producto->medidas      = $request->producto["medidas"];
+        if(isset($request->producto['foto']))
+        {
+            $objFoto        = explode(",",$request->producto["foto"]);
+            $archivo        = base64_decode($objFoto[1]);
+            $route          = "/categorias/".$request->producto["nombre"].".".$request->producto['ext'];
+            $ruta           = public_path().$route;
+            file_put_contents($ruta,$archivo);
+            $producto->url  = $route;
+        }
+        $producto->categoria    = $request->producto["categoria"];
+        $producto->etiquetas    = $request->producto["etiquetas"];
+        $producto->created_at   = $hoy;
+        $producto->save();
     }
 
     /**

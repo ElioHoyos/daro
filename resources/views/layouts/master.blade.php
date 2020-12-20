@@ -204,9 +204,15 @@
 										</router-link>
 									</li>
 									<li class="nav-item">
-										<router-link to="/categoria" class="nav-link">
+										<router-link to="/categorias" class="nav-link">
 										    <i class="fa fa-list"></i>
 											<p>Categorias</p>
+										</router-link>
+									</li>
+									<li class="nav-item">
+										<router-link to="/configuracion_productos" class="nav-link">
+										    <i class="fa fa-list"></i>
+											<p>Productos</p>
 										</router-link>
 									</li>
 									<li class="nav-item">
@@ -219,35 +225,6 @@
 										<router-link to="/personal" class="nav-link">
 										    <i class="fa fa-users"></i>
 											<p>Personal</p>
-										</router-link>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item has-treeview">
-								<a href="#" class="nav-link">
-									<i class="nav-icon fa fa-paste"></i>
-									<p>
-										Prestamos
-										<i class="fa fa-angle-right right"></i>
-									</p>
-								</a>
-								<ul class="nav nav-treeview">
-									<li class="nav-item">
-										<router-link to="/prestamos" class="nav-link">
-										    <i class="fa fa-dollar-sign"></i>
-											<p>prestamos</p>
-										</router-link>
-									</li>
-									<li class="nav-item">
-										<router-link to="/ingresos" class="nav-link">
-										    <i class="fa fa-paste"></i>
-											<p>reportes</p>
-										</router-link>
-									</li>
-									<li class="nav-item">
-										<router-link to="/cobrosdiarios" class="nav-link">
-										    <i class="fa fa-address-book"></i>
-											<p>cobros diarios</p>
 										</router-link>
 									</li>
 								</ul>
