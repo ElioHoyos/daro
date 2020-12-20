@@ -74,9 +74,9 @@ tr:nth-child(even) {
 
 @php
   use App\categorias;
-  use App\productos;
+  // use App\productos;
   $categorias = categorias::all();
-  $productos = productos::all();
+  // $productos = productos::all();
 @endphp
 
 <body>

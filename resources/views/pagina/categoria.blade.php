@@ -1,9 +1,9 @@
 @extends('layouts.header')
 @section('content')
-{{-- @php
+@php
   use App\productos;
   $productos = productos::all();
-@endphp --}}
+@endphp
 <!-- top Products -->
 <div class="ads-grid">
     <div class="container">
@@ -33,89 +33,30 @@
             <div class="wrapper">
                 <!-- first section -->
                 <div class="product-sec1">
+                    @foreach ($productos as $item)
                     <div class="col-xs-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="{{asset('images/arco-montaraz.png')}}" style="width: 90%; height: 90%;" alt="">
+                                <img src="{{asset($item->url)}}" style="width: 90%; height: 90%;" alt="">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
-                                        {{-- @foreach ($productos as $item) --}}
+                                        
                                     <a href="#" target="_blank" class="link-product-add-cart">Ver Más</a>
-                                        {{-- @endforeach --}}
+                                       
                                     </div>
                                 </div>
                                 <span class="product-new-top">Nuevo</span>
                             </div>
                             <div class="item-info-product ">
                                 <h4>
-                                    <a href="#">Arco Montaraz</a>
+                                    <a href="#">{{$item->nombre}}</a>
                                 </h4>
                                 
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-3 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="{{asset('images/cinta-metrica.png')}}" style="width: 90%; height: 90%;" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Ver Más</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">Nuevo</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Cinta Metrica</a>
-                                </h4>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-3 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="{{asset('images/serrucho-prizecut.png')}}" style="width: 90%; height: 90%;" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Ver Más</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">Nuevo</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Serrucho Prizecut</a>
-                                </h4>
-                               
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xs-3 product-men">
-                        <div class="men-pro-item simpleCart_shelfItem">
-                            <div class="men-thumb-item">
-                                <img src="{{asset('images/cinta-metrica-inoxi.png')}}" style="width: 90%; height: 90%;" alt="">
-                                <div class="men-cart-pro">
-                                    <div class="inner-men-cart-pro">
-                                        <a href="#" class="link-product-add-cart">Ver Más</a>
-                                    </div>
-                                </div>
-                                <span class="product-new-top">Nuevo</span>
-
-                            </div>
-                            <div class="item-info-product ">
-                                <h4>
-                                    <a href="#">Cinta Metrica Inoxidable</a>
-                                </h4>
-                               
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
+                   
                     <div class="clearfix"></div>
                 </div>
                 <!-- //first section -->
