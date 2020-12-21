@@ -41,7 +41,7 @@
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         
-                                    <a href="#" target="_blank" class="link-product-add-cart">Ver Más</a>
+                                    <a href="../productos/{{$item->id}}" target="_blank" class="link-product-add-cart">Ver Más</a>
                                        
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="item-info-product ">
                                 <h4>
-                                    <a href="#">{{$item->nombre}}</a>
+                                    <a href="../productos/{{$item->id}}" target="_blank">{{$item->nombre}}</a>
                                 </h4>
                                 
                             </div>

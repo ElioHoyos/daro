@@ -17,40 +17,30 @@
             <div class="grid images_3_of_2">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li data-thumb="{{asset('images/arco-montaraz.png')}}">
+                        <li data-thumb="{{asset($productos->url)}}">
                             <div class="thumb-image">
-                                <img src="{{asset('images/arco-montaraz.png')}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+                                <img src="{{asset($productos->url)}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
                         </li>
-                        <li data-thumb="{{asset('images/arco-montaraz.png')}}">
-                            <div class="thumb-image">
-                                <img src="{{asset('images/arco-montaraz.png')}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
-                        </li>
-                        <li data-thumb="{{asset('images/arco-montaraz.png')}}">
-                            <div class="thumb-image">
-                                <img src="{{asset('images/arco-montaraz.png')}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
-                        </li>
+                        
                     </ul>
                     <div class="clearfix"></div>
                 </div>
             </div>
         </div>
         <div class="col-md-7 single-right-left simpleCart_shelfItem">
-            <h3>ARCO MONTARAZ 21</h3>
-            
+            <h3>{{$productos->nombre}}</h3>
             <p>
-                <span class="item_price">331-21</span>
-               
+                <span class="item_price">{{$productos->codigo}}</span>
             </p>
             <div class="single-infoagile">
                 <ul>
                     <li>
-                        Arco tronzador pequeño y manejable de 21
+                        {{$productos->descripcion}}
                     </li>
-                    <li>
-                        Su extremo puntiagudo lo hace ideal para su empleo en espacios reducidos, y se adapta bien a trabajos de jardinería y de reparación de tejados
-                    </li>
+                    
                 </ul>
             </div>
+            {{-- {{$productos}} --}}
             <div class="product-single-w3l">
                 <table>
                     <tr>
@@ -69,7 +59,7 @@
                     </tr>
                    
                   </table>
-                  <p style="font-size: 12px"><strong>Categorías: CARPINTERIA, PODA Y JARDINERIA</strong></p>
+                  <p style="font-size: 12px"><strong>Carpínteria</strong></p>
             </div>
             
         </div>

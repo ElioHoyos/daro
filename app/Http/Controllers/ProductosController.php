@@ -14,7 +14,9 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        return view("pagina.producto");
+        $productos = productos::all();
+  
+        return view("pagina.producto",compact('productos'));
     }
 
     public function datos()
@@ -71,8 +73,8 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        // $producto = productos::where("id",$id)->first();
-        // return view("pagina.producto")->with("producto",$producto);
+        $productos = productos::where("id",$id)->first();
+        return view("pagina.producto")->with("productos",$productos);
     }
 
     /**
