@@ -45,15 +45,16 @@
                 <table>
                     <tr>
                       <th>Producto</th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
-                      <th></th>
+                      <th><img src="{{asset('images/long-1.png')}}" alt=""></th>
+                      <th><img src="{{asset('images/long-1.png')}}" alt=""></th>
+                      <th><img src="{{asset('images/tipo-sierra.png')}}" alt=""></th>
+                      <th><img src="{{asset('images/gramo.png')}}" alt=""></th>
+                      <th><img src="{{asset('images/oz.png')}}" alt=""></th>
                     </tr>
                     <tr>
-                      <td>331-21-51-KP</td>
-                      <td>530 mm</td>
-                      <td>21 in	</td>
+                      <td>{{$productos->codigo}}</td>
+                      <td>{{$productos->medidas}}</td>
+                      <td></td>
                       <td>51</td>
                       <td>615 g</td>
                     </tr>
