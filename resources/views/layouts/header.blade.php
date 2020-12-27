@@ -109,7 +109,7 @@ tr:nth-child(even) {
             </ul>
           </li>
 
-          <li class="drop-down"><a href="#marca">Marcas</a>
+          <li class="drop-down"><a href="/marcas" target="_blank">Marcas</a>
             <ul>
               <li><a href="#">BAHCO</a></li>
             </ul>
