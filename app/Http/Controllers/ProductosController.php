@@ -47,7 +47,12 @@ class ProductosController extends Controller
         $producto->codigo       = $request->producto["codigo"];
         $producto->nombre       = $request->producto["nombre"];
         $producto->descripcion  = $request->producto["descripcion"];
-        $producto->medidas      = $request->producto["medidas"];
+        $producto->longitud1    = $request->producto["longitud1"];
+        $producto->longitud2    = $request->producto["longitud2"];
+        $producto->altura       = $request->producto["altura"];
+        $producto->tipoSierra   = $request->producto["tiposierra"];
+        $producto->Peso         = $request->producto["peso"];
+        $producto->PesoOz       = $request->producto["pesooz"];
         if(isset($request->producto['foto']))
         {
             $objFoto        = explode(",",$request->producto["foto"]);

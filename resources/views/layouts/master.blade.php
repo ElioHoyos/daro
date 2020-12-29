@@ -204,7 +204,7 @@
 										</router-link>
 									</li>
 									<li class="nav-item">
-										<router-link to="/categorias" class="nav-link">
+										<router-link to="/vercategorias" class="nav-link">
 										    <i class="fa fa-list"></i>
 											<p>Categorias</p>
 										</router-link>
@@ -222,7 +222,7 @@
 										</router-link>
 									</li>
 									<li class="nav-item">
-										<router-link to="/personal" class="nav-link">
+										<router-link to="/personals" class="nav-link">
 										    <i class="fa fa-users"></i>
 											<p>Personal</p>
 										</router-link>

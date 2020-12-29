@@ -7,29 +7,25 @@
 				</div>
 	            <div class="card card-info" v-if="!lista">
 	                <div class="card-header bg-azul text-center">
-	                    <h4 class="title">Configuraciones</h4>  
+	                    <h4 class="title">Personal</h4>  
 	                </div>
 					<div class="card-body">
 						<fieldset class="border p-2">
                             <legend class="w-auto t16 text-primary"><b>Datos</b></legend>
-                            <div class="form-group row">  
-                                <div class="col-md-2 text-left">
-                                <label>Tipo</label>
-                                </div>                             
-                                <div class="col-md-3">
-                                   <select v-model="config.tipo" class="form-control form-control-sm">
-									   <option value="MISION">Misión</option>
-									   <option value="VISION">Visión</option>
-									   <option value="NOSOTROS">Nosotros</option>
-								   </select>
-                                </div>
-                            </div>    
                             <div class="form-group row">      
                                  <div class="col-md-2 text-left">
-                                    <label>Detalle</label>
+                                    <label>Nombre</label>
 								</div>
                                 <div class="col-md-6">
-                                   <textarea type="text" v-model="config.detalle" class="form-control form-control-sm">
+                                   <input type="text" v-model="personal.nombre" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                            <div class="form-group row">      
+                                 <div class="col-md-2 text-left">
+                                    <label>Descripción</label>
+								</div>
+                                <div class="col-md-6">
+                                   <textarea type="text" v-model="personal.descripcion" class="form-control form-control-sm">
 
 								   </textarea>
                                 </div>
@@ -38,22 +34,22 @@
                                 <div class="col-md-2 text-left">
                                     <label>Foto</label>
                                  </div>
-                                <div class="col-md-2" v-if="config.foto == null">
+                                <div class="col-md-2" v-if="personal.foto == null">
 									<div  class="btn btn-default btn-file">
 										<i class="fa fa-image"></i> imagen
 										<input @change="arc" type="file">
 									</div>
                                 </div>
 								<div class="col-md-4">
-									<img v-if="config.foto != null" :src="'data:'+config.foto" @click="reset()" alt="" width="120" height="175">
+									<img v-if="personal.foto != null" :src="'data:'+personal.foto" @click="reset()" alt="" width="120" height="175">
 								</div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-2" v-if="!editar">
-                                    <button @click="addConfig()" class="btn bg-indigo">Agregar <i class="fa fa-save"></i></button>
+                                    <button @click="addPersonal()" class="btn bg-indigo">Agregar <i class="fa fa-save"></i></button>
                                 </div>
                                 <div class="col-md-2" v-if="editar">
-                                   <button @click="editConfig()" class="btn bg-indigo">Editar <i class="fa fa-edit"></i></button>
+                                   <button @click="editPersonal()" class="btn bg-indigo">Editar <i class="fa fa-edit"></i></button>
                                 </div>
 								<div class="col-md-2">
                                    <button @click="ocultar(2)" class="btn bg-danger">Volver <i class="fa fa-undo"></i></button>
@@ -69,7 +65,7 @@
 			 <div class="col-md-12">
 				<div class="card card-info">
 	                <div class="card-header bg-azul text-center">
-	                    <h4 class="title">Configuración 
+	                    <h4 class="title">Personal 
 							<button  class="btn bg-navy altoBoton" @click="ocultar('1')">
 							<i class="fa fa-plus"></i>
 							</button>
@@ -77,10 +73,10 @@
 	                </div>
 	                <div class="card-body t12">
 						<div class="content table-responsive table-full-width">
-                            <v-client-table :data="configuraciones" :columns="columns" :options="options">
+                            <v-client-table :data="personales" :columns="columns" :options="options">
 								<div slot="Acciones" slot-scope="props">
 									<button class="btn btn-info altoBoton" data-toggle="tooltip" v-on:click="edit(props.row)" data-placement="left" title="Editar"><i class="fa fa-edit" aria-hidden="true"></i></button>
-									<button class="btn btn-danger altoBoton" data-toggle="tooltip" v-on:click="deleteConfig(props.row)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
+									<button class="btn btn-danger altoBoton" data-toggle="tooltip" v-on:click="deletePersonal(props.row.id)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
 						    </v-client-table>
                         </div>
@@ -95,19 +91,19 @@
 	export default {
     data() {
         return {
-			config:{
-                tipo:null,
-				detalle:null,
+			personal:{
+                nombre:null,
+				descripcion:null,
 				id:null,
 				foto:null,
 				ext:null,
 			},
-			configuraciones	:[{
+			personales	:[{
 				id:null,
-				tipo:null,
-				detalle:null,
+				nombre:null,
+				descripcion:null,
             }],
-            columns: ["id","tipo","detalle","Acciones"],
+            columns: ["id","nombre","descripcion","Acciones"],
             options: {
 				perPageValues : [5,10,15,20,25],
                 perPage : 5,
@@ -128,11 +124,11 @@
 				headings:
 				{
 					id:"ID",
-					tipo:"Tipo",
-					detalle:"Detalle",
+					nombre:"Nombre",
+					descripcion:"Descripción",
 				},
-				sortable    : ["id","tipo","detalle"],
-				filterable  : ["id","tipo","detalle"]
+				sortable    : ["id","nombre","descripcion"],
+				filterable  : ["id","nombre","descripcion"]
 			},
 			editar: false,
 			lista: true
@@ -140,8 +136,7 @@
         }
 	},
 	created(){
-        // this.getNiveles();
-		this.getConfiguraciones();
+		this.getPersonal();
 	},
 	mounted(){
 	},
@@ -151,7 +146,7 @@
             var size = e.target.files[0].size;
 			var name = e.target.files[0].name;
 			var type = e.target.files[0].type;
-			this.config.ext = name.split('.').pop();
+			this.personal.ext = name.split('.').pop();
 			if(!type.includes("image"))
 			{
 				swal({
@@ -172,40 +167,42 @@
             files.readAsDataURL(e.target.files[0]);
             files.onload = (e) =>
             {
-			   this.config.foto    = e.target.result;
-			   console.log("mira"+this.config.foto );
+			   this.personal.foto    = e.target.result;
+			   console.log("mira"+this.personal.foto );
             }
-            console.log("look"+this.config.ext);
+            console.log("look"+this.personal.ext);
             
         },
 		reset()
 		{
-			this.config.foto = null;
+			this.personal.foto = null;
 		},
         load()
         {
-            this.config.id 		= null;
-            this.config.tipo 	= null;
-            this.config.detalle = null;
+            this.personal.id 		    = null;
+            this.personal.nombre 	    = null;
+            this.personal.descripcion   = null;
+            this.personal.foto          = null;
+            this.personal.ext           = null;
         },
-		getConfiguraciones()
+		getPersonal()
         {
             this.$Progress.start();
-            axios.get("getConfiguraciones")
+            axios.get("getPersonal")
             .then(data=>
             {
-                this.configuraciones = data.data.configuraciones;
+                this.personales = data.data.personales;
                 this.$Progress.finish();
             }
             ).catch(error=>{
                 console.log(error);
             })
         },
-		addConfig()
+		addPersonal()
 		{
 			this.$Progress.start();
-			axios.post("addConfig",{
-				config:this.config
+			axios.post("addPersonal",{
+				personal:this.personal
 			}).then(data=>{
 				console.log(data);
 				swal({
@@ -217,7 +214,7 @@
 				});
 				this.$Progress.finish();
 				this.load();
-				this.getConfiguraciones();
+				this.getPersonal();
 				this.lista = true;
 			}).catch(error=>{
 				console.log(error);	
@@ -228,14 +225,12 @@
 					showConfirmButton: true,
 				});
 			})
-            
-			
 		},
-		editConfig()
+		editPersonal()
 		{
 			this.$Progress.start();
-			axios.post("editConfig",{
-				config:this.config
+			axios.post("editPersonal",{
+				personal:this.personal
 			}).then(data=>{
 				console.log(data);
 				swal({
@@ -247,7 +242,7 @@
 				});
 				this.$Progress.finish();
 				this.load();
-				this.getConfiguraciones();
+				this.getPersonal();
 				this.lista = true;
 			}).catch(error=>{
 				console.log(error);	
@@ -271,11 +266,11 @@
 			}
 			
 		},
-        deleteConfig(id)
+        deletePersonal(id)
         {
 			this.$Progress.start();
             swal({
-                title: '¿Deseas eliminar esta configuración?',
+                title: '¿Deseas eliminar este personal?',
                 text: "No será posible revertir esta acción!",
                 type: 'warning',
                 showCancelButton: true,
@@ -285,17 +280,17 @@
                 cancelButtonText: 'cancelar',
             }).then((result) => {
                 if (result.value) {
-                    axios.get(`/deleteConfig/${id}`)
+                    axios.get(`/deletePersonal/${id}`)
                         .then(data => {
                         if(data.data=="OK"){
                             swal(
                             'Eliminado!',
-                             'Se eliminó la configuración',
+                             'Se eliminó el personal',
                              'success'
 								);
 							this.$Progress.finish();
 							this.load();
-							this.getConfiguraciones();
+							this.getPersonal();
 							this.lista = true;
 							}
                         }).catch(error => {
@@ -305,13 +300,13 @@
                      }
                 });
 		},
-		edit(configuracion)
+		edit(personal)
 		{
 			this.editar 			= true;
 			this.lista 				= false;
-            this.config.id 			= configuracion.id;
-            this.config.tipo 		= configuracion.tipo;
-            this.config.detalle 	= configuracion.detalle;
+            this.personal.id 			= personal.id;
+            this.personal.nombre 		= personal.nombre;
+            this.personal.descripcion 	= personal.descripcion;
 		},
     }
 }

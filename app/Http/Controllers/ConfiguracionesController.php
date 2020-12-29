@@ -42,12 +42,21 @@ class ConfiguracionesController extends Controller
             $configuracion->tipo        = $request->config["tipo"]; 
             $configuracion->detalle     = $request->config["detalle"];
             $configuracion->created_at  = $hoy;
+            if(isset($request->config['foto']))
+            {
+                $objFoto        = explode(",",$request->config["foto"]);
+                $archivo        = base64_decode($objFoto[1]);
+                $route          = "/configuraciones/".$request->config["nombre"].".".$request->config['ext'];
+                $ruta           = public_path().$route;
+                file_put_contents($ruta,$archivo);
+                $configuracion->url  = $route;
+            }
             $configuracion->save();
             $type = "success";
             $title = "Ok";
             $text = "Configuración agregada con éxito";
         } catch (\Throwable $th) {
-            $type = "danger";
+            $type = "error";
             $title = "Error";
             $text = "$th";
         }

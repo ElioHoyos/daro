@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\categorias;
+use App\personal;
 use Illuminate\Http\Request;
 
-class CategoriasController extends Controller
+class PersonalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        $categorias = categorias::all();
-        return compact("categorias");
+        $personales = personal::all();
+        return compact("personales");
     }
 
     /**
@@ -36,52 +36,51 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
-        $hoy = date("Y-m-d");
         try {
-            $categoria = new categorias();
-            $categoria->nombre      = $request->categoria["nombre"];
-            $categoria->descripcion = $request->categoria["descripcion"];
-            
-            $categoria->created_at  = $hoy;
-            if(isset($request->categoria['foto']))
+            $hoy = date("Y-m-d");
+            $personal              = new personal();
+            $personal->nombre        = $request->personal["nombre"]; 
+            $personal->descripcion     = $request->personal["descripcion"];
+            $personal->created_at  = $hoy;
+            if(isset($request->personal['foto']))
             {
-                $objFoto        = explode(",",$request->categoria["foto"]);
+                $objFoto        = explode(",",$request->personal["foto"]);
                 $archivo        = base64_decode($objFoto[1]);
-                $route          = "/categorias/".$request->categoria["nombre"].".".$request->categoria['ext'];
+                $route          = "/personal/".$request->personal["nombre"].".".$request->personal['ext'];
                 $ruta           = public_path().$route;
                 file_put_contents($ruta,$archivo);
-                $categoria->url         = $route;
+                $personal->url  = $route;
             }
-            $categoria->save();
+            $personal->save();
             $type = "success";
-            $text = "categoria agregada con éxito";
+            $title = "Ok";
+            $text = "Personal agregada con éxito";
         } catch (\Throwable $th) {
             $type = "error";
-            $text = "error: $th";
+            $title = "Error";
+            $text = "$th";
         }
-       
-        return compact("text","type");
+        return compact("type","title","text");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\categorias  $categorias
+     * @param  \App\personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(personal $personal)
     {
-        $categoria = categorias::where("id",$id)->first();
-        return view("pagina.categoria")->with("categoria",$categoria);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\categorias  $categorias
+     * @param  \App\personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(categorias $categorias)
+    public function edit(personal $personal)
     {
         //
     }
@@ -90,21 +89,21 @@ class CategoriasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\categorias  $categorias
+     * @param  \App\personal  $personal
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
         try {
             $hoy = date("Y-m-d");
-            $categoria  =   categorias::where("id",$request->categoria["id"])
+            $personal  =   personal::where("id",$request->personal["id"])
                                 ->update([
-                                    "nombre"        => $request->categoria["nombre"], 
-                                    "descripcion"     => $request->categoria["descripcion"],
+                                    "nombre"        => $request->personal["nombre"], 
+                                    "descripcion"     => $request->personal["descripcion"],
                                 ]);
             $type = "success";
             $title = "Ok";
-            $text = "categoria actualizada con éxito";
+            $text = "personal actualizado con éxito";
         } catch (\Throwable $th) {
             $type = "error";
             $title = "Error";
@@ -116,12 +115,12 @@ class CategoriasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\categorias  $categorias
+     * @param  \App\personal  $personal
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        categorias::where("id",$id)->delete();
-        return "OK";
+        $personal = personal::where("id",$id)->delete();
+        return "ok";
     }
 }

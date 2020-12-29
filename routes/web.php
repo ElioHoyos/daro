@@ -36,15 +36,21 @@ Route::post('/updateCatalogo', 'CatalogosController@update');
 
 Route::get('/getCategorias', 'CategoriasController@index');
 Route::post('/addCategoria', 'CategoriasController@store');
-Route::get('/deleteCategoria/{id}', 'CategoriasController@destroy');
+Route::get('/delCategoria/{id}', 'CategoriasController@destroy');
 Route::get('/categorias/{id}', 'CategoriasController@show');
 Route::post('/updateCategoria', 'CategoriasController@update');
+
+Route::get('/getPersonal', 'PersonalController@index');
+Route::post('/addPersonal', 'PersonalController@store');
+Route::get('/deletePersonal/{id}', 'PersonalController@destroy');
+Route::post('/editPersonal', 'PersonalController@update');
 
 //Productos
 Route::get('/productos', 'ProductosController@index');
 Route::get('/getProductos', 'ProductosController@datos');
 Route::post('/addProducto', 'ProductosController@store');
 // Route::get('/productos', 'ProductosController@index');
+
 
 //2567945504
 Route::get('/producto/{cat}/{id}', 'ProductosController@show');

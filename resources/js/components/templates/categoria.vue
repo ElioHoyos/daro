@@ -69,8 +69,8 @@
                         <div class="content table-responsive table-full-width">
                             <v-client-table class="t12" :data="categorias" :columns="columns" :options="options">
 								<div slot="Acciones" slot-scope="props">
-									<button class="altoBoton btn bg-indigo" data-toggle="tooltip" v-on:click="edit(props.row.DNI,props.row.Nombre,props.row.ApePaterno,props.row.ApeMaterno,props.row.Genero,props.row.Direccion,props.row.Celular)" data-placement="left" title="Editar"><i class="fa fa-edit" aria-hidden="true"></i></button>
-									<button class="altoBoton btn bg-danger" data-toggle="tooltip" v-on:click="delCobrador(props.row.DNI)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
+									<button class="altoBoton btn bg-indigo" data-toggle="tooltip" v-on:click="edit(props.row)" data-placement="left" title="Editar"><i class="fa fa-edit" aria-hidden="true"></i></button>
+									<button class="altoBoton btn bg-danger" data-toggle="tooltip" v-on:click="delCategoria(props.row.id)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
 								</div>
 					        </v-client-table>
                         </div>
@@ -252,11 +252,11 @@
                 console.log(error);
             })
 		},
-		delCobrador(id)
+		delCategoria(id)
         {
 			this.$Progress.start();
             swal({
-                title: '¿Deseas eliminar este Cobrador?',
+                title: '¿Deseas eliminar esta categoria?',
                 text: "No será posible revertir esta acción!",
                 type: 'warning',
                 showCancelButton: true,
@@ -266,12 +266,12 @@
                 cancelButtonText: 'cancelar',
             }).then((result) => {
                 if (result.value) {
-                    axios.get(`/delCobrador/${id}`)
+                    axios.get(`/delCategoria/${id}`)
                         .then(data => {
                         if(data.data=="OK"){
                             swal(
                             'Eliminado!',
-                             'El Cobrador ha sido eliminado.',
+                             'La categoria ha sido eliminado.',
                              'success'
 								);
 						this.$Progress.finish();

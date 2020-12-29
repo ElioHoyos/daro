@@ -90,11 +90,12 @@ const routes = [
     //rutas admin
     { path: '/mision-vision', component: require('./components/admin/mision-vision.vue') },
     { path: '/catalogos', component: require('./components/admin/catalogos.vue') },
-    { path: '/categorias', component: require('./components/admin/categorias.vue') },
+    { path: '/vercategorias', component: require('./components/admin/categorias.vue') },
     { path: '/configuracion_productos', component: require('./components/admin/productos.vue') },
     { path: '/costos', component: require('./components/admin/costos.vue') },
     { path: '/ingresos', component: require('./components/admin/ingresos.vue') },
     { path: '/usuarios', component: require('./components/admin/usuarios.vue') },
+    { path: '/personals', component: require('./components/admin/personal.vue') },
  
 
     // { path: '/alumnos', component: require('./components/admin/alumnos.vue') },    
@@ -129,6 +130,7 @@ Vue.component('mision', require('./components/templates/mision.vue'));
 Vue.component('categoria', require('./components/templates/categoria.vue'));
 Vue.component('producto', require('./components/templates/producto.vue'));
 Vue.component('usuario', require('./components/templates/usuario.vue'));
+Vue.component('personalT', require('./components/templates/personalT.vue'));
 Vue.component('catalogo', require('./components/templates/catalogo.vue'));
 Vue.component('cobrov2', require('./components/templates/cobrov2.vue'));
 Vue.component('v-select', vSelect);

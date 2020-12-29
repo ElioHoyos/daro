@@ -30,15 +30,55 @@
                                     <label>Descripción (*)</label>
                                  </div>
                                 <div class="col-md-5">
-                                <input type="text"  v-model="producto.descripcion" class="form-control form-control-sm"  maxlength="60">
+                                <textarea  v-model="producto.descripcion" class="form-control form-control-sm"  maxlength="1000"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-2 text-left">
-                                    <label>Medidas (*)</label>
+                                    <label>Longitud 1 (*)</label>
                                  </div>
                                 <div class="col-md-5">
-                                <input type="text"  v-model="producto.medidas" class="form-control form-control-sm"  maxlength="60">
+                                <input type="text"  v-model="producto.longitud1" class="form-control form-control-sm"  maxlength="60">
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <div class="col-md-2 text-left">
+                                    <label>Longitud 2 (*)</label>
+                                 </div>
+                                <div class="col-md-5">
+                                <input type="text"  v-model="producto.longitud2" class="form-control form-control-sm"  maxlength="60">
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <div class="col-md-2 text-left">
+                                    <label>altura (*)</label>
+                                 </div>
+                                <div class="col-md-5">
+                                <input type="text"  v-model="producto.altura" class="form-control form-control-sm"  maxlength="60">
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <div class="col-md-2 text-left">
+                                    <label>Tipo Sierra (*)</label>
+                                 </div>
+                                <div class="col-md-5">
+                                <input type="text"  v-model="producto.tiposierra" class="form-control form-control-sm"  maxlength="60">
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <div class="col-md-2 text-left">
+                                    <label>Peso (*)</label>
+                                 </div>
+                                <div class="col-md-5">
+                                <input type="text"  v-model="producto.peso" class="form-control form-control-sm"  maxlength="60">
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <div class="col-md-2 text-left">
+                                    <label>Peso Oz. (*)</label>
+                                 </div>
+                                <div class="col-md-5">
+                                <input type="text"  v-model="producto.pesooz" class="form-control form-control-sm"  maxlength="60">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -127,7 +167,12 @@
 				nombre:null,
 				descripcion:null,
 				categoria:null,
-				medidas:null,
+				longitud1:null,
+				longitud2:null,
+				altura:null,
+				tiposierra:null,
+				peso:null,
+				pesooz:null,
 				descripcion:null,
 				etiquetas:null,
 				foto:null,
