@@ -74,9 +74,9 @@ tr:nth-child(even) {
 
 @php
   use App\categorias;
-  use App\productos;
+  // use App\productos;
   $categorias = categorias::all();
-  $productos = productos::all();
+  // $productos = productos::all();
 @endphp
 
 <body>
@@ -109,7 +109,7 @@ tr:nth-child(even) {
             </ul>
           </li>
 
-          <li class="drop-down"><a href="#marca">Marcas</a>
+          <li class="drop-down"><a href="/marcas" target="_blank">Marcas</a>
             <ul>
               <li><a href="#">BAHCO</a></li>
             </ul>
@@ -298,8 +298,6 @@ tr:nth-child(even) {
 	</script>
 	<!-- //price range (top products) -->
 
-	
-
 	<!-- smoothscroll -->
 	<script src="{{asset('new/js/SmoothScroll.min.js')}}"></script>
 	<!-- //smoothscroll -->
@@ -317,6 +315,22 @@ tr:nth-child(even) {
 				}, 1000);
 			});
 		});
+  </script>
+  <script>
+		$(document).ready(function () {
+			/*
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+			};
+			*/
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+
+		});
 	</script>
   <!-- //end-smooth-scrolling -->
 <script src="{{asset('new/js/jquery.flexslider.js')}}"></script>
@@ -328,13 +342,44 @@ tr:nth-child(even) {
 				controlNav: "thumbnails"
 			});
 		});
-	</script>
+  </script>
+  
   
   <!-- for bootstrap working -->
 	<script src="{{asset('new/js/bootstrap.js')}}"></script>
 
   <!-- imagezoom -->
 <script src="{{asset('new/js/imagezoom.js')}}"></script>
+
+<script src="{{asset('new/js/jquery.flexisel.js')}}"></script>
+	<script>
+		$(window).load(function () {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 3,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+				responsiveBreakpoints: {
+					portrait: {
+						changePoint: 480,
+						visibleItems: 1
+					},
+					landscape: {
+						changePoint: 640,
+						visibleItems: 2
+					},
+					tablet: {
+						changePoint: 768,
+						visibleItems: 2
+					}
+				}
+			});
+
+		});
+	</script>
+	<!-- //flexisel (for special offers) -->
 
 </body>
 </html>

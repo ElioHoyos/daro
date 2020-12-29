@@ -49,8 +49,13 @@ Route::post('/editPersonal', 'PersonalController@update');
 Route::get('/productos', 'ProductosController@index');
 Route::get('/getProductos', 'ProductosController@datos');
 Route::post('/addProducto', 'ProductosController@store');
+Route::get('/productos/{id}', 'ProductosController@show');
 // Route::get('/productos', 'ProductosController@index');
 
+//Marca
+Route::get('/marcas', 'MarcasController@index');
+Route::get('/marcas_productos', 'MarcasController@show');
+Route::get('/descripcion_producto', 'MarcasController@descripcion');
 
 //2567945504
 Route::get('/producto/{cat}/{id}', 'ProductosController@show');

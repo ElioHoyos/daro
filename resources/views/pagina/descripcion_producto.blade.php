@@ -17,9 +17,9 @@
             <div class="grid images_3_of_2">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li data-thumb="{{asset($productos->url)}}">
+                        <li data-thumb="{{asset('images/cinta-metrica.png')}}">
                             <div class="thumb-image">
-                                <img src="{{asset($productos->url)}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+                                <img src="{{asset('images/cinta-metrica.png')}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
                         </li>
                         
                     </ul>
@@ -28,14 +28,17 @@
             </div>
         </div>
         <div class="col-md-7 single-right-left simpleCart_shelfItem">
-            <h3>{{$productos->nombre}}</h3>
+            <h3>Cinta Metrica</h3>
             <p>
-                <span class="item_price">{{$productos->codigo}}</span>
+                <span class="item_price">0912</span>
             </p>
             <div class="single-infoagile">
                 <ul>
                     <li>
-                        {{$productos->descripcion}}
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                        Consectetur maiores, adipisci aspernatur assumenda beatae illo sapiente,
+                         non ut eveniet sequi error odit, 
+                        tempora exercitationem asperiores nemo illum? Veniam, dolor quidem.
                     </li>
                     
                 </ul>
@@ -52,8 +55,8 @@
                       <th><img src="{{asset('images/oz.png')}}" alt=""></th>
                     </tr>
                     <tr>
-                      <td>{{$productos->codigo}}</td>
-                      <td>{{$productos->medidas}}</td>
+                      <td></td>
+                      <td></td>
                       <td></td>
                       <td>51</td>
                       <td>615 g</td>

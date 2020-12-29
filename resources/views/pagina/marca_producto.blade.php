@@ -1,9 +1,9 @@
 @extends('layouts.header')
 @section('content')
-@php
+{{-- @php
   use App\productos;
   $productos = productos::all();
-@endphp
+@endphp --}}
 <!-- top Products -->
 <div class="ads-grid">
     <div class="container">
@@ -33,15 +33,15 @@
             <div class="wrapper">
                 <!-- first section -->
                 <div class="product-sec1">
-                    @foreach ($productos as $item)
+                    {{-- @foreach ($productos as $item) --}}
                     <div class="col-xs-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="{{asset($item->url)}}" style="width: 90%; height: 90%;" alt="">
+                                <img src="{{asset('images/cinta-metrica.png')}}" style="width: 90%; height: 90%;" alt="">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         
-                                    <a href="../productos/{{$item->id}}" target="_blank" class="link-product-add-cart">Ver Más</a>
+                                    <a href="{{asset('images/cinta-metrica.png')}}" target="_blank" class="link-product-add-cart">Ver Más</a>
                                        
                                     </div>
                                 </div>
@@ -49,13 +49,13 @@
                             </div>
                             <div class="item-info-product ">
                                 <h4>
-                                    <a href="../productos/{{$item->id}}" target="_blank">{{$item->nombre}}</a>
+                                    <a href="#" target="_blank">Cinta Metrica</a>
                                 </h4>
                                 
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    {{-- @endforeach --}}
                    
                     <div class="clearfix"></div>
                 </div>
