@@ -15,7 +15,7 @@ class PersonalController extends Controller
     public function index()
     {
         $personales = personal::all();
-        return compact("personales");
+        return compact("pagina.inicio");
     }
 
     /**

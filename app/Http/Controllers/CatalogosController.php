@@ -15,7 +15,7 @@ class CatalogosController extends Controller
     public function index()
     {
         $catalogos = catalogos::all();
-        return compact("catalogos");
+        return compact("pagina.inicio");
     }
 
     /**

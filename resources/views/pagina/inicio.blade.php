@@ -3,12 +3,15 @@
     
 @php
     use App\configuraciones;
+    use App\personal;
+    use App\catalogos;
     // use App\categorias;
     $year = date("Y");
     // $mision = configuraciones::where("tipo","MISION")->first();
     // $vision = configuraciones::where("tipo","VISION")->first();
     $nosotros = configuraciones::where("tipo","NOSOTROS")->first();
-    // $categorias = categorias::all();
+    $personal = personal::all();
+    $catalogos = catalogos::all();
 @endphp
 
   <!--==========================
@@ -24,7 +27,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="{{asset('images/banner-ferreteriaaa.png')}}" alt="First slide">
+          <img class="d-block w-100" src="{{asset('images/fondo3.jpg')}}" alt="First slide">
         </div>
         
         <div class="carousel-item">
@@ -90,7 +93,7 @@
       <div class="container">
 
         <header class="section-header">
-          <h3 class="tittle-w3l">Nuestros Catalogos
+          <h3 class="tittle-w3l">Nuestros Catálogos
             <span class="heading-style">
               <i></i>
               <i></i>
@@ -98,6 +101,7 @@
             </span>
           </h3>
           </header>
+
 
         <div class="row">
 
@@ -138,14 +142,17 @@
         </div>
 
         <div class="row">
-
+          @foreach ($personal as $item)
           <div class="col-lg-3 col-md-6 wow fadeInUp">
             <div class="member">
-              <img src="{{asset('images/team-2.jpg')}}" class="img-fluid" alt="">
+              <img src="{{asset($item->url)}}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>MINERVA </h4>
-                  <span>GERENTE / ADMINSTRADORA</span>
+                 
+                  <h4>{{$item->nombre}}</h4>
+                  
+                  
+                  <span>{{$item->descripcion}}</span>
                   <div class="social">
                     <a href=""><i class="fa fa-twitter"></i></a>
                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -156,79 +163,7 @@
               </div>
             </div>
           </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="member">
-              <img src="{{asset('images/team-1.jpg')}}" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>DANILO</h4>
-                  <span>SUPERVISOR DE VENTAS </span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="member">
-              <img src="{{asset('images/team-4.jpg')}}" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>SULY</h4>
-                  <span>ASISTENTE</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="member">
-              <img src="{{asset('images/team-4.jpg')}}" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="member">
-              <img src="{{asset('images/team-1.jpg')}}" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>ESAU</h4>
-                  <span>APOYO EN MARKETING </span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+          @endforeach
         </div>
 
       </div>

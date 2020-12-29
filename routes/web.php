@@ -40,6 +40,9 @@ Route::get('/delCategoria/{id}', 'CategoriasController@destroy');
 Route::get('/categorias/{id}', 'CategoriasController@show');
 Route::post('/updateCategoria', 'CategoriasController@update');
 
+//Ruta buscar
+Route::get('search/productos', 'CategoriasController@productos')->name('search.productos');
+
 Route::get('/getPersonal', 'PersonalController@index');
 Route::post('/addPersonal', 'PersonalController@store');
 Route::get('/deletePersonal/{id}', 'PersonalController@destroy');

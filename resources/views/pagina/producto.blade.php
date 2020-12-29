@@ -5,7 +5,9 @@
 <div class="banner-bootom-w3-agileits">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Descripcion del Producto
+        <br>
+        <br>
+        <h3 class="tittle-w3l">Descripción del Producto
             <span class="heading-style">
                 <i></i>
                 <i></i>
@@ -53,16 +55,16 @@
                     </tr>
                     <tr>
                       <td>{{$productos->codigo}}</td>
-                      <td>{{$productos->medidas}}</td>
-                      <td></td>
-                      <td>51</td>
-                      <td>615 g</td>
+                      <td>{{$productos->longitud2}}</td>
+                      <td>{{$productos->longitud1}}</td>
+                      <td>{{$productos->altura}}</td>
+                      <td>{{$productos->peso}}</td>
                     </tr>
                    
                   </table>
-                  <p style="font-size: 12px"><strong>Carpínteria</strong></p>
+                  <p style="font-size: 12px"><strong>{{$productos->etiquetas}}</strong></p>
             </div>
-            
+
         </div>
         <div class="clearfix"> </div>
     </div>

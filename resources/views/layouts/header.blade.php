@@ -103,7 +103,7 @@ tr:nth-child(even) {
           <li class="drop-down"><a href="">Categorias</a>
             <ul>
               @foreach ($categorias as $item)
-                <li><a href="categorias/{{$item->id}}">{{$item->nombre}}</a></li>
+                <li><a href="categorias/{{$item->id}}" target="_blank">{{$item->nombre}}</a></li>
               @endforeach
              
             </ul>
@@ -200,6 +200,7 @@ tr:nth-child(even) {
       </div>
       
     </div>
+
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
@@ -380,6 +381,26 @@ tr:nth-child(even) {
 		});
 	</script>
 	<!-- //flexisel (for special offers) -->
+
+  <script src="{{url('/jquery-ui-1.12.1/jquery-ui.min.js')}}"></script>
+
+  <script>
+    // var productos = ['sierra','martillo','candado'];
+    $('#search').autocomplete({
+      source:function(request,response){
+        $.ajax({
+          url: "{{ route('search.productos') }}",
+          dataType: 'json',
+          data: {
+            term: request.term
+          },
+          success: function(data){
+            response(data)
+          }
+        })
+      }
+    });
+  </script>
 
 </body>
 </html>

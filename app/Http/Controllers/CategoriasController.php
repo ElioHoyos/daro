@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\categorias;
+use App\productos;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller
@@ -15,7 +16,25 @@ class CategoriasController extends Controller
     public function index()
     {
         $categorias = categorias::all();
-        return compact("categorias");
+        // return compact("categorias");
+        return view("pagina.categorias",compact('categorias'));
+    }
+
+    public function productos(Request $request){
+
+        $term = $request->get('term');
+
+        $querys = Productos::where('nombre','LIKE','%'.$term.'%')->get();
+
+        $data = [];
+
+        foreach ($querys as $query){
+            $data[] = [
+                'label' => $query->nombre
+            ];
+            return $data;
+        }
+
     }
 
     /**
