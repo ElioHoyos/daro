@@ -2,7 +2,7 @@
 @section('content')
 @php
   use App\productos;
-  $productos = productos::all();
+//   $productos = productos::all();
   
 @endphp
 <!-- top Products -->

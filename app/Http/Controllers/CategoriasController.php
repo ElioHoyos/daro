@@ -20,6 +20,12 @@ class CategoriasController extends Controller
         return view("pagina.categorias",compact('categorias'));
     }
 
+    public function getCategorias()
+    {
+        $categorias = categorias::all();
+        return compact("categorias");
+    }
+
     public function productos(Request $request){
 
         $term = $request->get('term');
@@ -90,8 +96,9 @@ class CategoriasController extends Controller
      */
     public function show($id)
     {
+        $productos = productos::where("categoria",$id)->get();
         $categoria = categorias::where("id",$id)->first();
-        return view("pagina.categoria")->with("categoria",$categoria);
+        return view("pagina.categoria")->with(compact("categoria","productos"));
     }
 
     /**
