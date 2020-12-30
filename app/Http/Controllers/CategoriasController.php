@@ -15,15 +15,25 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        $categorias = categorias::all();
+        $categorias = categorias::where("Tipo","CATEGORIA")->get();
         // return compact("categorias");
         return view("pagina.categorias",compact('categorias'));
     }
 
-    public function getCategorias()
+    public function getDatos()
     {
         $categorias = categorias::all();
         return compact("categorias");
+    }
+    public function getCategorias()
+    {
+        $categorias = categorias::where("Tipo","CATEGORIA")->get();
+        return compact("categorias");
+    }
+    public function getMarcas()
+    {
+        $marcas = categorias::where("Tipo","MARCA")->get();
+        return compact("marcas");
     }
 
     public function productos(Request $request){
@@ -66,6 +76,7 @@ class CategoriasController extends Controller
             $categoria = new categorias();
             $categoria->nombre      = $request->categoria["nombre"];
             $categoria->descripcion = $request->categoria["descripcion"];
+            $categoria->Tipo        = $request->categoria["tipo"];
             
             $categoria->created_at  = $hoy;
             if(isset($request->categoria['foto']))

@@ -103,6 +103,18 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-2 text-left">
+                                    <label>Marca (*)</label>
+                                 </div>
+                                <div class="col-md-5">
+                                <select class="form-control form-control-sm" v-model="producto.marca">
+                                    <option v-for="m in marcas" :value="m.id" :key="m.id">
+                                        {{m.nombre}}
+                                    </option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-2 text-left">
                                     <label>Foto</label>
                                  </div>
                                 <div class="col-md-2" v-if="producto.foto == null">
@@ -166,6 +178,7 @@
 				id:null,
 				nombre:null,
 				descripcion:null,
+				marca:null,
 				categoria:null,
 				longitud1:null,
 				longitud2:null,
@@ -180,16 +193,24 @@
                 codigo:null,
             },
             categorias:[],
+            marcas:[],
 			productos: [{
 				id:null,
 				nombre:null,
 				categoria:null,
 				categoriadesc:null,
 				codigo:null,
+				marca:null,
+				marcadesc:null,
 				etiquetas:null,
-				medidas:null,
+				longitud1:null,
+				longitud2:null,
+				altura:null,
+				tipoSierra:null,
+				Peso:null,
+				PesoOz:null,
             }],
-            columns: ["id","codigo","nombre","descripcion","categoriadesc","etiquetas","medidas","Acciones"],
+            columns: ["id","codigo","nombre","descripcion","categoriadesc","marcadesc","etiquetas","longitud1","longitud2","altura","tipoSierra","Peso","PesoOz","Acciones"],
             options: {
 				perPageValues : [5,10,15,20,25],
                 perPage : 5,
@@ -212,7 +233,14 @@
 					id:"ID",
 					nombre:"Nombre",
 					descripcion:"Descripción",
-					categoriadesc:"Categoria",
+                    categoriadesc:"Categoria",
+                    longitud1:"Longitud 1",
+                    longitud2:"Longitud 2",
+                    altura:"Altura",
+                    tipoSierra:"Tipo Sierra",
+                    Peso:"Peso",
+                    PesoOz:"Peso Oz",
+                    marcadesc:"Marca",
 				},
 				sortable: ["id","nombre","descripcion"],
 				filterable: ["id","nombre","descripcion"],
@@ -230,6 +258,7 @@
     {
 		this.getDatos();
 		this.getCategorias();
+		this.getMarcas();
     },
     methods: {
 		arc(e)
@@ -272,14 +301,22 @@
 		},
 		load()
 		{
-			this.producto.id			= null;
-			this.producto.nombre		= null;
-			this.producto.descripcion	= null;
-			this.producto.categoria	    = null;
-			this.producto.medidas	    = null;
-			this.producto.etiquetas	    = null;
+			this.producto.id 			= null;
+			this.producto.nombre 		= null;
+			this.producto.categoria 	= null;
+			this.producto.longitud1 	= null;
+			this.producto.descripcion 	= null;
+			this.producto.etiquetas 	= null;
+            this.producto.codigo 	    = null;
+            this.producto.longitud1     = null;
+            this.producto.longitud2     = null;
+            this.producto.altura        = null;
+            this.producto.tiposierra    = null;
+            this.producto.peso          = null;
+            this.producto.pesooz        = null;
 			this.producto.foto			= null;
-			this.producto.ext			= null;
+            this.producto.ext			= null;
+            
 			this.zEditar				= false;
 		},
         registrar()
@@ -317,7 +354,7 @@
 					// position: 'top-end',
 					type: 'success',
 					title: 'OK',
-					text: 'producto Editada Correctamente',
+					text: 'producto editado Correctamente',
 					showConfirmButton: false,
 					timer: 2000
 				});
@@ -358,12 +395,25 @@
             ).catch(error=>{
                 console.log(error);
             })
+        },
+        getMarcas()
+        {
+            this.$Progress.start();
+            axios.get("getMarcas")
+            .then(data=>
+            {
+                this.marcas = data.data.marcas;
+                this.$Progress.finish();
+            }
+            ).catch(error=>{
+                console.log(error);
+            })
 		},
 		delCobrador(id)
         {
 			this.$Progress.start();
             swal({
-                title: '¿Deseas eliminar este Cobrador?',
+                title: '¿Deseas eliminar este Producto?',
                 text: "No será posible revertir esta acción!",
                 type: 'warning',
                 showCancelButton: true,
@@ -373,12 +423,12 @@
                 cancelButtonText: 'cancelar',
             }).then((result) => {
                 if (result.value) {
-                    axios.get(`/delCobrador/${id}`)
+                    axios.get(`/delProducto/${id}`)
                         .then(data => {
                         if(data.data=="OK"){
                             swal(
                             'Eliminado!',
-                             'El Cobrador ha sido eliminado.',
+                             'El Producto ha sido eliminado.',
                              'success'
 								);
 						this.$Progress.finish();
@@ -411,10 +461,17 @@
 			this.producto.id 			= producto.id;
 			this.producto.nombre 		= producto.nombre;
 			this.producto.categoria 	= producto.categoria;
-			this.producto.medidas 		= producto.medidas;
+			this.producto.longitud1 	= producto.longitud1;
 			this.producto.descripcion 	= producto.descripcion;
 			this.producto.etiquetas 	= producto.etiquetas;
-			this.producto.codigo 	    = producto.codigo;
+            this.producto.codigo 	    = producto.codigo;
+            this.producto.longitud1     = producto.longitud1;
+            this.producto.longitud2     = producto.longitud2;
+            this.producto.altura        = producto.altura;
+            this.producto.tiposierra    = producto.tipoSierra;
+            this.producto.peso          = producto.Peso;
+            this.producto.pesooz        = producto.PesoOz;
+            this.producto.marca         = producto.Marca;
 		},
     }
 }

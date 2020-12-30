@@ -80,7 +80,7 @@
                             <v-client-table :data="configuraciones" :columns="columns" :options="options">
 								<div slot="Acciones" slot-scope="props">
 									<button class="btn btn-info altoBoton" data-toggle="tooltip" v-on:click="edit(props.row)" data-placement="left" title="Editar"><i class="fa fa-edit" aria-hidden="true"></i></button>
-									<button class="btn btn-danger altoBoton" data-toggle="tooltip" v-on:click="deleteConfig(props.row)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
+									<button class="btn btn-danger altoBoton" data-toggle="tooltip" v-on:click="deleteConfig(props.row.id)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
 						    </v-client-table>
                         </div>

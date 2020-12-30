@@ -29,12 +29,14 @@ Route::post('/addConfig', 'ConfiguracionesController@store');
 Route::get('/deleteConfig/{id}', 'ConfiguracionesController@destroy');
 Route::post('/editConfig', 'ConfiguracionesController@update');
 
-Route::get('/getCatalogos', 'CatalogosController@index');
+Route::get('/getCatalogos', 'CatalogosController@catalogos');
 Route::post('/addCatalogo', 'CatalogosController@store');
-Route::get('/deleteCatalogo/{id}', 'CatalogosController@destroy');
+Route::get('/delCatalogo/{id}', 'CatalogosController@destroy');
 Route::post('/updateCatalogo', 'CatalogosController@update');
 
 Route::get('/getCategorias', 'CategoriasController@getCategorias');
+Route::get('/zgetCategorias', 'CategoriasController@getDatos');
+Route::get('/getMarcas', 'CategoriasController@getMarcas');
 Route::post('/addCategoria', 'CategoriasController@store');
 Route::get('/delCategoria/{id}', 'CategoriasController@destroy');
 Route::get('/categorias/{id}', 'CategoriasController@show');
@@ -52,8 +54,9 @@ Route::post('/editPersonal', 'PersonalController@update');
 Route::get('/productos', 'ProductosController@index');
 Route::get('/getProductos', 'ProductosController@datos');
 Route::post('/addProducto', 'ProductosController@store');
+Route::post('/updateproducto', 'ProductosController@update');
 Route::get('/productos/{id}', 'ProductosController@show');
-// Route::get('/productos', 'ProductosController@index');
+Route::get('/delProducto', 'ProductosController@destroy');
 
 //Marca
 Route::get('/marcas', 'MarcasController@index');
