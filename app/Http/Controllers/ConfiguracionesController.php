@@ -127,7 +127,7 @@ class ConfiguracionesController extends Controller
                                 ->delete();
             $type = "success";
             $title = "Ok";
-            $text = "Configuración agregada con éxito";
+            $text = "Configuración eliminado con éxito";
         } catch (\Throwable $th) {
             $type = "error";
             $title = "Error";

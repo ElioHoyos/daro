@@ -23,7 +23,7 @@
                 <h3 class="agileits-sear-head">Buscar...</h3>
                 <form action="#" method="post">
                     <input type="search" id="search" placeholder="Código|Nombre..." name="search" required="">
-                    <input type="submit" value=" ">
+                    <input type="submit" value="">
                 </form>
             </div>
            

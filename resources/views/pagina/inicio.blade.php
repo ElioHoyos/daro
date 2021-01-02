@@ -64,23 +64,23 @@
             </span>
           </h3>
         </header>
-
+        @if (isset($nosotros))
         <div class="row about-container">
 
           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-            <img src="{{asset('images/about-img.svg')}}" class="img-fluid" alt="">
+            
+            <img src="{{asset($nosotros->url)}}" class="img-fluid" alt="">
+            
           </div>
           <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
             <p id="intros" style="text-align: justify">
-              @if(isset($nosotros))
+              
                 {{$nosotros->detalle}}
-                  
-              @endif
                 
             </p>
           </div>
         </div>
-
+        @endif
         
 
       </div>
