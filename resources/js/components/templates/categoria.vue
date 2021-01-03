@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 	            <div class="card card-info">
 	                <div class="card-header bg-azul text-center">
-	                    <h4 class="title">Agregar Categoria</h4>  
+	                    <h4 class="title">Agregar Categoria / Marca</h4>  
 	                </div>
 	                <div class="card-body">
 						<fieldset class="border p-2">
@@ -23,6 +23,17 @@
                                  </div>
                                 <div class="col-md-5">
                                 <input type="text"  v-model="categoria.descripcion" class="form-control form-control-sm"  maxlength="60">
+                                </div>
+                            </div>
+							<div class="form-group row">
+                                <div class="col-md-2 text-left">
+                                    <label>Tipo (*)</label>
+                                 </div>
+                                <div class="col-md-5">
+                                <select  v-model="categoria.tipo" class="form-control form-control-sm">
+									<option value="CATEGORIA">CATEGORIA</option>
+									<option value="MARCA">MARCA</option>
+								</select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -60,7 +71,7 @@
 			<div class="col-md-12">
 				<div class="card card-info">
 	                <div class="card-header bg-azul text-center">
-	                    <h4 class="title">Lista de Categorias 
+	                    <h4 class="title">Lista de Categorias / Marcas
 							<button  class="btn bg-navy altoBoton" @click="ocultar('1')" title="Agregar Alumno">
 								<i class="fa fa-plus"></i>
 							</button></h4>  
@@ -90,6 +101,7 @@
 				id:null,
 				nombre:null,
 				descripcion:null,
+				tipo:null,
 				foto:null,
 				ext:null,
 			},
@@ -97,8 +109,9 @@
 				id:null,
 				nombre:null,
 				descripcion:null,
+				Tipo:null,
             }],
-            columns: ["id","nombre","descripcion","Acciones"],
+            columns: ["id","Tipo","nombre","descripcion","Acciones"],
             options: {
 				perPageValues : [5,10,15,20,25],
                 perPage : 5,
@@ -181,6 +194,7 @@
 		{
 			this.categoria.id			= null;
 			this.categoria.nombre		= null;
+			this.categoria.tipo		= null;
 			this.categoria.descripcion	= null;
 			this.categoria.foto			= null;
 			this.categoria.ext			= null;
@@ -241,7 +255,7 @@
 		getDatos()
         {
             this.$Progress.start();
-            axios.get("getCategorias")
+            axios.get("zgetCategorias")
             .then(data=>
             {
                 this.categorias = data.data.categorias;

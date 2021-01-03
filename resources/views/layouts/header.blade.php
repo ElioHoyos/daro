@@ -26,6 +26,7 @@
 
   <!-- Main Stylesheet File -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('css/buscar.css')}}">
 
   {{-- new --}}
   <link href="{{asset('new/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
@@ -37,7 +38,9 @@
   <!-- flexslider -->
   <link rel="stylesheet" href="{{asset('new/css/flexslider.css')}}" type="text/css" media="screen" />
 	<!-- price range -->
-	<link rel="stylesheet" type="text/css" href="{{asset('new/css/jquery-ui1.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('new/css/jquery-ui1.css')}}">
+  
+  
 	
 </head>
 
@@ -70,6 +73,7 @@ tr:nth-child(even) {
   function hideURLbar() {
     window.scrollTo(0, 1);
   }
+
 </script>
 
 @php
@@ -382,25 +386,9 @@ tr:nth-child(even) {
 	</script>
 	<!-- //flexisel (for special offers) -->
 
-  <script src="{{url('/jquery-ui-1.12.1/jquery-ui.min.js')}}"></script>
+  {{-- <script src="{{url('/jquery-ui-1.12.1/jquery-ui.min.js')}}"></script> --}}
 
-  <script>
-    // var productos = ['sierra','martillo','candado'];
-    $('#search').autocomplete({
-      source:function(request,response){
-        $.ajax({
-          url: "{{ route('search.productos') }}",
-          dataType: 'json',
-          data: {
-            term: request.term
-          },
-          success: function(data){
-            response(data)
-          }
-        })
-      }
-    });
-  </script>
+ 
 
 </body>
 </html>

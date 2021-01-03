@@ -22,15 +22,19 @@
                                     <label>Marca (*)</label>
                                  </div>
                                 <div class="col-md-5">
-                                	<input type="text" v-model="catalogo.marca" class="form-control form-control-sm">
+                                <select class="form-control form-control-sm" v-model="catalogo.marca">
+                                    <option v-for="m in marcas" :value="m.id" :key="m.id">
+                                        {{m.nombre}}
+                                    </option>
+                                </select>
                                 </div>
                             </div>
-                            <div class="form-group row">
+							<div class="form-group row">
                                 <div class="col-md-2 text-left">
-                                    <label>Descripción (*)</label>
+                                    <label>Archivo</label>
                                  </div>
-                                <div class="col-md-6">
-                                <textarea v-model="catalogo.descripcion" class="form-control form-control-sm"></textarea>
+                                <div class="col-md-4">
+										<input @change="arc" type="file">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -63,7 +67,7 @@
                         <div class="content table-responsive table-full-width">
                             <v-client-table class="t12" :data="catalogos" :columns="columns" :options="options">
 								<div slot="Acciones" slot-scope="props">
-									<button class="altoBoton btn bg-indigo" data-toggle="tooltip" v-on:click="edit(props.row)" data-placement="left" title="Editar"><i class="fa fa-edit" aria-hidden="true"></i></button>
+									<button class="altoBoton btn bg-danger" data-toggle="tooltip" v-on:click="delCatalogo(props.row.id)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
 								</div>
 					        </v-client-table>
                         </div>
@@ -87,10 +91,10 @@
 			catalogos: [{
 				id:null,
                 nombre:null,
-				marca:null,
+				marcadesc:null,
 				descripcion:null,
             }],
-            columns: ["id","nombre","marca","descripcion","Acciones"],
+            columns: ["id","nombre","marcadesc","Acciones"],
             options: {
 				perPageValues : [5,10,15,20,25],
                 perPage : 5,
@@ -111,16 +115,16 @@
 				headings:
 				{
 					nombre:"Nombre",
-					marca:"Marca",
-					descripcion:"Descripción",
+					marcadesc:"Marca",
 					id:"ID",
 				},
-				sortable: ["nombre","marca","descripcion"],
-				filterable: ["nombre","marca","descripcion"],
+				sortable: ["nombre","marcadesc"],
+				filterable: ["nombre","marcadesc"],
 				
 			},
 			editar :false,	
 			lista: true,
+			marcas:[],
         }
 	},
 	mounted()
@@ -129,8 +133,60 @@
 	created()
     {
 		this.getDatos();
+		this.getMarcas();
     },
     methods: {
+		arc(e)
+        {
+            var size = e.target.files[0].size;
+			var name = e.target.files[0].name;
+			var type = e.target.files[0].type;
+			this.catalogo.ext = name.split('.').pop();
+			if(!type.includes("pdf"))
+			{
+				swal({
+					type : "warning",
+					text : "debe seleccionar un archivo PDF",
+				});
+				return;
+			}
+			if(size > 10000000)
+            {
+				swal({
+					type : "warning",
+					text : "tamaño max. 10mb",
+				});
+				return;
+			}
+            var files = new FileReader();
+            files.readAsDataURL(e.target.files[0]);
+            files.onload = (e) =>
+            {
+			   this.catalogo.archivo    = e.target.result;
+			   console.log("mira"+this.catalogo.archivo );
+            //    this.chat.name       = name;   
+            }
+            console.log("look"+this.catalogo.ext);
+            // console.log(this.types);
+            
+        },
+		reset()
+		{
+			this.catalogo.archivo = null;
+		},
+		getMarcas()
+        {
+            this.$Progress.start();
+            axios.get("getMarcas")
+            .then(data=>
+            {
+                this.marcas = data.data.marcas;
+                this.$Progress.finish();
+            }
+            ).catch(error=>{
+                console.log(error);
+            })
+		},
 		reset()
 		{
 			this.catalogo.archivo = null;
@@ -173,9 +229,40 @@
 			this.catalogo.descripcion	= null;
 			this.editar					= false;
 		},
+		delCatalogo(id)
+        {
+			this.$Progress.start();
+            swal({
+                title: '¿Deseas eliminar este Catálogo?',
+                text: "No será posible revertir esta acción!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'cancelar',
+            }).then((result) => {
+                if (result.value) {
+                    axios.get(`/delCatalogo/${id}`)
+                        .then(data => {
+                        if(data.data=="OK"){
+                            swal(
+                            'Eliminado!',
+                             'El Catálogo ha sido eliminado.',
+                             'success'
+								);
+						this.$Progress.finish();
+						this.getDatos();
+                        }
+                        }).catch(error => {
+                            console.log('Ocurrio un error ' + error);
+                            this.$Progress.fail();
+                        });
+                     }
+                });
+		},
         registrar()
 		{
-			this.cliente.cobrador = this.zcobrador.code;
 			axios.post("addCatalogo",{
 				catalogo:this.catalogo
 			}).then(data=>{

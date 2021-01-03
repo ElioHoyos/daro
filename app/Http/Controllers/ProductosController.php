@@ -22,7 +22,8 @@ class ProductosController extends Controller
     public function datos()
     {
         $productos =    productos::join("categorias AS c","productos.categoria","c.id")
-                        ->select("productos.*","c.nombre AS categoriadesc")
+                        ->join("categorias AS m","productos.Marca","m.id")
+                        ->select("productos.*","c.nombre AS categoriadesc","m.nombre AS marcadesc")
                         ->get();
         return compact("productos");                    
     }
@@ -55,11 +56,12 @@ class ProductosController extends Controller
         $producto->tipoSierra   = $request->producto["tiposierra"];
         $producto->Peso         = $request->producto["peso"];
         $producto->PesoOz       = $request->producto["pesooz"];
+        $producto->Marca        = $request->producto["marca"];
         if(isset($request->producto['foto']))
         {
             $objFoto        = explode(",",$request->producto["foto"]);
             $archivo        = base64_decode($objFoto[1]);
-            $route          = "/categorias/".$request->producto["nombre"].".".$request->producto['ext'];
+            $route          = "/productos/".$request->producto["nombre"].".".$request->producto['ext'];
             $ruta           = public_path().$route;
             file_put_contents($ruta,$archivo);
             $producto->url  = $route;
@@ -100,9 +102,73 @@ class ProductosController extends Controller
      * @param  \App\productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, productos $productos)
+    public function update(Request $request)
     {
-        //
+        if(isset($request->producto['foto']))
+        {
+            $objFoto        = explode(",",$request->producto["foto"]);
+            $archivo        = base64_decode($objFoto[1]);
+            $route          = "/productos/".$request->producto["nombre"].".".$request->producto['ext'];
+            $ruta           = public_path().$route;
+            file_put_contents($ruta,$archivo);
+        }
+        if(isset($route))
+        {
+            try {
+                $hoy = date("Y-m-d");
+                $producto  =   productos::where("id",$request->producto["id"])
+                                    ->update([
+                                        "codigo"        => $request->producto["codigo"],
+                                        "nombre"        => $request->producto["nombre"],
+                                        "descripcion"   => $request->producto["descripcion"],
+                                        "longitud1"     => $request->producto["longitud1"],
+                                        "longitud2"     => $request->producto["longitud2"],
+                                        "altura"        => $request->producto["altura"],
+                                        "tipoSierra"    => $request->producto["tiposierra"],
+                                        "Peso"          => $request->producto["peso"],
+                                        "PesoOz"        => $request->producto["pesooz"],
+                                        "categoria"     => $request->producto["categoria"],
+                                        "etiquetas"     => $request->producto["etiquetas"],
+                                        "Marca"         => $request->producto["marca"],
+                                        "url"           => $route,
+                                    ]);
+                $type = "success";
+                $title = "Ok";
+                $text = "Configuración agregada con éxito";
+            } catch (\Throwable $th) {
+                $type = "error";
+                $title = "Error";
+                $text = "$th";
+            }
+        }else
+        {
+            try {
+                $hoy = date("Y-m-d");
+                $producto  =   productos::where("id",$request->producto["id"])
+                                    ->update([
+                                        "codigo"        => $request->producto["codigo"],
+                                        "nombre"        => $request->producto["nombre"],
+                                        "descripcion"   => $request->producto["descripcion"],
+                                        "longitud1"     => $request->producto["longitud1"],
+                                        "longitud2"     => $request->producto["longitud2"],
+                                        "altura"        => $request->producto["altura"],
+                                        "tipoSierra"    => $request->producto["tiposierra"],
+                                        "Peso"          => $request->producto["peso"],
+                                        "PesoOz"        => $request->producto["pesooz"],
+                                        "categoria"     => $request->producto["categoria"],
+                                        "etiquetas"     => $request->producto["etiquetas"],
+                                        "Marca"         => $request->producto["marca"],
+                                    ]);
+                $type = "success";
+                $title = "Ok";
+                $text = "Configuración agregada con éxito";
+            } catch (\Throwable $th) {
+                $type = "error";
+                $title = "Error";
+                $text = "$th";
+            }
+        }
+        return "OK";
     }
 
     /**
@@ -111,8 +177,9 @@ class ProductosController extends Controller
      * @param  \App\productos  $productos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(productos $productos)
+    public function destroy($id)
     {
-        //
+        $producto = productos::where("id",$id)->delete();
+        return "OK";
     }
 }

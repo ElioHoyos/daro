@@ -216,7 +216,7 @@
 										</router-link>
 									</li>
 									<li class="nav-item">
-										<router-link to="/catalogos" class="nav-link">
+										<router-link to="/vercatalogos" class="nav-link">
 										    <i class="fa fa-book"></i>
 											<p>Catálogos</p>
 										</router-link>

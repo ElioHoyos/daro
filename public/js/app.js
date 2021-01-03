@@ -33449,7 +33449,7 @@ var routes = [
 { path: '/', component: __webpack_require__(171) }, { path: '/home', component: __webpack_require__(171) },
 // { path: '*', component: require('./components/perfil.vue') },
 //rutas admin
-{ path: '/mision-vision', component: __webpack_require__(367) }, { path: '/catalogos', component: __webpack_require__(370) }, { path: '/vercategorias', component: __webpack_require__(373) }, { path: '/configuracion_productos', component: __webpack_require__(376) }, { path: '/costos', component: __webpack_require__(379) }, { path: '/ingresos', component: __webpack_require__(382) }, { path: '/usuarios', component: __webpack_require__(385) }, { path: '/personals', component: __webpack_require__(388) }];
+{ path: '/mision-vision', component: __webpack_require__(367) }, { path: '/vercatalogos', component: __webpack_require__(370) }, { path: '/vercategorias', component: __webpack_require__(373) }, { path: '/configuracion_productos', component: __webpack_require__(376) }, { path: '/costos', component: __webpack_require__(379) }, { path: '/ingresos', component: __webpack_require__(382) }, { path: '/usuarios', component: __webpack_require__(385) }, { path: '/personals', component: __webpack_require__(388) }];
 
 // Create the route instance
 var router = new __WEBPACK_IMPORTED_MODULE_5_vue_router__["a" /* default */]({
@@ -97178,7 +97178,7 @@ var render = function() {
                                       },
                                       on: {
                                         click: function($event) {
-                                          return _vm.deleteConfig(props.row)
+                                          return _vm.deleteConfig(props.row.id)
                                         }
                                       }
                                     },
@@ -97195,7 +97195,7 @@ var render = function() {
                           ],
                           null,
                           false,
-                          1042539436
+                          2423280047
                         )
                       })
                     ],
@@ -97396,6 +97396,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -97405,15 +97416,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				id: null,
 				nombre: null,
 				descripcion: null,
+				tipo: null,
 				foto: null,
 				ext: null
 			},
 			categorias: [{
 				id: null,
 				nombre: null,
-				descripcion: null
+				descripcion: null,
+				Tipo: null
 			}],
-			columns: ["id", "nombre", "descripcion", "Acciones"],
+			columns: ["id", "Tipo", "nombre", "descripcion", "Acciones"],
 			options: {
 				perPageValues: [5, 10, 15, 20, 25],
 				perPage: 5,
@@ -97488,6 +97501,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		load: function load() {
 			this.categoria.id = null;
 			this.categoria.nombre = null;
+			this.categoria.tipo = null;
 			this.categoria.descripcion = null;
 			this.categoria.foto = null;
 			this.categoria.ext = null;
@@ -97550,7 +97564,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var _this4 = this;
 
 			this.$Progress.start();
-			axios.get("getCategorias").then(function (data) {
+			axios.get("zgetCategorias").then(function (data) {
 				_this4.categorias = data.data.categorias;
 				_this4.$Progress.finish();
 				// console.log(data.data);
@@ -97691,6 +97705,55 @@ var render = function() {
                   _c("div", { staticClass: "form-group row" }, [
                     _vm._m(4),
                     _vm._v(" "),
+                    _c("div", { staticClass: "col-md-5" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.categoria.tipo,
+                              expression: "categoria.tipo"
+                            }
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.categoria,
+                                "tipo",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "CATEGORIA" } }, [
+                            _vm._v("CATEGORIA")
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "MARCA" } }, [
+                            _vm._v("MARCA")
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _vm._m(5),
+                    _vm._v(" "),
                     _vm.categoria.foto == null
                       ? _c("div", { staticClass: "col-md-2" }, [
                           _c(
@@ -97801,7 +97864,7 @@ var render = function() {
             _c("div", { staticClass: "card card-info" }, [
               _c("div", { staticClass: "card-header bg-azul text-center" }, [
                 _c("h4", { staticClass: "title" }, [
-                  _vm._v("Lista de Categorias \n\t\t\t\t\t\t\t"),
+                  _vm._v("Lista de Categorias / Marcas\n\t\t\t\t\t\t\t"),
                   _c(
                     "button",
                     {
@@ -97906,7 +97969,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header bg-azul text-center" }, [
-      _c("h4", { staticClass: "title" }, [_vm._v("Agregar Categoria")])
+      _c("h4", { staticClass: "title" }, [_vm._v("Agregar Categoria / Marca")])
     ])
   },
   function() {
@@ -97931,6 +97994,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 text-left" }, [
       _c("label", [_vm._v("Descripción (*)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-left" }, [
+      _c("label", [_vm._v("Tipo (*)")])
     ])
   },
   function() {
@@ -98165,6 +98236,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -98176,6 +98259,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				id: null,
 				nombre: null,
 				descripcion: null,
+				marca: null,
 				categoria: null,
 				longitud1: null,
 				longitud2: null,
@@ -98185,16 +98269,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				pesooz: null
 			}, _defineProperty(_producto, "descripcion", null), _defineProperty(_producto, "etiquetas", null), _defineProperty(_producto, "foto", null), _defineProperty(_producto, "ext", null), _defineProperty(_producto, "codigo", null), _producto),
 			categorias: [],
+			marcas: [],
 			productos: [{
 				id: null,
 				nombre: null,
 				categoria: null,
 				categoriadesc: null,
 				codigo: null,
+				marca: null,
+				marcadesc: null,
 				etiquetas: null,
-				medidas: null
+				longitud1: null,
+				longitud2: null,
+				altura: null,
+				tipoSierra: null,
+				Peso: null,
+				PesoOz: null
 			}],
-			columns: ["id", "codigo", "nombre", "descripcion", "categoriadesc", "etiquetas", "medidas", "Acciones"],
+			columns: ["id", "codigo", "nombre", "descripcion", "categoriadesc", "marcadesc", "etiquetas", "longitud1", "longitud2", "altura", "tipoSierra", "Peso", "PesoOz", "Acciones"],
 			options: {
 				perPageValues: [5, 10, 15, 20, 25],
 				perPage: 5,
@@ -98216,7 +98308,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					id: "ID",
 					nombre: "Nombre",
 					descripcion: "Descripción",
-					categoriadesc: "Categoria"
+					categoriadesc: "Categoria",
+					longitud1: "Longitud 1",
+					longitud2: "Longitud 2",
+					altura: "Altura",
+					tipoSierra: "Tipo Sierra",
+					Peso: "Peso",
+					PesoOz: "Peso Oz",
+					marcadesc: "Marca"
 				},
 				sortable: ["id", "nombre", "descripcion"],
 				filterable: ["id", "nombre", "descripcion"]
@@ -98231,6 +98330,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 	created: function created() {
 		this.getDatos();
 		this.getCategorias();
+		this.getMarcas();
 	},
 
 	methods: {
@@ -98271,12 +98371,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		load: function load() {
 			this.producto.id = null;
 			this.producto.nombre = null;
-			this.producto.descripcion = null;
 			this.producto.categoria = null;
-			this.producto.medidas = null;
+			this.producto.longitud1 = null;
+			this.producto.descripcion = null;
 			this.producto.etiquetas = null;
+			this.producto.codigo = null;
+			this.producto.longitud1 = null;
+			this.producto.longitud2 = null;
+			this.producto.altura = null;
+			this.producto.tiposierra = null;
+			this.producto.peso = null;
+			this.producto.pesooz = null;
 			this.producto.foto = null;
 			this.producto.ext = null;
+
 			this.zEditar = false;
 		},
 		registrar: function registrar() {
@@ -98316,7 +98424,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					// position: 'top-end',
 					type: 'success',
 					title: 'OK',
-					text: 'producto Editada Correctamente',
+					text: 'producto editado Correctamente',
 					showConfirmButton: false,
 					timer: 2000
 				});
@@ -98354,12 +98462,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				console.log(error);
 			});
 		},
-		delCobrador: function delCobrador(id) {
+		getMarcas: function getMarcas() {
 			var _this6 = this;
 
 			this.$Progress.start();
+			axios.get("getMarcas").then(function (data) {
+				_this6.marcas = data.data.marcas;
+				_this6.$Progress.finish();
+			}).catch(function (error) {
+				console.log(error);
+			});
+		},
+		delCobrador: function delCobrador(id) {
+			var _this7 = this;
+
+			this.$Progress.start();
 			swal({
-				title: '¿Deseas eliminar este Cobrador?',
+				title: '¿Deseas eliminar este Producto?',
 				text: "No será posible revertir esta acción!",
 				type: 'warning',
 				showCancelButton: true,
@@ -98369,15 +98488,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				cancelButtonText: 'cancelar'
 			}).then(function (result) {
 				if (result.value) {
-					axios.get("/delCobrador/" + id).then(function (data) {
+					axios.get("/delProducto/" + id).then(function (data) {
 						if (data.data == "OK") {
-							swal('Eliminado!', 'El Cobrador ha sido eliminado.', 'success');
-							_this6.$Progress.finish();
-							_this6.getDatos();
+							swal('Eliminado!', 'El Producto ha sido eliminado.', 'success');
+							_this7.$Progress.finish();
+							_this7.getDatos();
 						}
 					}).catch(function (error) {
 						console.log('Ocurrio un error ' + error);
-						_this6.$Progress.fail();
+						_this7.$Progress.fail();
 					});
 				}
 			});
@@ -98397,10 +98516,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			this.producto.id = producto.id;
 			this.producto.nombre = producto.nombre;
 			this.producto.categoria = producto.categoria;
-			this.producto.medidas = producto.medidas;
+			this.producto.longitud1 = producto.longitud1;
 			this.producto.descripcion = producto.descripcion;
 			this.producto.etiquetas = producto.etiquetas;
 			this.producto.codigo = producto.codigo;
+			this.producto.longitud1 = producto.longitud1;
+			this.producto.longitud2 = producto.longitud2;
+			this.producto.altura = producto.altura;
+			this.producto.tiposierra = producto.tipoSierra;
+			this.producto.peso = producto.Peso;
+			this.producto.pesooz = producto.PesoOz;
+			this.producto.marca = producto.Marca;
 		}
 	}
 });
@@ -98797,6 +98923,60 @@ var render = function() {
                   _c("div", { staticClass: "form-group row" }, [
                     _vm._m(13),
                     _vm._v(" "),
+                    _c("div", { staticClass: "col-md-5" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.producto.marca,
+                              expression: "producto.marca"
+                            }
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.producto,
+                                "marca",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        _vm._l(_vm.marcas, function(m) {
+                          return _c(
+                            "option",
+                            { key: m.id, domProps: { value: m.id } },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(m.nombre) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _vm._m(14),
+                    _vm._v(" "),
                     _vm.producto.foto == null
                       ? _c("div", { staticClass: "col-md-2" }, [
                           _c(
@@ -99109,6 +99289,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 text-left" }, [
       _c("label", [_vm._v("Categoria (*)")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-left" }, [
+      _c("label", [_vm._v("Marca (*)")])
     ])
   },
   function() {
@@ -100201,6 +100389,14 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
 //
 //
 //
@@ -100290,10 +100486,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			catalogos: [{
 				id: null,
 				nombre: null,
-				marca: null,
+				marcadesc: null,
 				descripcion: null
 			}],
-			columns: ["id", "nombre", "marca", "descripcion", "Acciones"],
+			columns: ["id", "nombre", "marcadesc", "Acciones"],
 			options: {
 				perPageValues: [5, 10, 15, 20, 25],
 				perPage: 5,
@@ -100313,27 +100509,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				},
 				headings: {
 					nombre: "Nombre",
-					marca: "Marca",
-					descripcion: "Descripción",
+					marcadesc: "Marca",
 					id: "ID"
 				},
-				sortable: ["nombre", "marca", "descripcion"],
-				filterable: ["nombre", "marca", "descripcion"]
+				sortable: ["nombre", "marcadesc"],
+				filterable: ["nombre", "marcadesc"]
 
 			},
 			editar: false,
-			lista: true
+			lista: true,
+			marcas: []
 		};
 	},
 	mounted: function mounted() {},
 	created: function created() {
 		this.getDatos();
+		this.getMarcas();
 	},
 
-	methods: {
-		reset: function reset() {
-			this.catalogo.archivo = null;
-		},
+	methods: (_methods = {
 		arc: function arc(e) {
 			var _this = this;
 
@@ -100344,14 +100538,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			if (!type.includes("pdf")) {
 				swal({
 					type: "warning",
-					text: "debe seleccionar un PDF"
+					text: "debe seleccionar un archivo PDF"
 				});
 				return;
 			}
 			if (size > 10000000) {
 				swal({
 					type: "warning",
-					text: "tamaño max. 1mb"
+					text: "tamaño max. 10mb"
 				});
 				return;
 			}
@@ -100359,98 +100553,164 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			files.readAsDataURL(e.target.files[0]);
 			files.onload = function (e) {
 				_this.catalogo.archivo = e.target.result;
+				console.log("mira" + _this.catalogo.archivo);
+				//    this.chat.name       = name;   
 			};
+			console.log("look" + this.catalogo.ext);
+			// console.log(this.types);
 		},
-		load: function load() {
-			this.catalogo.id = null;
-			this.catalogo.nombre = null;
-			this.catalogo.marca = null;
-			this.catalogo.descripcion = null;
-			this.editar = false;
+		reset: function reset() {
+			this.catalogo.archivo = null;
 		},
-		registrar: function registrar() {
+		getMarcas: function getMarcas() {
 			var _this2 = this;
 
-			this.cliente.cobrador = this.zcobrador.code;
-			axios.post("addCatalogo", {
-				catalogo: this.catalogo
-			}).then(function (data) {
-
-				swal({
-					type: data.data.type,
-					title: data.data.title,
-					text: data.data.text,
-					showConfirmButton: false,
-					timer: 2000
-				});
-				_this2.lista = true;
-				_this2.load();
-				_this2.getDatos();
-			}).catch(function (error) {
-				swal({
-					type: 'error',
-					title: 'Error',
-					text: "Consulte con un administrador",
-					showConfirmButton: true
-				});
-				console.log(error);
-			});
-		},
-		editCatalogo: function editCatalogo() {
-			var _this3 = this;
-
-			axios.post("updateCatalogo", {
-				catalogo: this.catalogo
-			}).then(function (data) {
-				swal({
-					// position: 'top-end',
-					type: 'success',
-					title: 'OK',
-					text: 'Catalogo Editado Correctamente',
-					showConfirmButton: false,
-					timer: 2000
-				});
-				_this3.getDatos();
-				_this3.load();
-				_this3.lista = true;
-			}).catch(function (error) {
-				swal({
-					type: 'error',
-					title: 'Error',
-					text: "Consulte con un administrador",
-					showConfirmButton: true
-				});
-			});
-		},
-		getDatos: function getDatos() {
-			var _this4 = this;
-
 			this.$Progress.start();
-			axios.get("getCatalogos").then(function (data) {
-				_this4.catalogos = data.data.catalogos;
-				_this4.$Progress.finish();
+			axios.get("getMarcas").then(function (data) {
+				_this2.marcas = data.data.marcas;
+				_this2.$Progress.finish();
 			}).catch(function (error) {
 				console.log(error);
 			});
-		},
-		ocultar: function ocultar(id) {
-			if (id == '1') {
-				this.load();
-				this.editar = false;
-				this.lista = false;
-			} else if (id == '2') {
-				this.lista = true;
-			}
-		},
-		edit: function edit(catalogo) {
-			this.editar = true;
-			this.lista = false;
-			this.catalogo.id = catalogo.dni;
-			this.catalogo.nombre = catalogo.nombre;
-			this.catalogo.marca = catalogo.marca;
-			this.catalogo.descripcion = catalogo.descripcion;
 		}
-	}
+	}, _defineProperty(_methods, "reset", function reset() {
+		this.catalogo.archivo = null;
+	}), _defineProperty(_methods, "arc", function arc(e) {
+		var _this3 = this;
+
+		var size = e.target.files[0].size;
+		var name = e.target.files[0].name;
+		var type = e.target.files[0].type;
+		this.catalogo.ext = name.split('.').pop();
+		if (!type.includes("pdf")) {
+			swal({
+				type: "warning",
+				text: "debe seleccionar un PDF"
+			});
+			return;
+		}
+		if (size > 10000000) {
+			swal({
+				type: "warning",
+				text: "tamaño max. 1mb"
+			});
+			return;
+		}
+		var files = new FileReader();
+		files.readAsDataURL(e.target.files[0]);
+		files.onload = function (e) {
+			_this3.catalogo.archivo = e.target.result;
+		};
+	}), _defineProperty(_methods, "load", function load() {
+		this.catalogo.id = null;
+		this.catalogo.nombre = null;
+		this.catalogo.marca = null;
+		this.catalogo.descripcion = null;
+		this.editar = false;
+	}), _defineProperty(_methods, "delCatalogo", function delCatalogo(id) {
+		var _this4 = this;
+
+		this.$Progress.start();
+		swal({
+			title: '¿Deseas eliminar este Catálogo?',
+			text: "No será posible revertir esta acción!",
+			type: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Si',
+			cancelButtonText: 'cancelar'
+		}).then(function (result) {
+			if (result.value) {
+				axios.get("/delCatalogo/" + id).then(function (data) {
+					if (data.data == "OK") {
+						swal('Eliminado!', 'El Catálogo ha sido eliminado.', 'success');
+						_this4.$Progress.finish();
+						_this4.getDatos();
+					}
+				}).catch(function (error) {
+					console.log('Ocurrio un error ' + error);
+					_this4.$Progress.fail();
+				});
+			}
+		});
+	}), _defineProperty(_methods, "registrar", function registrar() {
+		var _this5 = this;
+
+		axios.post("addCatalogo", {
+			catalogo: this.catalogo
+		}).then(function (data) {
+
+			swal({
+				type: data.data.type,
+				title: data.data.title,
+				text: data.data.text,
+				showConfirmButton: false,
+				timer: 2000
+			});
+			_this5.lista = true;
+			_this5.load();
+			_this5.getDatos();
+		}).catch(function (error) {
+			swal({
+				type: 'error',
+				title: 'Error',
+				text: "Consulte con un administrador",
+				showConfirmButton: true
+			});
+			console.log(error);
+		});
+	}), _defineProperty(_methods, "editCatalogo", function editCatalogo() {
+		var _this6 = this;
+
+		axios.post("updateCatalogo", {
+			catalogo: this.catalogo
+		}).then(function (data) {
+			swal({
+				// position: 'top-end',
+				type: 'success',
+				title: 'OK',
+				text: 'Catalogo Editado Correctamente',
+				showConfirmButton: false,
+				timer: 2000
+			});
+			_this6.getDatos();
+			_this6.load();
+			_this6.lista = true;
+		}).catch(function (error) {
+			swal({
+				type: 'error',
+				title: 'Error',
+				text: "Consulte con un administrador",
+				showConfirmButton: true
+			});
+		});
+	}), _defineProperty(_methods, "getDatos", function getDatos() {
+		var _this7 = this;
+
+		this.$Progress.start();
+		axios.get("getCatalogos").then(function (data) {
+			_this7.catalogos = data.data.catalogos;
+			_this7.$Progress.finish();
+		}).catch(function (error) {
+			console.log(error);
+		});
+	}), _defineProperty(_methods, "ocultar", function ocultar(id) {
+		if (id == '1') {
+			this.load();
+			this.editar = false;
+			this.lista = false;
+		} else if (id == '2') {
+			this.lista = true;
+		}
+	}), _defineProperty(_methods, "edit", function edit(catalogo) {
+		this.editar = true;
+		this.lista = false;
+		this.catalogo.id = catalogo.dni;
+		this.catalogo.nombre = catalogo.nombre;
+		this.catalogo.marca = catalogo.marca;
+		this.catalogo.descripcion = catalogo.descripcion;
+	}), _methods)
 });
 
 /***/ }),
@@ -100508,57 +100768,63 @@ var render = function() {
                     _vm._m(3),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-md-5" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.catalogo.marca,
-                            expression: "catalogo.marca"
-                          }
-                        ],
-                        staticClass: "form-control form-control-sm",
-                        attrs: { type: "text" },
-                        domProps: { value: _vm.catalogo.marca },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.catalogo.marca,
+                              expression: "catalogo.marca"
                             }
-                            _vm.$set(_vm.catalogo, "marca", $event.target.value)
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.catalogo,
+                                "marca",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
                           }
-                        }
-                      })
+                        },
+                        _vm._l(_vm.marcas, function(m) {
+                          return _c(
+                            "option",
+                            { key: m.id, domProps: { value: m.id } },
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(m.nombre) +
+                                  "\n                                    "
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
                     ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group row" }, [
                     _vm._m(4),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-md-6" }, [
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.catalogo.descripcion,
-                            expression: "catalogo.descripcion"
-                          }
-                        ],
-                        staticClass: "form-control form-control-sm",
-                        domProps: { value: _vm.catalogo.descripcion },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.catalogo,
-                              "descripcion",
-                              $event.target.value
-                            )
-                          }
-                        }
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c("input", {
+                        attrs: { type: "file" },
+                        on: { change: _vm.arc }
                       })
                     ])
                   ]),
@@ -100675,21 +100941,21 @@ var render = function() {
                                 _c(
                                   "button",
                                   {
-                                    staticClass: "altoBoton btn bg-indigo",
+                                    staticClass: "altoBoton btn bg-danger",
                                     attrs: {
                                       "data-toggle": "tooltip",
                                       "data-placement": "left",
-                                      title: "Editar"
+                                      title: "Eliminar"
                                     },
                                     on: {
                                       click: function($event) {
-                                        return _vm.edit(props.row)
+                                        return _vm.delCatalogo(props.row.id)
                                       }
                                     }
                                   },
                                   [
                                     _c("i", {
-                                      staticClass: "fa fa-edit",
+                                      staticClass: "fa fa-trash",
                                       attrs: { "aria-hidden": "true" }
                                     })
                                   ]
@@ -100700,7 +100966,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        3302628661
+                        2897216244
                       )
                     })
                   ],
@@ -100751,7 +101017,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-2 text-left" }, [
-      _c("label", [_vm._v("Descripción (*)")])
+      _c("label", [_vm._v("Archivo")])
     ])
   }
 ]

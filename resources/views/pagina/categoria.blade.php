@@ -22,11 +22,13 @@
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Buscar...</h3>
                 <form action="#" method="post">
-                    <input type="search" id="search" placeholder="Código|Nombre..." name="search" required="">
+                    <input type="search"name="product_name" id="product_name" placeholder="Código|Nombre..." name="search" required="">
                     <input type="submit" value="">
                 </form>
+                <div id="productList">
+                </div>
             </div>
-           
+            {{ csrf_field() }}
         </div>
         <!-- //product left -->
         <!-- product right -->

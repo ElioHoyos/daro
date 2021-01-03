@@ -89,7 +89,7 @@ const routes = [
     // { path: '*', component: require('./components/perfil.vue') },
     //rutas admin
     { path: '/mision-vision', component: require('./components/admin/mision-vision.vue') },
-    { path: '/catalogos', component: require('./components/admin/catalogos.vue') },
+    { path: '/vercatalogos', component: require('./components/admin/catalogos.vue') },
     { path: '/vercategorias', component: require('./components/admin/categorias.vue') },
     { path: '/configuracion_productos', component: require('./components/admin/productos.vue') },
     { path: '/costos', component: require('./components/admin/costos.vue') },

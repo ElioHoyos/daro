@@ -46,7 +46,7 @@ class ConfiguracionesController extends Controller
             {
                 $objFoto        = explode(",",$request->config["foto"]);
                 $archivo        = base64_decode($objFoto[1]);
-                $route          = "/configuraciones/".$request->config["nombre"].".".$request->config['ext'];
+                $route          = "/configuraciones/".$request->config["tipo"].".".$request->config['ext'];
                 $ruta           = public_path().$route;
                 file_put_contents($ruta,$archivo);
                 $configuracion->url  = $route;
@@ -92,25 +92,56 @@ class ConfiguracionesController extends Controller
      * @param  \App\configuraciones  $configuraciones
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, configuraciones $configuraciones)
+    public function update(Request $request)
     {
-        try {
-            $hoy = date("Y-m-d");
-            $configuracion  =   configuraciones::where("id",$request->config["id"])
-                                ->update([
-                                    "tipo"        => $request->config["tipo"], 
-                                    "detalle"     => $request->config["detalle"],
-                                    "updated_at"  => $hoy,
-                                ]);
-            $type = "success";
-            $title = "Ok";
-            $text = "Configuración agregada con éxito";
-        } catch (\Throwable $th) {
-            $type = "error";
-            $title = "Error";
-            $text = "$th";
+        if(isset($request->config['foto']))
+        {
+            $objFoto        = explode(",",$request->config["foto"]);
+            $archivo        = base64_decode($objFoto[1]);
+            $route          = "/configuraciones/".$request->config["tipo"].".".$request->config['ext'];
+            $ruta           = public_path().$route;
+            file_put_contents($ruta,$archivo);
         }
-        return compact("type","title","text");
+        if(isset($route))
+        {
+            try {
+                $hoy = date("Y-m-d");
+                $configuracion  =   configuraciones::where("id",$request->config["id"])
+                                    ->update([
+                                        "tipo"          => $request->config["tipo"], 
+                                        "detalle"       => $request->config["detalle"],
+                                        "url"           => $route,
+                                        "updated_at"    => $hoy,
+                                    ]);
+                $type = "success";
+                $title = "Ok";
+                $text = "Configuración agregada con éxito";
+            } catch (\Throwable $th) {
+                $type = "error";
+                $title = "Error";
+                $text = "$th";
+            }
+        }else
+        {
+            try {
+                $hoy = date("Y-m-d");
+                $configuracion  =   configuraciones::where("id",$request->config["id"])
+                                    ->update([
+                                        "tipo"        => $request->config["tipo"], 
+                                        "detalle"     => $request->config["detalle"],
+                                        "updated_at"  => $hoy,
+                                    ]);
+                $type = "success";
+                $title = "Ok";
+                $text = "Configuración agregada con éxito";
+            } catch (\Throwable $th) {
+                $type = "error";
+                $title = "Error";
+                $text = "$th";
+            }
+        }
+        
+        return "OK";
     }
 
     /**
@@ -122,6 +153,7 @@ class ConfiguracionesController extends Controller
     public function destroy($id)
     {
         
+<<<<<<< HEAD
         try {
             $configuracion  =   configuraciones::where("id",$id)
                                 ->delete();
@@ -134,5 +166,10 @@ class ConfiguracionesController extends Controller
             $text = "$th";
         }
         return compact("type","title","text");                   
+=======
+        $configuracion  =   configuraciones::where("id",$id)->delete();
+            
+        return "OK";                   
+>>>>>>> f174fdae620c65f17ea2fe915fadf078b23bbf40
     }
 }

@@ -28,6 +28,13 @@ class CatalogosController extends Controller
         //
     }
 
+    public function catalogos()
+    {
+        $catalogos = catalogos::join("categorias AS m","catalogos.Marca","m.id")
+                     ->select("catalogos.*","m.nombre AS marcadesc")
+                     ->get();
+        return compact("catalogos");                      
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -38,10 +45,19 @@ class CatalogosController extends Controller
     {
         try {
             $hoy = date("Y-m-d");
-            $catalogo              = new catalogos();
-            $catalogo->tipo        = $request->config["tipo"]; 
-            $catalogo->detalle     = $request->config["detalle"];
+            $catalogo           = new catalogos();
+            $catalogo->nombre   = $request->catalogo["nombre"]; 
+            $catalogo->Marca    = $request->catalogo["marca"];
             $catalogo->created_at  = $hoy;
+            if(isset($request->catalogo['archivo']))
+            {
+                $objFoto        = explode(",",$request->catalogo["archivo"]);
+                $archivo        = base64_decode($objFoto[1]);
+                $route          = "/catalogos/".$request->catalogo["nombre"].".".$request->catalogo['ext'];
+                $ruta           = public_path().$route;
+                file_put_contents($ruta,$archivo);
+                $catalogo->url  = $route;
+            }
             $catalogo->save();
             $type = "success";
             $title = "Ok";
@@ -94,8 +110,9 @@ class CatalogosController extends Controller
      * @param  \App\catalogos  $catalogos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(catalogos $catalogos)
+    public function destroy($id)
     {
-        //
+        $catalogo = catalogos::where("id",$id)->delete();
+        return "OK";
     }
 }
