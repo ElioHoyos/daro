@@ -94,6 +94,7 @@ class CategoriasController extends Controller
     {
         $productos = productos::where("categoria",$id)->get();
         $categoria = categorias::where("id",$id)->first();
+        // $marca =    categorias::where("id",$id)->first();
         return view("pagina.categoria")->with(compact("categoria","productos"));
     }
 

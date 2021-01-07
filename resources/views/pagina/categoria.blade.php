@@ -3,6 +3,7 @@
 @php
   use App\productos;
 //   $productos = productos::all();
+$productos = productos::where("categoria",$id)->get();
   
 @endphp
 <!-- top Products -->
@@ -25,10 +26,9 @@
                     <input type="search"name="product_name" id="product_name" placeholder="Código|Nombre..." name="search" required="">
                     <input type="submit" value="">
                 </form>
-                <div id="productList">
-                </div>
+               
             </div>
-            {{ csrf_field() }}
+            
         </div>
         <!-- //product left -->
         <!-- product right -->

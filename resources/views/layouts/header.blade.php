@@ -79,7 +79,8 @@ tr:nth-child(even) {
 @php
   use App\categorias;
   // use App\productos;
-  $categorias = categorias::all();
+  $categorias = categorias::where("tipo","CATEGORIA")->get();
+  $marcas = categorias::where("tipo","MARCA")->get();
   // $productos = productos::all();
 @endphp
 
@@ -115,7 +116,10 @@ tr:nth-child(even) {
 
           <li class="drop-down"><a href="/marcas" target="_blank">Marcas</a>
             <ul>
-              <li><a href="#">BAHCO</a></li>
+              @foreach ($marcas as $item)
+              <li><a href="marcas/{{$item->id}}" target="_blank">{{$item->nombre}}</a></li>
+              @endforeach
+              
             </ul>
           </li>
           <li><a href="#contact">Contáctenos</a></li>
