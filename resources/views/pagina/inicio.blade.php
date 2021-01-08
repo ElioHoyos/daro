@@ -11,7 +11,9 @@
     // $vision = configuraciones::where("tipo","VISION")->first();
     $nosotros = configuraciones::where("tipo","NOSOTROS")->first();
     $personal = personal::all();
-    $catalogos = catalogos::all();
+    $catalogos = catalogos::join("categorias as c","catalogos.Marca","c.id")
+                 ->select("c.nombre AS Marca","catalogos.url")->get();
+    // dd($catalogos);
 @endphp
 
   <!--==========================
@@ -104,21 +106,23 @@
 
 
         <div class="row">
-
+          @foreach ($catalogos as $item)
           <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon"><i class="ion-ios-bookmarks-outline" style="color: #e9bf06;"></i></div>
-              <h4 class="title"><a href="">Master OREGON</a></h4>
-              <p class="description"><img src="{{asset('images/pdf.svg')}}" class="img-fluid" style="width: 32px"> | <img src="{{asset('images/ver.svg')}}" class="img-fluid" style="width: 32px"></p>
+              <h4 class="title"><a target="_blank" href="#">{{$item->Marca}}</a></h4>
+              <p class="description"><a href="{{$item->url}}" download><img src="{{asset('images/pdf.svg')}}" class="img-fluid" style="width: 32px"></a>  | <a target="_blank" href="{{$item->url}}"><img src="{{asset('images/ver.svg')}}" class="img-fluid" style="width: 32px"></a></p>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+          </div>    
+          @endforeach
+          
+          {{-- <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="box">
               <div class="icon"><i class="ion-ios-bookmarks-outline" style="color:#e9bf06;"></i></div>
               <h4 class="title"><a href="">Master BAHCO</a></h4>
               <p class="description"><img src="{{asset('images/pdf.svg')}}" class="img-fluid" style="width: 32px"> | <img src="{{asset('images/ver.svg')}}" class="img-fluid" style="width: 32px"></p>
             </div>
-          </div>
+          </div> --}}
 
         </div>
 

@@ -100575,32 +100575,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		}
 	}, _defineProperty(_methods, "reset", function reset() {
 		this.catalogo.archivo = null;
-	}), _defineProperty(_methods, "arc", function arc(e) {
-		var _this3 = this;
-
-		var size = e.target.files[0].size;
-		var name = e.target.files[0].name;
-		var type = e.target.files[0].type;
-		this.catalogo.ext = name.split('.').pop();
-		if (!type.includes("pdf")) {
-			swal({
-				type: "warning",
-				text: "debe seleccionar un PDF"
-			});
-			return;
-		}
-		if (size > 10000000) {
-			swal({
-				type: "warning",
-				text: "tamaño max. 1mb"
-			});
-			return;
-		}
-		var files = new FileReader();
-		files.readAsDataURL(e.target.files[0]);
-		files.onload = function (e) {
-			_this3.catalogo.archivo = e.target.result;
-		};
 	}), _defineProperty(_methods, "load", function load() {
 		this.catalogo.id = null;
 		this.catalogo.nombre = null;
@@ -100608,7 +100582,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		this.catalogo.descripcion = null;
 		this.editar = false;
 	}), _defineProperty(_methods, "delCatalogo", function delCatalogo(id) {
-		var _this4 = this;
+		var _this3 = this;
 
 		this.$Progress.start();
 		swal({
@@ -100625,17 +100599,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				axios.get("/delCatalogo/" + id).then(function (data) {
 					if (data.data == "OK") {
 						swal('Eliminado!', 'El Catálogo ha sido eliminado.', 'success');
-						_this4.$Progress.finish();
-						_this4.getDatos();
+						_this3.$Progress.finish();
+						_this3.getDatos();
 					}
 				}).catch(function (error) {
 					console.log('Ocurrio un error ' + error);
-					_this4.$Progress.fail();
+					_this3.$Progress.fail();
 				});
 			}
 		});
 	}), _defineProperty(_methods, "registrar", function registrar() {
-		var _this5 = this;
+		var _this4 = this;
 
 		axios.post("addCatalogo", {
 			catalogo: this.catalogo
@@ -100648,9 +100622,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				showConfirmButton: false,
 				timer: 2000
 			});
-			_this5.lista = true;
-			_this5.load();
-			_this5.getDatos();
+			_this4.lista = true;
+			_this4.load();
+			_this4.getDatos();
 		}).catch(function (error) {
 			swal({
 				type: 'error',
@@ -100661,7 +100635,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			console.log(error);
 		});
 	}), _defineProperty(_methods, "editCatalogo", function editCatalogo() {
-		var _this6 = this;
+		var _this5 = this;
 
 		axios.post("updateCatalogo", {
 			catalogo: this.catalogo
@@ -100674,9 +100648,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				showConfirmButton: false,
 				timer: 2000
 			});
-			_this6.getDatos();
-			_this6.load();
-			_this6.lista = true;
+			_this5.getDatos();
+			_this5.load();
+			_this5.lista = true;
 		}).catch(function (error) {
 			swal({
 				type: 'error',
@@ -100686,12 +100660,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			});
 		});
 	}), _defineProperty(_methods, "getDatos", function getDatos() {
-		var _this7 = this;
+		var _this6 = this;
 
 		this.$Progress.start();
 		axios.get("getCatalogos").then(function (data) {
-			_this7.catalogos = data.data.catalogos;
-			_this7.$Progress.finish();
+			_this6.catalogos = data.data.catalogos;
+			_this6.$Progress.finish();
 		}).catch(function (error) {
 			console.log(error);
 		});

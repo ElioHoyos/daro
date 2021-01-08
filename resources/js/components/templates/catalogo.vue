@@ -191,36 +191,6 @@
 		{
 			this.catalogo.archivo = null;
 		},
-		arc(e)
-        {
-            var size = e.target.files[0].size;
-			var name = e.target.files[0].name;
-			var type = e.target.files[0].type;
-			this.catalogo.ext = name.split('.').pop();
-			if(!type.includes("pdf"))
-			{
-				swal({
-					type : "warning",
-					text : "debe seleccionar un PDF",
-				});
-				return;
-			}
-			if(size > 10000000)
-            {
-				swal({
-					type : "warning",
-					text : "tamaño max. 1mb",
-				});
-				return;
-			}
-            var files = new FileReader();
-            files.readAsDataURL(e.target.files[0]);
-            files.onload = (e) =>
-            {
-			   this.catalogo.archivo    = e.target.result;
-            }
-            
-        },
 		load()
 		{
 			this.catalogo.id			= null;

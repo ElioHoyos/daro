@@ -43,6 +43,8 @@ class CatalogosController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->catalogo);
+        // var_dump($request->catalogo['archivo']);
         try {
             $hoy = date("Y-m-d");
             $catalogo           = new catalogos();
@@ -61,7 +63,7 @@ class CatalogosController extends Controller
             $catalogo->save();
             $type = "success";
             $title = "Ok";
-            $text = "Configuración agregada con éxito";
+            $text = "Catálogo agregado con éxito";
         } catch (\Throwable $th) {
             $type = "danger";
             $title = "Error";
