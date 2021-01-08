@@ -8,8 +8,7 @@
   <meta content="" name="">
 
   <!-- Favicons -->
-  <link href="{{asset('img/favicon.png')}}" rel="icon">
-  <link href="{{asset('images/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('images/ver.svg')}}" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -26,7 +25,6 @@
 
   <!-- Main Stylesheet File -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
-  <link rel="stylesheet" href="{{asset('css/buscar.css')}}">
 
   {{-- new --}}
   <link href="{{asset('new/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
@@ -105,7 +103,7 @@ tr:nth-child(even) {
           <li><a href="#services">Catalogos</a></li>
           {{-- <li><a href="#portfolio">Portafolio</a></li> --}}
           <li><a href="#team">Personal</a></li>
-          <li class="drop-down"><a href="">Categorias</a>
+          <li class="drop-down"><a href="/buscar_categoria">Categorias</a>
             <ul>
               @foreach ($categorias as $item)
                 <li><a href="categorias/{{$item->id}}" target="_blank">{{$item->nombre}}</a></li>
@@ -230,9 +228,9 @@ tr:nth-child(even) {
   <script src="{{asset('contactform/contactform.js')}}"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="{{asset('js/main.js')}}"></script>
+  {{-- <script src="{{asset('js/main.js')}}"></script> --}}
 
-  <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+  {{-- <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script> --}}
 
 
   {{-- JS --}}
@@ -355,7 +353,7 @@ tr:nth-child(even) {
   
   
   <!-- for bootstrap working -->
-	<script src="{{asset('new/js/bootstrap.js')}}"></script>
+	{{-- <script src="{{asset('new/js/bootstrap.js')}}"></script> --}}
 
   <!-- imagezoom -->
 <script src="{{asset('new/js/imagezoom.js')}}"></script>

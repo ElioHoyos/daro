@@ -23,7 +23,7 @@
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Buscar...</h3>
                 <form>
-                    <input type="search" name="buscadorpor" placeholder="Código|Nombre..." name="search">
+                    <input type="search" name="buscadorpor" placeholder="Código|Nombre..." name="search" required="">
                     <input type="submit" value="">
                 </form>
                

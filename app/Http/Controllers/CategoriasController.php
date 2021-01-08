@@ -13,11 +13,14 @@ class CategoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = categorias::where("Tipo","CATEGORIA")->get();
+
+        $nombre = $request->get('buscadorpor');
+
+        $categorias = categorias::where('nombre','like',"%nombre%")->paginate(5);
         // return compact("categorias");
-        return view("pagina.categorias",compact('categorias'));
+        return view("pagina.buscar_categoria",compact('categorias'));
     }
 
     public function getDatos()
