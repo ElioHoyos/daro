@@ -153,23 +153,8 @@ class ConfiguracionesController extends Controller
     public function destroy($id)
     {
         
-<<<<<<< HEAD
-        try {
-            $configuracion  =   configuraciones::where("id",$id)
-                                ->delete();
-            $type = "success";
-            $title = "Ok";
-            $text = "Configuración eliminado con éxito";
-        } catch (\Throwable $th) {
-            $type = "error";
-            $title = "Error";
-            $text = "$th";
-        }
-        return compact("type","title","text");                   
-=======
         $configuracion  =   configuraciones::where("id",$id)->delete();
             
         return "OK";                   
->>>>>>> f174fdae620c65f17ea2fe915fadf078b23bbf40
     }
 }

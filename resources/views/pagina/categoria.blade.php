@@ -1,8 +1,8 @@
 @extends('layouts.header')
 @section('content')
 @php
-  use App\productos;
-  $productos = productos::all();
+//   use App\productos;
+//   $productos = productos::all();
 // $productos = productos::where("categoria",$id)->get();
   
 @endphp

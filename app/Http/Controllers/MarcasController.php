@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Marcas;
+use App\categorias;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -45,9 +46,13 @@ class MarcasController extends Controller
      * @param  \App\Marcas  $marcas
      * @return \Illuminate\Http\Response
      */
-    public function show(Marcas $marcas)
+    public function show($id)
     {
-        return view('pagina.marca_producto');
+        $productos = productos::where("marcas",$id)->get();
+        
+        $categoria = categorias::where("id",$id)->first();
+        // // $marca =    categorias::where("id",$id)->first();
+        return view("pagina.marca_producto")->with(compact("categoria","productos"));
     }
 
     public function descripcion(){

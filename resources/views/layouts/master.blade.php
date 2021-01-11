@@ -291,7 +291,7 @@
 			<div class="float-right d-none d-sm-block">
 				<b>Versión</b> 1.0
 			</div>
-			<strong>Copyright © {{$Anio}} <a href="https://wa.me/51977252147?text=hola%20necesito%20ayuda%20con%20el%20sistema" target="_blank">Prestamos</a>.</strong> all rights reserved
+			<strong>Copyright © {{$Anio}} <a href="https://wa.me/51986135157?text=hola%20necesito%20ayuda%20con%20el%20sistema" target="_blank">DARO S.A.C</a>.</strong> all rights reserved
 		</footer>
     </div>
 	<script src="{{ asset('js/app.js') }}"></script>
