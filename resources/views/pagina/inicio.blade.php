@@ -7,8 +7,8 @@
     use App\catalogos;
     // use App\categorias;
     $year = date("Y");
-    // $mision = configuraciones::where("tipo","MISION")->first();
-    // $vision = configuraciones::where("tipo","VISION")->first();
+    $mision = configuraciones::where("tipo","MISION")->first();
+    $vision = configuraciones::where("tipo","VISION")->first();
     $nosotros = configuraciones::where("tipo","NOSOTROS")->first();
     $personal = personal::all();
     $catalogos = catalogos::join("categorias as c","catalogos.Marca","c.id")
@@ -78,6 +78,42 @@
             <p id="intros" style="text-align: justify">
               
                 {{$nosotros->detalle}}
+                
+            </p>
+          </div>
+        </div>
+        @endif
+
+        @if (isset($mision))
+        <div class="row about-container">
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+            
+            <img src="{{asset($mision->url)}}" class="img-fluid" alt="">
+            
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <p id="intros" style="text-align: justify">
+              
+                {{$mision->detalle}}
+                
+            </p>
+          </div>
+        </div>
+        @endif
+
+        @if (isset($vision))
+        <div class="row about-container">
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+            
+            <img src="{{asset($vision->url)}}" class="img-fluid" alt="">
+            
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <p id="intros" style="text-align: justify">
+              
+                {{$vision->detalle}}
                 
             </p>
           </div>
@@ -172,7 +208,6 @@
 
       </div>
     </section><!-- #team -->
-
 
     <!--==========================
       Contact Section

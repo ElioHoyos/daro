@@ -13,11 +13,14 @@ class CategoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = categorias::where("Tipo","CATEGORIA")->get();
+
+        $nombre = $request->get('buscadorpor');
+
+        $categorias = categorias::where('nombre','like',"%nombre%")->paginate(5);
         // return compact("categorias");
-        return view("pagina.categorias",compact('categorias'));
+        return view("pagina.buscar_categoria",compact('categorias'));
     }
 
     public function getDatos()
@@ -93,11 +96,17 @@ class CategoriasController extends Controller
     public function show($id)
     {
         $productos = productos::where("categoria",$id)->get();
+        
         $categoria = categorias::where("id",$id)->first();
-        // $marca =    categorias::where("id",$id)->first();
         return view("pagina.categoria")->with(compact("categoria","productos"));
     }
-
+    public function marca($id)
+    {
+        $productos = productos::where("Marca",$id)->get();
+        
+        $marca = categorias::where("id",$id)->first();
+        return view("pagina.marca_producto")->with(compact("marca","productos"));
+    }
     /**
      * Show the form for editing the specified resource.
      *

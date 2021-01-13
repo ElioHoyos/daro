@@ -43,9 +43,10 @@ Route::get('/getMarcas', 'CategoriasController@getMarcas');
 Route::post('/addCategoria', 'CategoriasController@store');
 Route::get('/delCategoria/{id}', 'CategoriasController@destroy');
 Route::get('/categorias/{id}', 'CategoriasController@show');
-Route::get('/marcas/{id}', 'CategoriasController@show');
+Route::get('/marca/{id}', 'CategoriasController@marca');
 Route::post('/updateCategoria', 'CategoriasController@update');
 
+Route::get('/buscar_categoria', 'CategoriasController@index');
 
 Route::get('/getPersonal', 'PersonalController@index');
 Route::post('/addPersonal', 'PersonalController@store');

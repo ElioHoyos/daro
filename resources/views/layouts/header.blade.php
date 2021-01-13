@@ -8,8 +8,7 @@
   <meta content="" name="">
 
   <!-- Favicons -->
-  <link href="{{asset('img/favicon.png')}}" rel="icon">
-  <link href="{{asset('images/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{asset('images/ver.svg')}}" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
@@ -26,7 +25,6 @@
 
   <!-- Main Stylesheet File -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
-  <link rel="stylesheet" href="{{asset('css/buscar.css')}}">
 
   {{-- new --}}
   <link href="{{asset('new/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
@@ -77,6 +75,7 @@ tr:nth-child(even) {
 </script>
 
 @php
+$Anio = date("Y");
   use App\categorias;
   // use App\productos;
   $categorias = categorias::where("tipo","CATEGORIA")->get();
@@ -105,7 +104,7 @@ tr:nth-child(even) {
           <li><a href="#services">Catalogos</a></li>
           {{-- <li><a href="#portfolio">Portafolio</a></li> --}}
           <li><a href="#team">Personal</a></li>
-          <li class="drop-down"><a href="">Categorias</a>
+          <li class="drop-down"><a href="/buscar_categoria">Categorias</a>
             <ul>
               @foreach ($categorias as $item)
                 <li><a href="categorias/{{$item->id}}" target="_blank">{{$item->nombre}}</a></li>
@@ -117,7 +116,7 @@ tr:nth-child(even) {
           <li class="drop-down"><a href="/marcas" target="_blank">Marcas</a>
             <ul>
               @foreach ($marcas as $item)
-              <li><a href="marcas/{{$item->id}}" target="_blank">{{$item->nombre}}</a></li>
+              <li><a href="marca/{{$item->id}}" target="_blank">{{$item->nombre}}</a></li>
               @endforeach
               
             </ul>
@@ -131,7 +130,15 @@ tr:nth-child(even) {
 
 
   @yield('content')
+  <div style="position:fixed; right:10px; bottom:10px; text-align:center; padding:30px">
+    <a href="https://wa.me/51986135157?text=hola%20necesito%20ayuda%20con%20el%20sistema" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png" width="50" height="50"></a>
+    </div>
 
+    {{-- <div style="position:fixed; right:10px; bottom:10px; text-align:center; padding:50px">
+      <a href="https://www.facebook.com/hoyoselio" target="_blank">
+      <img src="{{asset('images/messenger.png')}}" width="50" height="50"></a>
+      </div> --}}
   <!--==========================
     Footer
   ============================-->
@@ -156,7 +163,7 @@ tr:nth-child(even) {
               
             </ul>
           </div>
-
+          
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Horario de atención</h4>
             <ul>
@@ -178,7 +185,7 @@ tr:nth-child(even) {
             <h4>Contacto</h4>
             <p>
               <i class="ion-ios-location-outline" style="font-size: 14px">Av. Habilitacion urbana municipal Mz.C Lt. 6</i><br>
-              <strong style="font-size: 14px">Telefono:</strong>986 135 157 <br>
+              <strong>Telefono: <a href="https://wa.me/51986135157?text=hola%20necesito%20ayuda%20con%20el%20sistema" target="_blank">986 135 157</a>.</strong>
               <strong style="font-size: 12px">Correo: oficina.darosac@gmail.com</strong> <br>
             </p>
 
@@ -204,7 +211,7 @@ tr:nth-child(even) {
 
     <div class="container">
       <div class="copyright">
-        &copy;  <strong>DARO</strong>. Todos los derechos reservados
+        &copy;  <strong>DARO {{$Anio}}</strong>. Todos los derechos reservados
       </div>
       
     </div>
@@ -230,9 +237,9 @@ tr:nth-child(even) {
   <script src="{{asset('contactform/contactform.js')}}"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="{{asset('js/main.js')}}"></script>
+  {{-- <script src="{{asset('js/main.js')}}"></script> --}}
 
-  <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+  {{-- <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script> --}}
 
 
   {{-- JS --}}
@@ -355,7 +362,7 @@ tr:nth-child(even) {
   
   
   <!-- for bootstrap working -->
-	<script src="{{asset('new/js/bootstrap.js')}}"></script>
+	{{-- <script src="{{asset('new/js/bootstrap.js')}}"></script> --}}
 
   <!-- imagezoom -->
 <script src="{{asset('new/js/imagezoom.js')}}"></script>
