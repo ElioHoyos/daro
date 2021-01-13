@@ -96681,6 +96681,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -96958,6 +96959,10 @@ var render = function() {
                             _vm._v(" "),
                             _c("option", { attrs: { value: "NOSOTROS" } }, [
                               _vm._v("Nosotros")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SLIDE" } }, [
+                              _vm._v("Slide")
                             ])
                           ]
                         )

@@ -21,6 +21,7 @@
 									   <option value="MISION">Misión</option>
 									   <option value="VISION">Visión</option>
 									   <option value="NOSOTROS">Nosotros</option>
+									   <option value="SLIDE">Slide</option>
 								   </select>
                                 </div>
                             </div>    
