@@ -10,6 +10,7 @@
     $mision = configuraciones::where("tipo","MISION")->first();
     $vision = configuraciones::where("tipo","VISION")->first();
     $nosotros = configuraciones::where("tipo","NOSOTROS")->first();
+    //$slide = configuraciones::where("tipo","SLIDE")->get();
     $personal = personal::all();
     $catalogos = catalogos::join("categorias as c","catalogos.Marca","c.id")
                  ->select("c.nombre AS Marca","catalogos.url")->get();
@@ -27,16 +28,25 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         
       </ol>
+     
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="{{asset('images/fondo3.jpg')}}" alt="First slide">
+          
+          <img class="d-block w-100" src="{{asset('images/ferreteriaa.png')}}" alt="First slide">
+         
+          
         </div>
         
         <div class="carousel-item">
-          <img class="d-block w-100" src="{{asset('images/ferreteriaaa.png')}}" alt="Second slide">
+         
+          <img class="d-block w-100" src="{{asset('images/fondo3.jpg')}}" alt="Second slide">
+          
+          
         </div>
         
       </div>
+      
+      
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -46,6 +56,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+    
 
   </section><!-- #intro -->
 

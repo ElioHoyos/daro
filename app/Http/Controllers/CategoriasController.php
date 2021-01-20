@@ -16,11 +16,11 @@ class CategoriasController extends Controller
     public function index(Request $request)
     {
 
-        $nombre = $request->get('buscadorpor');
+        $buscadorpor = $request->get('buscadorpor');
 
-        $categorias = categorias::where('nombre','like',"%nombre%")->paginate(5);
+        $categorias = categorias::where('nombre','like','%'.$buscadorpor.'%')->paginate(5);
         // return compact("categorias");
-        return view("pagina.buscar_categoria",compact('categorias'));
+        return view("pagina.buscar_categoria",compact('categorias','buscadorpor'));
     }
 
     public function getDatos()
@@ -39,8 +39,7 @@ class CategoriasController extends Controller
         return compact("marcas");
     }
 
-    
-
+   
     /**
      * Show the form for creating a new resource.
      *
