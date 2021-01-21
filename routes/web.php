@@ -47,6 +47,7 @@ Route::get('/marca/{id}', 'CategoriasController@marca');
 Route::post('/updateCategoria', 'CategoriasController@update');
 
 Route::get('/buscar_categoria', 'CategoriasController@index');
+Route::get('/marcas', 'CategoriasController@marcas');
 
 Route::get('/getPersonal', 'PersonalController@index');
 Route::post('/addPersonal', 'PersonalController@store');
@@ -62,7 +63,7 @@ Route::get('/productos/{id}', 'ProductosController@show');
 Route::get('/delProducto', 'ProductosController@destroy');
 
 //Marca
-Route::get('/marcas', 'MarcasController@index');
+//Route::get('/marcas', 'MarcasController@index');
 Route::get('/marcas_productos', 'MarcasController@show');
 Route::get('/descripcion_producto', 'MarcasController@descripcion');
 

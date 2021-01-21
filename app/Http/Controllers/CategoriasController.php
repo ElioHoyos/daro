@@ -30,6 +30,22 @@ $productos = [];
        //  return $buscadorpor;
         return view("pagina.buscar_categoria",compact('productos','buscadorpor'));
     }
+    ///////////////////////////////////////////////////////////////////////
+    public function marcas(Request $request){
+        $buscadorpor =$request->get('buscadorpor');
+
+        if($buscadorpor)
+        {
+
+$productos = productos::where('nombre','like','%'.$buscadorpor.'%')->orWhere('codigo','like','%'.$buscadorpor.'%')->paginate(5);
+        }
+        else{
+$productos = [];    
+        }
+        
+       //  return $buscadorpor;
+        return view("pagina.marca",compact('productos','buscadorpor'));
+    }
 
     public function getDatos()
     {
