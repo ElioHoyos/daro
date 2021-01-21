@@ -22,8 +22,8 @@
         <div class="side-bar col-md-3">
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Buscar...</h3>
-                <form>
-                    <input type="search" name="buscadorpor" placeholder="Código|Nombre...">
+                <form action="{{url('../marcas')}}" method="get">
+                    <input type="search" name="buscadorpor" placeholder="Código|Nombre..." required="">
                     <input type="submit" value="">
                 </form>
                

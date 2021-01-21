@@ -18,13 +18,11 @@
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Buscar...</h3>
                 
-                <form action="{{url('/marcas')}}" method="get">
+                <form action="{{url('../marcas')}}" method="get">
                     <input type="search" name="buscadorpor" placeholder="Código|Nombre..." required="">
                     <input type="submit" value="">
                 </form>
 
-                
-               
             </div>
             
         </div>

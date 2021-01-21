@@ -39,7 +39,6 @@
           @endif
           <img class="d-block w-100" src="{{asset($item->url)}}">
          
-          
         </div>
         @endforeach
         
