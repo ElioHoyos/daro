@@ -99,29 +99,29 @@ $Anio = date("Y");
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#intro">Inicio</a></li>
-          <li><a href="#about">Nosotros</a></li>
-          <li><a href="#services">Catalogos</a></li>
-          {{-- <li><a href="#portfolio">Portafolio</a></li> --}}
-          <li><a href="#team">Personal</a></li>
+          <li class="active"><a href="{{url('/')}}#intro">Inicio</a></li>
+          <li><a href="{{url('/')}}#about">Nosotros</a></li>
+          <li><a href="{{url('/')}}#services">Catalogos</a></li>
+          {{-- <li><a href="{{url('/')}}#portfolio">Portafolio</a></li> --}}
+          <li><a href="{{url('/')}}#team">Personal</a></li>
           <li class="drop-down"><a href="/buscar_categoria">Categorias</a>
             <ul>
               @foreach ($categorias as $item)
-                <li><a href="categorias/{{$item->id}}" target="_blank">{{$item->nombre}}</a></li>
+                <li><a href="/categorias/{{$item->id}}" >{{$item->nombre}}</a></li>
               @endforeach
              
             </ul>
           </li>
 
-          <li class="drop-down"><a href="/marcas" target="_blank">Marcas</a>
+          <li class="drop-down"><a href="/marcas" >Marcas</a>
             <ul>
               @foreach ($marcas as $item)
-              <li><a href="marca/{{$item->id}}" target="_blank">{{$item->nombre}}</a></li>
+              <li><a href="/marca/{{$item->id}}">{{$item->nombre}}</a></li>
               @endforeach
               
             </ul>
           </li>
-          <li><a href="#contact">Contáctenos</a></li>
+          <li><a href="{{url('/')}}#contact">Contáctenos</a></li>
         </ul>
       </nav><!-- .main-nav -->
       

@@ -10,7 +10,7 @@
     $mision = configuraciones::where("tipo","MISION")->first();
     $vision = configuraciones::where("tipo","VISION")->first();
     $nosotros = configuraciones::where("tipo","NOSOTROS")->first();
-    //$slide = configuraciones::where("tipo","SLIDE")->get();
+    $slide = configuraciones::where("tipo","SLIDE")->get();
     $personal = personal::all();
     $catalogos = catalogos::join("categorias as c","catalogos.Marca","c.id")
                  ->select("c.nombre AS Marca","catalogos.url")->get();
@@ -30,19 +30,26 @@
       </ol>
      
       <div class="carousel-inner">
+        @foreach($slide as $key=>$item)
+
+        @if($key==0)
         <div class="carousel-item active">
-          
-          <img class="d-block w-100" src="{{asset('images/ferreteriaa.png')}}" alt="First slide">
+          @else
+            <div class="carousel-item">
+          @endif
+          <img class="d-block w-100" src="{{asset($item->url)}}">
          
           
         </div>
+        @endforeach
         
-        <div class="carousel-item">
+        
+        <!-- <div class="carousel-item">
          
-          <img class="d-block w-100" src="{{asset('images/fondo3.jpg')}}" alt="Second slide">
+          <img class="d-block w-100" src="{{asset('images/fondo3.jpg')}}" >
           
           
-        </div>
+        </div> -->
         
       </div>
       

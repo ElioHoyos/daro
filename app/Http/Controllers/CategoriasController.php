@@ -16,11 +16,19 @@ class CategoriasController extends Controller
     public function index(Request $request)
     {
 
-        $buscadorpor = $request->get('buscadorpor');
+        $buscadorpor =$request->get('buscadorpor');
 
-        $categorias = categorias::where('nombre','like','%'.$buscadorpor.'%')->paginate(5);
-        // return compact("categorias");
-        return view("pagina.buscar_categoria",compact('categorias','buscadorpor'));
+        if($buscadorpor)
+        {
+
+$productos = productos::where('nombre','like','%'.$buscadorpor.'%')->orWhere('codigo','like','%'.$buscadorpor.'%')->paginate(5);
+        }
+        else{
+$productos = [];    
+        }
+        
+       //  return $buscadorpor;
+        return view("pagina.buscar_categoria",compact('productos','buscadorpor'));
     }
 
     public function getDatos()

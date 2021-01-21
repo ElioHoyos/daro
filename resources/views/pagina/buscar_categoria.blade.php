@@ -1,11 +1,6 @@
 @extends('layouts.header')
 @section('content')
-@php
-  //use App\productos;
-  //$productos = productos::all();
-// $productos = productos::where("categoria",$id)->get();
-  
-@endphp
+
 <!-- top Products -->
 <div class="ads-grid">
     <div class="container">
@@ -22,10 +17,13 @@
         <div class="side-bar col-md-3">
             <div class="search-hotel">
                 <h3 class="agileits-sear-head">Buscar...</h3>
-                <form>
-                    <input type="search" name="buscadorpor" placeholder="Código|Nombre..." name="search" required="">
+                
+                <form action="{{url('/buscar_categoria')}}" method="index">
+                    <input type="search" name="buscadorpor" placeholder="Código|Nombre..." required="">
                     <input type="submit" value="">
                 </form>
+
+                
                
             </div>
             
@@ -36,6 +34,7 @@
             <div class="wrapper">
                 <!-- first section -->
                 <div class="product-sec1">
+
                     @foreach ($productos as $item)
                     <div class="col-xs-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
