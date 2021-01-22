@@ -24,6 +24,8 @@ Route::get('/getUsers', 'userController@show');
 Route::get('/changeStatusUsers/{id}/{user}', 'userController@update');
 Route::get('/reset/{user}', 'userController@reset');
 Route::get('/create/{user}', 'userController@create');
+Route::post('/addUser', 'userController@store');
+Route::post('/editUser', 'userController@edit');
 //rutas administrador
 
 

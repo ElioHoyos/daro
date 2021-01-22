@@ -63,7 +63,22 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $hoy = date("Y-m-d");
+            $usuario = new user();
+            $usuario->user = $request->usuario["user"];
+            $usuario->password = bcrypt($request->usuario["pass"]);
+            $usuario->tipo = $request->usuario["tipo"];
+            $usuario->Estado = $request->usuario["estado"];
+            $usuario->created_at = $hoy;
+            $usuario->save();
+            $text = "Usuario agregado con éxito";
+            $type = "success";
+        } catch (\Throwable $th) {
+            $text = "Error: $th";
+            $type = "error";
+        }
+        return compact("text","type");
     }
 
     /**
@@ -84,9 +99,38 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $hoy = date("Y-m-d");
+        try {
+            if(isset($request->usuario["pass"]))
+            {
+                $usuario = user::where("id",$request->usuario["id"])->update(
+                [
+                    "user"      => $request->usuario["user"],
+                    "password"  => bcrypt($request->usuario["pass"]),
+                    "tipo"      => $request->usuario["tipo"],
+                    "Estado"    => $request->usuario["estado"],
+                    "updated_at" => $hoy,
+                ]);
+            }else
+            {
+                $usuario = user::where("id",$request->usuario["id"])->update(
+                [
+                    "user"      => $request->usuario["user"],
+                    "tipo"      => $request->usuario["tipo"],
+                    "Estado"    => $request->usuario["estado"],
+                    "updated_at" => $hoy,
+                ]);
+            }
+            
+            $text = "Usuario actualizado con éxito";
+            $type = "success";
+        } catch (\Throwable $th) {
+            $text = "Error: $th";
+            $type = "error";
+        }
+        return compact("text","type");
     }
 
     /**

@@ -227,6 +227,12 @@
 											<p>Personal</p>
 										</router-link>
 									</li>
+									<li class="nav-item">
+										<router-link to="/usuarios" class="nav-link">
+										    <i class="fa fa-users"></i>
+											<p>Usuarios</p>
+										</router-link>
+									</li>
 								</ul>
 							</li>
 							@break

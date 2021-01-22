@@ -92797,7 +92797,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "\n.vue-map-container {\r\n  position: relative;\n}\n.vue-map-container .vue-map {\r\n  left: 0; right: 0; top: 0; bottom: 0;\r\n  position: absolute;\n}\n.vue-map-hidden {\r\n  display: none;\n}\r\n", ""]);
+exports.push([module.i, "\n.vue-map-container {\n  position: relative;\n}\n.vue-map-container .vue-map {\n  left: 0; right: 0; top: 0; bottom: 0;\n  position: absolute;\n}\n.vue-map-hidden {\n  display: none;\n}\n", ""]);
 
 // exports
 
@@ -93164,7 +93164,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "\n.vue-street-view-pano-container {\r\n  position: relative;\n}\n.vue-street-view-pano-container .vue-street-view-pano {\r\n  left: 0; right: 0; top: 0; bottom: 0;\r\n  position: absolute;\n}\r\n", ""]);
+exports.push([module.i, "\n.vue-street-view-pano-container {\n  position: relative;\n}\n.vue-street-view-pano-container .vue-street-view-pano {\n  left: 0; right: 0; top: 0; bottom: 0;\n  position: absolute;\n}\n", ""]);
 
 // exports
 
@@ -95098,7 +95098,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, "\n.v-spinner .v-moon1\r\n{\r\n\r\n    -webkit-animation: v-moonStretchDelay 0.6s 0s infinite linear;\r\n            animation: v-moonStretchDelay 0.6s 0s infinite linear;\r\n    -webkit-animation-fill-mode: forwards;\r\n            animation-fill-mode: forwards;\r\n    position: relative;\n}\n.v-spinner .v-moon2\r\n{\r\n    -webkit-animation: v-moonStretchDelay 0.6s 0s infinite linear;\r\n            animation: v-moonStretchDelay 0.6s 0s infinite linear;\r\n    -webkit-animation-fill-mode: forwards;\r\n            animation-fill-mode: forwards;\r\n    opacity: 0.8;\r\n    position: absolute;\n}\n.v-spinner .v-moon3\r\n{\r\n    opacity: 0.1;\n}\n@-webkit-keyframes v-moonStretchDelay\r\n{\n100%\r\n    {\r\n        -webkit-transform: rotate(360deg);\r\n                transform: rotate(360deg);\n}\n}\n@keyframes v-moonStretchDelay\r\n{\n100%\r\n    {\r\n        -webkit-transform: rotate(360deg);\r\n                transform: rotate(360deg);\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.v-spinner .v-moon1\n{\n\n    -webkit-animation: v-moonStretchDelay 0.6s 0s infinite linear;\n            animation: v-moonStretchDelay 0.6s 0s infinite linear;\n    -webkit-animation-fill-mode: forwards;\n            animation-fill-mode: forwards;\n    position: relative;\n}\n.v-spinner .v-moon2\n{\n    -webkit-animation: v-moonStretchDelay 0.6s 0s infinite linear;\n            animation: v-moonStretchDelay 0.6s 0s infinite linear;\n    -webkit-animation-fill-mode: forwards;\n            animation-fill-mode: forwards;\n    opacity: 0.8;\n    position: absolute;\n}\n.v-spinner .v-moon3\n{\n    opacity: 0.1;\n}\n@-webkit-keyframes v-moonStretchDelay\n{\n100%\n    {\n        -webkit-transform: rotate(360deg);\n                transform: rotate(360deg);\n}\n}\n@keyframes v-moonStretchDelay\n{\n100%\n    {\n        -webkit-transform: rotate(360deg);\n                transform: rotate(360deg);\n}\n}\n", ""]);
 
 // exports
 
@@ -99409,14 +99409,90 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            usuario: {
+                id: null,
+                user: null,
+                tipo: null,
+                estado: null,
+                pass: null
+            },
             usuarios: [{
                 id: null,
                 user: null,
-                tipo: null
+                tipo: null,
+                estado: null
             }],
             columns: ["id", "user", "Tipo", "Estado"],
             options: {
@@ -99443,7 +99519,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 },
                 sortable: ["id", "user", "tipo"],
                 filterable: ["id", "user", "tipo"]
-            }
+            },
+            editar: false,
+            lista: true
         };
     },
     created: function created() {
@@ -99452,6 +99530,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {},
 
     methods: {
+        ocultar: function ocultar(id) {
+            if (id == 1) {
+                this.lista = false;
+                this.editar = false;
+            } else {
+                this.lista = true;
+            }
+            this.usuario.id = null;
+            this.usuario.user = null;
+            this.usuario.tipo = null;
+            this.usuario.estado = null;
+            this.usuario.pass = null;
+        },
+        changePass: function changePass(user) {
+            this.lista = false;
+            this.editar = true;
+            this.usuario.id = user.id;
+            this.usuario.user = user.user;
+            this.usuario.tipo = user.tipo;
+            this.usuario.estado = user.Estado;
+        },
         resetPass: function resetPass(user) {
             var _this = this;
 
@@ -99499,6 +99598,62 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (error) {
                 console.log(error);
             });
+        },
+        addPersonal: function addPersonal() {
+            var _this4 = this;
+
+            this.$Progress.start();
+            axios.post("addUser", {
+                usuario: this.usuario
+            }).then(function (data) {
+                console.log(data);
+                swal({
+                    type: data.data.type,
+                    // title: data.data.title,
+                    text: data.data.text,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+                _this4.$Progress.finish();
+                _this4.ocultar(2);
+                _this4.getData();
+            }).catch(function (error) {
+                console.log(error);
+                swal({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'comuniquese con un administrador',
+                    showConfirmButton: true
+                });
+            });
+        },
+        editPersonal: function editPersonal() {
+            var _this5 = this;
+
+            this.$Progress.start();
+            axios.post("editUser", {
+                usuario: this.usuario
+            }).then(function (data) {
+                console.log(data);
+                swal({
+                    type: data.data.type,
+                    // title: data.data.title,
+                    text: data.data.text,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+                _this5.$Progress.finish();
+                _this5.ocultar(2);
+                _this5.getData();
+            }).catch(function (error) {
+                console.log(error);
+                swal({
+                    type: 'error',
+                    title: 'Error',
+                    text: 'comuniquese con un administrador',
+                    showConfirmButton: true
+                });
+            });
         }
     }
 });
@@ -99514,107 +99669,388 @@ var render = function() {
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "row", attrs: { id: "tabla" } }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "card card-info" }, [
+        !_vm.lista
+          ? _c("div", { staticClass: "card card-info" }, [
               _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "content table-responsive table-full-width t12"
-                  },
-                  [
-                    _c("v-client-table", {
-                      attrs: {
-                        data: _vm.usuarios,
-                        columns: _vm.columns,
-                        options: _vm.options
-                      },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "Tipo",
-                          fn: function(props) {
-                            return _c("div", {}, [
-                              props.row.tipo == 1
-                                ? _c("b", { staticClass: "text-indigo" }, [
-                                    _vm._v("Administrador")
-                                  ])
-                                : props.row.tipo == 2
-                                ? _c("b", { staticClass: "text-primary" }, [
-                                    _vm._v("Cobrador")
-                                  ])
-                                : _vm._e()
-                            ])
+                _c("fieldset", { staticClass: "border p-2" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usuario.user,
+                            expression: "usuario.user"
                           }
-                        },
-                        {
-                          key: "Estado",
-                          fn: function(props) {
-                            return _c("div", {}, [
-                              props.row.estado == 1
-                                ? _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "btn btn-success btn-sm redondeado",
-                                      attrs: { title: "cambiar estado" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.changeStatus(
-                                            props.row.id,
-                                            0
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Activo")]
-                                  )
-                                : _c(
-                                    "button",
-                                    {
-                                      staticClass:
-                                        "btn btn-danger btn-sm redondeado",
-                                      attrs: { title: "cambiar estado" },
-                                      on: {
-                                        click: function($event) {
-                                          return _vm.changeStatus(
-                                            props.row.id,
-                                            1
-                                          )
-                                        }
-                                      }
-                                    },
-                                    [_vm._v("Inactivo")]
-                                  ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn bg-indigo altoBoton redondeado",
-                                  attrs: { title: "resetear contraseña" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.resetPass(props.row.user)
-                                    }
-                                  }
-                                },
-                                [_c("i", { staticClass: "fa fa-undo" })]
-                              )
-                            ])
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: _vm.usuario.user },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.usuario, "user", $event.target.value)
                           }
                         }
-                      ])
-                    })
-                  ],
-                  1
-                )
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.usuario.pass,
+                            expression: "usuario.pass"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "password" },
+                        domProps: { value: _vm.usuario.pass },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.usuario, "pass", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usuario.tipo,
+                              expression: "usuario.tipo"
+                            }
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.usuario,
+                                "tipo",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v(_vm._s("ADMINISTRADOR"))
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v(_vm._s("PERSONAL"))
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.usuario.estado,
+                              expression: "usuario.estado"
+                            }
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.usuario,
+                                "estado",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _c("option", { attrs: { value: "1" } }, [
+                            _vm._v(_vm._s("ACTIVO"))
+                          ]),
+                          _vm._v(" "),
+                          _c("option", { attrs: { value: "2" } }, [
+                            _vm._v(_vm._s("INACTIVO"))
+                          ])
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group row" }, [
+                    !_vm.editar
+                      ? _c("div", { staticClass: "col-md-2" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn bg-indigo",
+                              on: {
+                                click: function($event) {
+                                  return _vm.addPersonal()
+                                }
+                              }
+                            },
+                            [
+                              _vm._v("Agregar "),
+                              _c("i", { staticClass: "fa fa-save" })
+                            ]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.editar
+                      ? _c("div", { staticClass: "col-md-2" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn bg-indigo",
+                              on: {
+                                click: function($event) {
+                                  return _vm.editPersonal()
+                                }
+                              }
+                            },
+                            [
+                              _vm._v("Editar "),
+                              _c("i", { staticClass: "fa fa-edit" })
+                            ]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-2" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn bg-danger",
+                          on: {
+                            click: function($event) {
+                              return _vm.ocultar(2)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v("Volver "),
+                          _c("i", { staticClass: "fa fa-undo" })
+                        ]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "clearfix" })
               ])
             ])
-          ])
-        ])
+          : _vm._e()
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _vm.lista
+          ? _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "card card-info" }, [
+                  _c(
+                    "div",
+                    { staticClass: "card-header text-center bg-azul" },
+                    [
+                      _c("h4", { staticClass: "title" }, [
+                        _vm._v("USUARIOS "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn bg-navy altoBoton",
+                            on: {
+                              click: function($event) {
+                                return _vm.ocultar("1")
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "fa fa-plus" })]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "content table-responsive table-full-width t12"
+                      },
+                      [
+                        _c("v-client-table", {
+                          attrs: {
+                            data: _vm.usuarios,
+                            columns: _vm.columns,
+                            options: _vm.options
+                          },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "Tipo",
+                                fn: function(props) {
+                                  return _c("div", {}, [
+                                    props.row.tipo == 1
+                                      ? _c(
+                                          "b",
+                                          { staticClass: "text-indigo" },
+                                          [_vm._v("Administrador")]
+                                        )
+                                      : props.row.tipo == 2
+                                      ? _c(
+                                          "b",
+                                          { staticClass: "text-primary" },
+                                          [_vm._v("Personal")]
+                                        )
+                                      : _vm._e()
+                                  ])
+                                }
+                              },
+                              {
+                                key: "Estado",
+                                fn: function(props) {
+                                  return _c("div", {}, [
+                                    props.row.estado == 1
+                                      ? _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-success btn-sm redondeado",
+                                            attrs: { title: "cambiar estado" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.changeStatus(
+                                                  props.row.id,
+                                                  0
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Activo")]
+                                        )
+                                      : _c(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "btn btn-danger btn-sm redondeado",
+                                            attrs: { title: "cambiar estado" },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.changeStatus(
+                                                  props.row.id,
+                                                  1
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [_vm._v("Inactivo")]
+                                        ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn bg-indigo altoBoton redondeado",
+                                        attrs: {
+                                          title: "restablecer contraseña"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.resetPass(props.row.user)
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "fa fa-undo" })]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "btn bg-olive altoBoton redondeado",
+                                        attrs: { title: "Cambiar contraseña" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.changePass(props.row)
+                                          }
+                                        }
+                                      },
+                                      [_c("i", { staticClass: "fa fa-edit" })]
+                                    )
+                                  ])
+                                }
+                              }
+                            ],
+                            null,
+                            false,
+                            1043940803
+                          )
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            ])
+          : _vm._e()
       ])
     ])
   ])
@@ -99624,8 +100060,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header text-center bg-azul" }, [
-      _c("h4", { staticClass: "title" }, [_vm._v("USUARIOS")])
+    return _c("div", { staticClass: "card-header bg-azul text-center" }, [
+      _c("h4", { staticClass: "title" }, [_vm._v("Usuarios")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("legend", { staticClass: "w-auto t16 text-primary" }, [
+      _c("b", [_vm._v("Datos")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-left" }, [
+      _c("label", [_vm._v("Usuario")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-left" }, [
+      _c("label", [_vm._v("Password")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-left" }, [
+      _c("label", [_vm._v("Tipo")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-2 text-left" }, [
+      _c("label", [_vm._v("Estado")])
     ])
   }
 ]
@@ -101393,7 +101869,7 @@ if (false) {
 /* 432 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Node Sass does not yet support your current environment: Windows 64-bit with Unsupported runtime (83)\nFor more information on which environments are supported please see:\nhttps://github.com/sass/node-sass/releases/tag/v4.13.1\n    at module.exports (C:\\xampp\\htdocs\\daro\\node_modules\\node-sass\\lib\\binding.js:13:13)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\daro\\node_modules\\node-sass\\lib\\index.js:14:35)\n    at Module._compile (internal/modules/cjs/loader.js:1063:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)\n    at Module.load (internal/modules/cjs/loader.js:928:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:769:14)\n    at Module.require (internal/modules/cjs/loader.js:952:19)\n    at require (internal/modules/cjs/helpers.js:88:18)\n    at Object.<anonymous> (C:\\xampp\\htdocs\\daro\\node_modules\\sass-loader\\lib\\loader.js:3:14)\n    at Module._compile (internal/modules/cjs/loader.js:1063:30)\n    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)\n    at Module.load (internal/modules/cjs/loader.js:928:32)\n    at Function.Module._load (internal/modules/cjs/loader.js:769:14)\n    at Module.require (internal/modules/cjs/loader.js:952:19)\n    at require (internal/modules/cjs/helpers.js:88:18)\n    at loadLoader (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\loadLoader.js:18:17)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:176:18\n    at loadLoader (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\loadLoader.js:47:3)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:176:18\n    at loadLoader (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\loadLoader.js:47:3)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:176:18\n    at loadLoader (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\loadLoader.js:47:3)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at runLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:365:2)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\NormalModule.js:195:19\n    at C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:172:11\n    at loadLoader (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\loadLoader.js:32:11)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:176:18\n    at loadLoader (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\loadLoader.js:47:3)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:176:18\n    at loadLoader (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\loadLoader.js:47:3)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:176:18\n    at loadLoader (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\loadLoader.js:47:3)\n    at iteratePitchingLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at runLoaders (C:\\xampp\\htdocs\\daro\\node_modules\\loader-runner\\lib\\LoaderRunner.js:365:2)\n    at NormalModule.doBuild (C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\NormalModule.js:182:3)\n    at NormalModule.build (C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\NormalModule.js:275:15)\n    at Compilation.buildModule (C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\Compilation.js:157:10)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\Compilation.js:460:10\n    at C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\NormalModuleFactory.js:243:5\n    at C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\NormalModuleFactory.js:94:13\n    at C:\\xampp\\htdocs\\daro\\node_modules\\tapable\\lib\\Tapable.js:268:11\n    at NormalModuleFactory.<anonymous> (C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (C:\\xampp\\htdocs\\daro\\node_modules\\tapable\\lib\\Tapable.js:272:13)\n    at C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\NormalModuleFactory.js:69:10\n    at C:\\xampp\\htdocs\\daro\\node_modules\\webpack\\lib\\NormalModuleFactory.js:196:7\n    at processTicksAndRejections (internal/process/task_queues.js:75:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
